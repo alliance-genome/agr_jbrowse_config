@@ -1,0 +1,52 @@
+{
+   "names" : {
+      "url" : "http://www.wormbase.org/tools/genome/jbrowse/data/c_briggsae_PRJNA10731/names/",
+      "type" : "Hash"
+   },
+   "include" : [
+      "../../functions.conf"
+   ],
+   "tracks" : [
+      {
+         "chunkSize":20000,
+         "storeClass":"JBrowse/Store/Sequence/StaticChunked",
+         "urlTemplate":"http://www.wormbase.org/tools/genome/jbrowse/data/c_briggsae_PRJNA10731/seq/{refseq_dirpath}/{refseq}-",
+         "category": "Reference sequence",
+         "type":"SequenceTrack",
+         "label":"DNA",
+         "key":"Reference sequence"
+      },
+      {
+         "style" : {
+            "className" : "feature",
+            "color" : "{geneColor}",
+            "label" : "{geneLabel}",
+            "height" : "function(f) {var type = f.get('type'); if (type == 'CDS') {return 10;} return 6;  }"
+         },
+         "onClick" : {
+            "action" : "iframeDialog",
+            "url" : "{geneURL}",
+            "label" : "{geneLinkLabel}",
+            "title" : "Feature in WormBase"
+         },
+         "key" : "Curated Genes",
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "trackType" : "CanvasFeatures",
+         "urlTemplate" : "http://www.wormbase.org/tools/genome/jbrowse/data/c_briggsae_PRJNA10731/tracks/Curated_Genes/{refseq}/trackData.jsonz",
+         "compress" : 1,
+         "type" : "CanvasFeatures",
+         "category": "Genes/Curated Genes",
+         "label" : "Curated_Genes",
+         "glyph" : "{geneGlyph}",
+         "metadata" : {
+            "shortInfo" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. If sufficient room is available between features, gene models end with a triangle; if not a small arrow is used. Grey areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts."
+         },
+         "maxExportSpan" : 50000000,
+         "maxHeight" : 2500
+      }
+
+
+   ],
+   "dataset_id" : "c_briggsae_PRJNA10731",
+   "formatVersion" : 1
+}
