@@ -1,0 +1,36 @@
+{
+   "formatVersion" : 1,
+   "names" : {
+      "url" : "http://www.yeastgenome.org/browse/data/names/",
+      "type" : "Hash"
+   },
+   "tracks" : [
+      {
+         "category" : "Reference sequence",
+         "type" : "SequenceTrack",
+         "key" : "Reference sequence",
+         "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
+         "urlTemplate" : "http://www.yeastgenome.org/browse/data/seq/{refseq_dirpath}/{refseq}-",
+         "label" : "DNA",
+         "chunkSize" : 20000
+      },
+      {
+         "type" : "CanvasFeatures",
+         "style" : {
+            "color" : "function( featureObject, variableName, glyphObject, trackObject ) {  return '#ffcccc'; }",
+            "label" : "gene,name,id",
+            "className" : "feature",
+            "description" : "description,note"
+         },
+         "label" : "S288C",
+         "trackType" : "CanvasFeatures",
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "labelTranscripts" : false,
+         "key" : "S288C",
+         "compress" : 0,
+         "urlTemplate" : "http://www.yeastgenome.org/browse/data/tracks/S288C/{refseq}/trackData.json",
+         "fmtDetailValue_Name" : "function(name, feature) {if(feature.get('type')=='gene') {return '<a href=\"http://www.yeastgenome.org/locus/'+name+'/overview\">'+name+'</a>';} else { return name;}}"
+      }
+   ],
+   "dataset_id" : "yeast",
+}

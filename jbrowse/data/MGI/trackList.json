@@ -1,0 +1,27 @@
+{
+   "tracks" : [
+      {
+         "chunkSize" : 20000,
+         "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
+         "urlTemplate" : "http://jbrowse.informatics.jax.org/data/mouse/seq/{refseq_dirpath}/{refseq}-",
+         "category" : "Reference sequence",
+         "type" : "SequenceTrack",
+         "label" : "DNA",
+         "key" : "Reference sequence"
+      },
+      {
+         "style" : {
+            "className" : "feature"
+         },
+         "key" : "MGI_Genome_Features",
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "trackType" : null,
+         "urlTemplate" : "http://jbrowse.informatics.jax.org/data/mouse/tracks/MGI_Genome_Features/{refseq}/trackData.json",
+         "compress" : 0,
+         "type" : "FeatureTrack",
+         "label" : "MGI_Genome_Features"
+      }
+   ],
+   "dataset_id" : "mouse",
+   "formatVersion" : 1
+}

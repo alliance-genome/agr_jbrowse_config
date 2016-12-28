@@ -1,0 +1,57 @@
+{
+   "tracks" : [
+      {
+         "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
+         "chunkSize" : 20000,
+         "urlTemplate" : "http://rgd.mcw.edu/jbrowse/data_rgd6/seq/{refseq_dirpath}/{refseq}-",
+         "label" : "DNA",
+         "type" : "SequenceTrack",
+         "category" : "Reference Data/Sequence",
+         "key" : "rn6 DNA"
+      },
+      {
+         "style" : {
+            "className" : "feature",
+            "color" : "#DF255A",
+            "label" : "symbol,name",
+            "description" : "",
+            "featureScale" : 0.0001
+         },
+         "histograms" : {
+            "color" : "#DF255A",
+            "binsPerBlock" : 25
+         },
+         "menuTemplate" : [
+            {
+               "iconClass" : "dijitIconDatabase",
+               "action" : "contentDialog",
+               "content" : "<iframe src=\"/rgdweb/jbrowse/contextMenu.html?source={source}&type={type}&seq_id={seq_id}&start={start}&end={end}&name={name}&fullName={fullname}&geneType={genetype}&refSeqStatus={refseqstatus}&species={species}&note={note}&id={id}&mappingMethod={mappingmethod}&LOD={lod}&pValue={pvalue}&dbxRef={dbxref}&relatedQTLs={relatedqtls}&relatedStrains={relatedStrains}&relatedGenes={relatedgenes}&alias={alias}&diseaseOntologyAssociation={diseaseontologyassociation}&phenotypeOntologyAssociation={phenotypeontologyassociation}&synBlockLength={synblocklength}&synStart={synstart}&synEnd={synend}&synChrNum={synchrnum}&gene={gene}&isNonCoding={isnoncoding}&mapWeight={mapweight}&allele={allele}&strain={strain}&expectedSize={expectedsize}&symbol={symbol}&ontologyTerms={ontology_term}&product={product}&transcriptID={transcript_id}&proteinID={protein_id}&codonStart={codon_start}&promoterGeneRlt={promotergenerlt}&experimentMethods={experimentmethods}&regulation={regulation}&objectType={objecttype}&tissues={tissues}&score={score}&method={method}&reference={reference}&loc1={loc1}&loc2={loc2}&loc3={loc3}&loc4={loc4}&loc5={loc5}&loc6={loc6}&origin={origin}\" frameborder='0' marginheight='0' width='425' height='240' id='id_IFrame'></iframe>",
+               "label" : "View RGD details",
+               "title" : "<center>RGD Feature Data for {name}</center>"
+            },
+            {
+               "label" : "Highlight this feature"
+            }
+         ],
+         "key" : "RGD Rat (rn6) Genes and Transcripts",
+         "onClick" : {
+            "iconClass" : "dijitIconDatabase",
+            "action" : "contentDialog",
+            "content" : "<iframe src=\"/rgdweb/jbrowse/contextMenu.html?source={source}&type={type}&seq_id={seq_id}&start={start}&end={end}&name={name}&fullName={fullname}&geneType={genetype}&refSeqStatus={refseqstatus}&species={species}&note={note}&id={id}&mappingMethod={mappingmethod}&LOD={lod}&pValue={pvalue}&dbxRef={dbxref}&relatedQTLs={relatedqtls}&relatedStrains={relatedStrains}&relatedGenes={relatedgenes}&alias={alias}&diseaseOntologyAssociation={diseaseontologyassociation}&phenotypeOntologyAssociation={phenotypeontologyassociation}&synBlockLength={synblocklength}&synStart={synstart}&synEnd={synend}&synChrNum={synchrnum}&gene={gene}&isNonCoding={isnoncoding}&mapWeight={mapweight}&allele={allele}&strain={strain}&expectedSize={expectedsize}&symbol={symbol}&ontologyTerms={ontology_term}&product={product}&transcriptID={transcript_id}&proteinID={protein_id}&codonStart={codon_start}&promoterGeneRlt={promotergenerlt}&experimentMethods={experimentmethods}&regulation={regulation}&objectType={objecttype}&tissues={tissues}&score={score}&method={method}&reference={reference}&loc1={loc1}&loc2={loc2}&loc3={loc3}&loc4={loc4}&loc5={loc5}&loc6={loc6}&origin={origin}\" frameborder='0' marginheight='0' width='425' height='240' id='id_IFrame'></iframe>",
+            "title" : "<center>RGD Feature Data for {name}</center>"
+         },
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "trackType" : "JBrowse/View/Track/CanvasFeatures",
+         "urlTemplate" : "http://rgd.mcw.edu/jbrowse/data_rgd6/tracks/ARGD_curated_genes/{refseq}/trackData.json",
+         "compress" : 0,
+         "category" : "Gene Models/RGD Gene Features",
+         "type" : "JBrowse/View/Track/CanvasFeatures",
+         "label" : "ARGD_curated_genes"
+      }
+   ],
+   "names" : {
+      "url" : "http://rgd.mcw.edu/jbrowse/data_rgd6/names/",
+      "type" : "Hash"
+   },
+   "formatVersion" : 1
+}
