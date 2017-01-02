@@ -15,8 +15,10 @@
       },
       {
          "style" : {
-            "className" : "feature"
+            "className" : "feature",
+            "color" : "function(f) {var name = f.get('Name'); if (typeof name === 'undefined') {return 'goldenrod';} if (name.match(/tRNA/)) {return 'gray';} if (name.match(/snoRNA/)) {return 'gray';} if (name.match(/CR[0-9]/)) {return 'gray';} if(name.match(/mir-[0-9]/)) {return 'gray';} return 'red'; }"
          },
+         "glyph" : "function(f) {var name = f.get('Name'); if (typeof name === 'undefined') {return 'JBrowse/View/FeatureGlyph/Gene';} if (name.match(/tRNA/)) {return 'JBrowse/View/FeatureGlyph/TRNAGene';} if (name.match(/snoRNA/)) {return 'JBrowse/View/FeatureGlyph/SnoRNAGene';} if (name.match(/CR[0-9]/)) {return 'JBrowse/View/FeatureGlyph/NcRNAGene';} if(name.match(/mir-[0-9]/)) {return 'JBrowse/View/FeatureGlyph/MiRNAGene';} return 'JBrowse/View/FeatureGlyph/WBGene'; }",
          "key" : "Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : "CanvasFeatures",
