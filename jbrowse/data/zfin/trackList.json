@@ -26,5 +26,6 @@
       "url" : "http://dev.wormbase.org:9020/data/zebrafish/names/",
       "type" : "Hash"
    },
+   "dataset_id" : "zebrafish",
    "formatVersion" : 1
 }

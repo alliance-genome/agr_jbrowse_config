@@ -1,7 +1,7 @@
 {
    "formatVersion" : 1,
    "names" : {
-      "url" : "http://www.yeastgenome.org/browse/data/names/",
+      "url" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/SGD/yeast/names/",
       "type" : "Hash"
    },
    "tracks" : [
@@ -10,7 +10,7 @@
          "type" : "SequenceTrack",
          "key" : "Reference sequence",
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
-         "urlTemplate" : "http://www.yeastgenome.org/browse/data/seq/{refseq_dirpath}/{refseq}-",
+         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/SGD/yeast/seq/{refseq_dirpath}/{refseq}-",
          "label" : "DNA",
          "chunkSize" : 20000
       },
@@ -22,13 +22,13 @@
             "className" : "feature",
             "description" : "description,note"
          },
-         "label" : "S288C",
+         "label" : "All Genes",
          "trackType" : "CanvasFeatures",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "labelTranscripts" : false,
-         "key" : "S288C",
-         "compress" : 0,
-         "urlTemplate" : "http://www.yeastgenome.org/browse/data/tracks/S288C/{refseq}/trackData.json",
+         "key" : "All Genes",
+         "compress" : 1,
+         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/SGD/yeast/tracks/All Genes/{refseq}/trackData.jsonz",
          "fmtDetailValue_Name" : "function(name, feature) {if(feature.get('type')=='gene') {return '<a href=\"http://www.yeastgenome.org/locus/'+name+'/overview\">'+name+'</a>';} else { return name;}}"
       }
    ],
