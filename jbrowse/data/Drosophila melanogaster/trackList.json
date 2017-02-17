@@ -1,16 +1,15 @@
 {
    "names" : {
-      "url" : "http://dev.wormbase.org:9020/data/fly/names/",
+      "url" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/FlyBase/fruitfly/names/",
       "type" : "Hash"
    },
    "tracks" : [
       {
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
          "chunkSize" : 20000,
-         "urlTemplate" : "http://dev.wormbase.org:9020/data/fly/seq/{refseq_dirpath}/{refseq}-",
+         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/FlyBase/fruitfly/seq/{refseq_dirpath}/{refseq}-",
          "label" : "DNA",
          "type" : "SequenceTrack",
-         "category" : "Reference sequence",
          "key" : "Reference sequence"
       },
       {
@@ -22,7 +21,7 @@
          "key" : "Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : "CanvasFeatures",
-         "urlTemplate" : "http://dev.wormbase.org:9020/data/fly/tracks/Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/FlyBase/fruitfly/tracks/All Genes/{refseq}/trackData.jsonz",
          "compress" : 1,
          "type" : "CanvasFeatures",
          "label" : "Genes"
