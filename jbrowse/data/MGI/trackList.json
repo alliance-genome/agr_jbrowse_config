@@ -3,7 +3,7 @@
       {
          "chunkSize" : 20000,
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
-         "urlTemplate" : "http://jbrowse.informatics.jax.org/data/mouse/seq/{refseq_dirpath}/{refseq}-",
+         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/MGI/mouse/seq/{refseq_dirpath}/{refseq}-",
          "category" : "Reference sequence",
          "type" : "SequenceTrack",
          "label" : "DNA",
@@ -13,15 +13,20 @@
          "style" : {
             "className" : "feature"
          },
-         "key" : "MGI_Genome_Features",
+         "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : null,
-         "urlTemplate" : "http://jbrowse.informatics.jax.org/data/mouse/tracks/MGI_Genome_Features/{refseq}/trackData.json",
-         "compress" : 0,
+         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/MGI/mouse/tracks/All%20Genes/{refseq}/trackData.jsonz",
+         "compress" : 1,
          "type" : "FeatureTrack",
-         "label" : "MGI_Genome_Features"
+         "label" : "All Genes"
       }
    ],
+   "names" : {
+      "url" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/MGI/mouse/names/",
+      "type" : "Hash"
+   },
+
    "dataset_id" : "mouse",
    "formatVersion" : 1
 }

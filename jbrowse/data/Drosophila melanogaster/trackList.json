@@ -18,13 +18,13 @@
             "color" : "function(f) {var type = f.get('type'); if (type == 'breakpoint') {return 'pink';} var name = f._parent.get('Name'); if (typeof name === 'undefined') {return 'red';} if (name.match(/tRNA/)) {return 'gray';} if (name.match(/snoRNA/)) {return 'gray';} if (name.match(/CR[0-9]/)) {return 'gray';} if(name.match(/mir-[0-9]/)) {return 'gray';} return 'goldenrod'; }"
          },
          "glyph" : "function(f) {var name = f.get('Name'); if (typeof name === 'undefined') {return 'JBrowse/View/FeatureGlyph/Gene';} if (name.match(/tRNA/)) {return 'JBrowse/View/FeatureGlyph/TRNAGene';} if (name.match(/snoRNA/)) {return 'JBrowse/View/FeatureGlyph/SnoRNAGene';} if (name.match(/CR[0-9]/)) {return 'JBrowse/View/FeatureGlyph/NcRNAGene';} if(name.match(/mir-[0-9]/)) {return 'JBrowse/View/FeatureGlyph/MiRNAGene';} return 'JBrowse/View/FeatureGlyph/WBGene'; }",
-         "key" : "Genes",
+         "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : "CanvasFeatures",
          "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/FlyBase/fruitfly/tracks/All Genes/{refseq}/trackData.jsonz",
          "compress" : 1,
          "type" : "CanvasFeatures",
-         "label" : "Genes"
+         "label" : "All Genes"
       }
    ],
    "dataset_id" : "fly",

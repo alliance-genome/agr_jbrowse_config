@@ -3,7 +3,7 @@
       {
          "chunkSize" : 20000,
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
-         "urlTemplate" : "http://dev.wormbase.org:9020/data/zebrafish/seq/{refseq_dirpath}/{refseq}-",
+         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/zfin/zebrafish/seq/{refseq_dirpath}/{refseq}-",
          "category" : "Reference sequence",
          "type" : "SequenceTrack",
          "label" : "DNA",
@@ -13,17 +13,17 @@
          "style" : {
             "className" : "feature"
          },
-         "key" : "Genes",
+         "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : "CanvasFeatures",
-         "urlTemplate" : "http://dev.wormbase.org:9020/data/zebrafish/tracks/Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/zfin/zebrafish/tracks/All Genes/{refseq}/trackData.jsonz",
          "compress" : 1,
          "type" : "CanvasFeatures",
-         "label" : "Genes"
+         "label" : "All Genes"
       }
    ],
    "names" : {
-      "url" : "http://dev.wormbase.org:9020/data/zebrafish/names/",
+      "url" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/zfin/zebrafish/names/",
       "type" : "Hash"
    },
    "dataset_id" : "zebrafish",
