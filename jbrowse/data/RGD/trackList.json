@@ -1,4 +1,9 @@
 {
+   "plugins" : [
+      "NeatHTMLFeatures",
+      "NeatCanvasFeatures",
+      "HideTrackLabels"
+   ],
    "tracks" : [
       {
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",

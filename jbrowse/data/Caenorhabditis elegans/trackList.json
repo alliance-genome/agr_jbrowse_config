@@ -6,6 +6,11 @@
    "include" : [
       "../functions.conf"
    ],
+   "plugins" : [
+      "NeatHTMLFeatures",
+      "NeatCanvasFeatures",
+      "HideTrackLabels"
+   ],
    "tracks" : [
       {
          "chunkSize":20000,

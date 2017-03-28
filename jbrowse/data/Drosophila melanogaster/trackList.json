@@ -1,4 +1,9 @@
 {
+   "plugins" : [
+      "NeatHTMLFeatures",
+      "NeatCanvasFeatures",
+      "HideTrackLabels"
+   ],
    "names" : {
       "url" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/FlyBase/fruitfly/names/",
       "type" : "Hash"
