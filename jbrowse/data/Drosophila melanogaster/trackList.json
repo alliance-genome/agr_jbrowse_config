@@ -29,7 +29,8 @@
          "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/FlyBase/fruitfly/tracks/All Genes/{refseq}/trackData.jsonz",
          "compress" : 1,
          "type" : "CanvasFeatures",
-         "label" : "All Genes"
+         "label" : "All Genes",
+         "maxHeight" : 3000
       }
    ],
    "dataset_id" : "fly",

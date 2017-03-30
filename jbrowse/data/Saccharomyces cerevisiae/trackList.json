@@ -32,6 +32,7 @@
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "labelTranscripts" : false,
          "key" : "All Genes",
+         "maxHeight" : 3000,
          "compress" : 1,
          "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/SGD/yeast/tracks/All Genes/{refseq}/trackData.jsonz",
          "fmtDetailValue_Name" : "function(name, feature) {if(feature.get('type')=='gene') {return '<a href=\"http://www.yeastgenome.org/locus/'+name+'/overview\">'+name+'</a>';} else { return name;}}"
