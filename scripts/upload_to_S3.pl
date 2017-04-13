@@ -4,6 +4,26 @@ use warnings;
 
 use Getopt::Long;
 
+=head1 NAME
+
+upload_to_S3.pl - Uploads a set of JBrowse track data to an AWS S3 bucket
+
+=head1 SYNOPSYS
+
+  % upload_to_S3.pl --aws <path> --bucket <name> \
+                    --local <path> --remote <path> [--notcompressed]
+
+=head1 AUTHOR
+
+Scott Cain E<lt>scott@scottcain.netE<gt>
+
+Copyright (c) 2017
+
+This script is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
+
 #this will take a JBrowse data directory containing tracks/, seq/, and names/
 #and upload them to S3 using the aws command line tool.  Note that the keys
 #required for accessing S3 on the command line must be stored in ~/.aws/credentials.
@@ -17,15 +37,15 @@ use Getopt::Long;
 my ($AWS, $BUCKET, $LOCAL, $REMOTE, $NOTCOMPRESSED);
 
 GetOptions(
-    'aws=s'      => \$AWS,
-    'bucket=s'   => \$BUCKET,
-    'local=s'    => \$LOCAL,
-    'remote=s'   => \$REMOTE,
-    'notcompressed=>\$NOTCOMPRESSED
+    'aws=s'         => \$AWS,
+    'bucket=s'      => \$BUCKET,
+    'local=s'       => \$LOCAL,
+    'remote=s'      => \$REMOTE,
+    'notcompressed' => \$NOTCOMPRESSED
 ) or ( system( 'pod2text', $0 ), exit -1 );
 
-my $AWS    ||= '/home/scain/scain/bin/aws';
-my $BUCKET ||= 'agrjbrowse';
+$AWS    ||= '/home/scain/scain/bin/aws';
+$BUCKET ||= 'agrjbrowse';
 ($LOCAL && $REMOTE) or die 'need to supply --local and --remote options';
 
 my $REMOTEPATH = "s3://$BUCKET/$REMOTE/";
@@ -49,3 +69,5 @@ system("$AWS s3 cp --acl public-read names/meta.json $REMOTEPATH/names/meta.json
 #transfer seq
 system("$AWS s3 cp --recursive --acl public-read seq/ $REMOTEPATH/seq/");
 
+print "Transfer complete\n";
+exit(0);
