@@ -36,7 +36,7 @@ it under the same terms as Perl itself.
 #   * path to local track data
 #   * path in bucket (make a resonable default?)
 
-my ($AWS, $BUCKET, $LOCAL, $REMOTE, $NOTCOMPRESSED, $CORS);
+my ($AWS, $BUCKET, $LOCAL, $REMOTE, $NOTCOMPRESSED, $CORS,$CREATE);
 
 GetOptions(
     'aws=s'         => \$AWS,
@@ -44,15 +44,19 @@ GetOptions(
     'local=s'       => \$LOCAL,
     'remote=s'      => \$REMOTE,
     'notcompressed' => \$NOTCOMPRESSED,
-    'cors'          => \$CORS
+    'cors'          => \$CORS,
+    'create'        => \$CREATE
 ) or ( system( 'pod2text', $0 ), exit -1 );
 
 $AWS    ||= '/home/scain/scain/bin/aws';
 $BUCKET ||= 'agrjbrowse';
 ($LOCAL && $REMOTE) or die 'need to supply --local and --remote options';
 
-my $REMOTEPATH = "s3://$BUCKET/$REMOTE/";
+my $REMOTEPATH = "s3://$BUCKET/$REMOTE";
 
+if ($CREATE) {
+    system("$AWS s3 mb s3://$BUCKET");
+}
 
 chdir($LOCAL) or die "unable to cd to $LOCAL";
 
@@ -60,7 +64,7 @@ chdir($LOCAL) or die "unable to cd to $LOCAL";
 system("$AWS s3 cp --acl public-read trackList.json $REMOTEPATH");
 system("$AWS s3 cp --acl public-read tracks.conf    $REMOTEPATH");
 
-my $gzip = $NOTCOMPRESSED ? " --content-encoding gzip " : '';
+my $gzip = $NOTCOMPRESSED ? '' : " --content-encoding gzip ";
 
 #transfer tracks
 system("$AWS s3 cp $gzip --recursive --acl public-read tracks/ $REMOTEPATH/tracks/");
@@ -75,7 +79,7 @@ system("$AWS s3 cp --recursive --acl public-read seq/ $REMOTEPATH/seq/");
 #create bogus index.html, set website and optionally CORS
 open(INDEX, ">", "/tmp/index.html") or die;
 while(<DATA>) {
-    print;
+    print INDEX;
 }
 close INDEX;
 
