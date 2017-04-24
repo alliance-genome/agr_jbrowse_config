@@ -24,8 +24,8 @@ data/trackList.json doesn't exist, assumes that data are
 in separate directories exactly one level below data/.
 
 To prepare for uploading, the jbrowse directory is copied to 
-/tmp and symlinks are replaced with hard links.  After uploading
-is done, this temporary copy is deleted. 
+/tmp and symlinks are replaced with actual files and directories. 
+After uploading is done, this temporary copy is deleted. 
 
 =head1 AUTHOR
 
@@ -39,19 +39,18 @@ it under the same terms as Perl itself.
 =cut
 
 
-my ($AWS, $BUCKET, $LOCAL, $REMOTE, $CORS,$CREATE);
+my ($AWS, $BUCKET, $LOCAL, $REMOTE, $CREATE);
 
 GetOptions(
     'aws=s'         => \$AWS,
     'bucket=s'      => \$BUCKET,
     'local=s'       => \$LOCAL,
     'remote=s'      => \$REMOTE,
-    'cors'          => \$CORS,
     'create'        => \$CREATE
 ) or ( system( 'pod2text', $0 ), exit -1 );
 
 $AWS    ||= '/home/scain/scain/bin/aws';
-$BUCKET ||= 'agrjbrowse';
+$BUCKET ||= 'agrjbrowsestatic';
 $LOCAL  or die 'need to supply --local option';
 $REMOTE ||= '';
 
@@ -73,13 +72,11 @@ for my $file (@all_files) {
     replace_symlink($file);
 }
 
-
+#trim out tracks, names and seq (except refSeqs.json)
 remove_unwanted_files('data');
-die;
 
 #transfer trackList.json and tracks.conf
-system("$AWS s3 cp --acl public-read trackList.json $REMOTEPATH");
-system("$AWS s3 cp --acl public-read tracks.conf    $REMOTEPATH");
+system("$AWS s3 cp --acl public-read --recursive $tmplocal $REMOTEPATH");
 
 
 #set website for the bucket--this is the real index.html file for jbrowse
