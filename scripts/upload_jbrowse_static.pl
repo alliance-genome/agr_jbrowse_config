@@ -15,7 +15,8 @@ upload_jbrowse_static.pl - Uploads files to run JBrowse to S3
 
   % upload_to_S3.pl --aws <path> --bucket <name> \
                     --local <path> --remote <path> \
-                   [--cors] [--create]
+                   [--cors] [--create] [--delete-existing]
+                   [--no-cache]
 
 =head1 NOTES
 
@@ -39,13 +40,15 @@ it under the same terms as Perl itself.
 =cut
 
 
-my ($AWS, $BUCKET, $LOCAL, $REMOTE, $CREATE);
+my ($AWS, $BUCKET, $LOCAL, $REMOTE, $CREATE, $DELETE, $NOCACHE);
 
 GetOptions(
     'aws=s'         => \$AWS,
     'bucket=s'      => \$BUCKET,
     'local=s'       => \$LOCAL,
     'remote=s'      => \$REMOTE,
+    'delete'        => \$DELETE,
+    'no-cache'      => \$NOCACHE,
     'create'        => \$CREATE
 ) or ( system( 'pod2text', $0 ), exit -1 );
 
@@ -60,7 +63,14 @@ if ($CREATE) {
     system("$AWS s3 mb s3://$BUCKET");
 }
 
+if ($DELETE) {
+    system("$AWS s3 rm --recursive s3://$BUCKET");
+}
+
+my $cache = $NOCACHE ? '' : ' --cache-control no-cache ';
+
 my $tmplocal = "/tmp/jbrowse";
+remove_tree($tmplocal);
 
 rcopy($LOCAL, $tmplocal);
 
@@ -76,7 +86,7 @@ for my $file (@all_files) {
 remove_unwanted_files('data');
 
 #transfer trackList.json and tracks.conf
-system("$AWS s3 cp --acl public-read --recursive $tmplocal $REMOTEPATH");
+system("$AWS s3 cp $cache --acl public-read --recursive $tmplocal $REMOTEPATH");
 
 
 #set website for the bucket--this is the real index.html file for jbrowse
@@ -85,7 +95,7 @@ system("$AWS s3 website s3://$BUCKET --index-document index.html");
 print "Transfer complete\n";
 
 
-#unlink($tmplocal);
+unlink($tmplocal);
 exit(0);
 
 
