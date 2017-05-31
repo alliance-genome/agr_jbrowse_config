@@ -53,7 +53,7 @@ GetOptions(
 ) or ( system( 'pod2text', $0 ), exit -1 );
 
 $AWS    ||= '/home/scain/scain/bin/aws';
-$BUCKET ||= 'agrjbrowsestatic';
+$BUCKET ||= 'agrjbrowsestatic2';
 $LOCAL  or die 'need to supply --local option';
 $REMOTE ||= '';
 
@@ -91,6 +91,9 @@ system("$AWS s3 cp $cache --acl public-read --recursive $tmplocal $REMOTEPATH");
 
 #set website for the bucket--this is the real index.html file for jbrowse
 system("$AWS s3 website s3://$BUCKET --index-document index.html");
+
+#set public read for the entire bucket--prevents 403 errors when requesting a file that isn't there.
+system("$AWS s3api put-bucket-acl --grant-read uri=http://acs.amazonaws.com/groups/global/AllUsers --bucket $BUCKET");
 
 print "Transfer complete\n";
 

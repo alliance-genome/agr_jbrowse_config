@@ -36,6 +36,9 @@ it under the same terms as Perl itself.
 #   * path to local track data
 #   * path in bucket (make a resonable default?)
 
+
+###TODO add a noindex option to not create the index.html file and not set website (because it's already been done presumably).
+
 my ($AWS, $BUCKET, $LOCAL, $REMOTE, $NOTCOMPRESSED, $CORS,$CREATE);
 
 GetOptions(
@@ -49,7 +52,7 @@ GetOptions(
 ) or ( system( 'pod2text', $0 ), exit -1 );
 
 $AWS    ||= '/home/scain/scain/bin/aws';
-$BUCKET ||= 'agrjbrowse';
+$BUCKET ||= 'agrjbrowsestatic2';
 ($LOCAL && $REMOTE) or die 'need to supply --local and --remote options';
 
 my $REMOTEPATH = "s3://$BUCKET/$REMOTE";
@@ -89,6 +92,9 @@ system("$AWS s3 website s3://$BUCKET --index-document index.html");
 if ($CORS) {
     system("$AWS s3api put-bucket-cors --bucket $BUCKET --cors-configuration '{\"CORSRules\": [{\"AllowedOrigins\": [\"*\"],\"AllowedHeaders\": [\"*\" ],\"AllowedMethods\": [\"GET\"],\"MaxAgeSeconds\": 3000}]}'");
 }
+
+#set public read for the entire bucket--prevents 403 errors when requesting a file that isn't there.
+system("$AWS s3api put-bucket-acl --grant-read uri=http://acs.amazonaws.com/groups/global/AllUsers --bucket $BUCKET");
 
 print "Transfer complete\n";
 exit(0);
