@@ -1,55 +1,41 @@
 {
-   "names" : {
-      "url" : "http://www.wormbase.org/tools/genome/jbrowse/data/c_elegans_PRJNA13758/names/",
-      "type" : "Hash"
-   },
-   "include" : [
-      "../functions.conf"
-   ],
-   "plugins" : [
-      "NeatHTMLFeatures",
-      "NeatCanvasFeatures",
-      "HideTrackLabels"
-   ],
    "tracks" : [
       {
-         "chunkSize":20000,
-         "storeClass":"JBrowse/Store/Sequence/StaticChunked",
-         "urlTemplate":"http://www.wormbase.org/tools/genome/jbrowse/data/c_elegans_PRJNA13758/seq/{refseq_dirpath}/{refseq}-",
-         "type":"SequenceTrack",
-         "label":"DNA",
-         "key":"Reference sequence"
+         "type" : "SequenceTrack",
+         "seqType" : "dna",
+         "chunkSize" : 20000,
+         "key" : "Reference sequence",
+         "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
+         "urlTemplate" : "seq/{refseq_dirpath}/{refseq}-",
+         "label" : "DNA"
       },
       {
-         "style" : {
-            "className" : "feature",
-            "color" : "{geneColor}",
-            "label" : "{geneLabel}",
-            "height" : "function(f) {var type = f.get('type'); if (type == 'CDS') {return 10;} return 6;  }"
-         },
-         "onClick" : {
-            "action" : "iframeDialog",
-            "url" : "{geneURL}",
-            "label" : "{geneLinkLabel}",
-            "title" : "Feature in WormBase"
-         },
-         "key" : "All Genes",
-         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
-         "trackType" : "CanvasFeatures",
-         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/WormBase/c_elegans_PRJNA13758/tracks/Curated_Genes/{refseq}/trackData.jsonz",
-         "compress" : 1,
-         "type" : "CanvasFeatures",
          "label" : "All Genes",
-         "glyph" : "{geneGlyph}",
-         "metadata" : {
-            "shortInfo" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. If sufficient room is available between features, gene models end with a triangle; if not a small arrow is used. Grey areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts."
+         "style" : {
+            "color" : "{geneColor}",
+            "className" : "feature",
+            "label":"{geneLabel}",
+            "height" : "{geneHeight}"
          },
-         "maxExportSpan" : 50000000,
-         "maxHeight" : 3000
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "urlTemplate" : "tracks/All Genes/{refseq}/trackData.json",
+         "compress" : 0,
+         "trackType" : "CanvasFeatures",
+         "key" : "All Genes",
+         "type" : "CanvasFeatures",
+         "glyph" : "{geneGlyph}",
+         "onClick":{
+            "title":"Click to open in a full window:",
+            "url":"function(track,f) {var curie = f.get('curie'); return 'http://dev.alliancegenome.org/gene/'+curie; }",
+            "action":"iframeDialog",
+            "label":"Feature at AGR"
+         }
       }
-
-
    ],
-   "dataset_id" : "c_elegans_PRJNA13758",
+   "names" : {
+      "url" : "names/",
+      "type" : "Hash"
+   },
+   "include" : ["../functions.conf"],
    "formatVersion" : 1
 }
