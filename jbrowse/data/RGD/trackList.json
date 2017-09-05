@@ -2,7 +2,8 @@
    "plugins" : [
       "NeatHTMLFeatures",
       "NeatCanvasFeatures",
-      "HideTrackLabels"
+      "HideTrackLabels",
+      "FeatureSequence" 
    ],
    "tracks" : [
       {
@@ -24,7 +25,15 @@
          "compress" : 1,
          "type" : "CanvasFeatures",
          "label" : "All Genes",
-         "maxHeight" : 3000
+         "maxHeight" : 3000,
+         "menuTemplate" : [
+           {
+           "content" : "function(track,feature){return track.browser.plugins.FeatureSequence.callFxn(track, feature); }",
+           "iconClass" : "dijitIconDatabase",
+           "action" : "contentDialog",
+           "label" : "View Sequence"
+           }
+         ]
       }
    ],
    "names" : {
