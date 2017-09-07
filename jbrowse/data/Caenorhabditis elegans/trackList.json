@@ -1,41 +1,49 @@
 {
+   "names" : {
+      "type" : "Hash",
+      "url" : "names/"
+   },
    "tracks" : [
       {
-         "type" : "SequenceTrack",
-         "seqType" : "dna",
-         "chunkSize" : 20000,
-         "key" : "Reference sequence",
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
-         "urlTemplate" : "seq/{refseq_dirpath}/{refseq}-",
-         "label" : "DNA"
+         "key" : "Reference sequence",
+         "label" : "DNA",
+         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/WormBase/c_elegans_PRJNA13758/seq/{refseq_dirpath}/{refseq}-",
+         "seqType" : "dna",
+         "type" : "SequenceTrack",
+         "chunkSize" : 20000
       },
       {
          "label" : "All Genes",
+         "trackType" : "CanvasFeatures",
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "glyph" : "{geneGlyph}",
+         "onClick" : {
+            "url" : "function(track,f) {var curie = f.get('curie'); return 'http://dev.alliancegenome.org/gene/'+curie; }",
+            "title" : "Click to open in a full window:",
+            "label" : "Feature at AGR",
+            "action" : "iframeDialog"
+         },
          "style" : {
             "color" : "{geneColor}",
-            "className" : "feature",
-            "label":"{geneLabel}",
-            "height" : "{geneHeight}"
+            "label" : "{geneLabel}",
+            "height" : "{geneHeight}",
+            "className" : "feature"
          },
-         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
-         "urlTemplate" : "tracks/All Genes/{refseq}/trackData.json",
-         "compress" : 0,
-         "trackType" : "CanvasFeatures",
-         "key" : "All Genes",
+         "compress" : 1,
+         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/WormBase/c_elegans_PRJNA13758/tracks/All Genes/{refseq}/trackData.jsonz",
          "type" : "CanvasFeatures",
-         "glyph" : "{geneGlyph}",
-         "onClick":{
-            "title":"Click to open in a full window:",
-            "url":"function(track,f) {var curie = f.get('curie'); return 'http://dev.alliancegenome.org/gene/'+curie; }",
-            "action":"iframeDialog",
-            "label":"Feature at AGR"
-         }
+         "key" : "All Genes"
       }
    ],
-   "names" : {
-      "url" : "names/",
-      "type" : "Hash"
-   },
-   "include" : ["../functions.conf"],
+   "dataset_id" : "worm",
+   "plugins" : [
+      "NeatHTMLFeatures",
+      "NeatCanvasFeatures",
+      "HideTrackLabels"
+   ],
+   "include" : [
+      "../functions.conf"
+   ],
    "formatVersion" : 1
 }
