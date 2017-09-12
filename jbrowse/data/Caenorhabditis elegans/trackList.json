@@ -19,7 +19,7 @@
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "glyph" : "{geneGlyph}",
          "onClick" : {
-            "url" : "function(track,f) {var curie = f.get('curie'); return 'http://dev.alliancegenome.org/gene/'+curie; }",
+            "url" : "{curieUrl}",
             "title" : "Click to open in a full window:",
             "label" : "Feature at AGR",
             "action" : "iframeDialog"
