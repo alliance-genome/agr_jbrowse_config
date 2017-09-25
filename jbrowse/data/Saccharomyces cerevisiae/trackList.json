@@ -1,7 +1,10 @@
 {
+   "include" : [
+      "../functions.conf"
+   ],
+
    "plugins" : [
       "NeatHTMLFeatures",
-      "NeatCanvasFeatures",
       "HideTrackLabels"
    ],
    "formatVersion" : 1,
@@ -11,18 +14,25 @@
    },
    "tracks" : [
       {
-         "category" : "Reference sequence",
          "type" : "SequenceTrack",
          "key" : "Reference sequence",
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
          "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/SGD/yeast/seq/{refseq_dirpath}/{refseq}-",
          "label" : "DNA",
+         "compress" : 1,
          "chunkSize" : 20000
       },
       {
          "type" : "CanvasFeatures",
+         "glyph" : "{geneGlyph}",
+         "onClick" : {
+            "url" : "{curieUrl}",
+            "title" : "Click to open in a full window:",
+            "action" : "iframeDialog"
+         },
          "style" : {
-            "color" : "function( featureObject, variableName, glyphObject, trackObject ) {  return '#ffcccc'; }",
+            "color" : "{geneColor}",
+            "height" : "{geneHeight}",
             "label" : "gene,name,id",
             "className" : "feature",
             "description" : "description,note"

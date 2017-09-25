@@ -1,21 +1,33 @@
 {
    "plugins" : [
       "NeatHTMLFeatures",
-      "NeatCanvasFeatures",
       "HideTrackLabels"
+   ],
+   "include" : [
+      "../functions.conf"
    ],
    "tracks" : [
       {
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
-         "chunkSize" : 20000,
+         "chunkSize" : 80000,
          "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/human/seq/{refseq_dirpath}/{refseq}-",
          "label" : "DNA",
+         "compress" : 1,
          "type" : "SequenceTrack",
-         "category" : "Reference sequence",
          "key" : "Reference sequence"
       },
       {
+         "glyph" : "{geneGlyph}",
+         "onClick" : {
+            "url" : "{curieUrl}",
+            "title" : "Click to open in a full window:",
+            "label" : "Feature at AGR",
+            "action" : "iframeDialog"
+         },
          "style" : {
+            "color" : "{geneColor}",
+            "label" : "{geneLabel}",
+            "height" : "{geneHeight}",
             "className" : "feature"
          },
          "key" : "All Genes",

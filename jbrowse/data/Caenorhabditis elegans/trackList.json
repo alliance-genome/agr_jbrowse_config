@@ -39,7 +39,6 @@
    "dataset_id" : "worm",
    "plugins" : [
       "NeatHTMLFeatures",
-      "NeatCanvasFeatures",
       "HideTrackLabels"
    ],
    "include" : [

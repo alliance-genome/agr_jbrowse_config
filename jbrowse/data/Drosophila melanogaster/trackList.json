@@ -1,7 +1,6 @@
 {
    "plugins" : [
       "NeatHTMLFeatures",
-      "NeatCanvasFeatures",
       "HideTrackLabels"
    ],
    "names" : {
@@ -11,18 +10,25 @@
    "tracks" : [
       {
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
-         "chunkSize" : 20000,
+         "chunkSize" : 80000,
          "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/FlyBase/fruitfly/seq/{refseq_dirpath}/{refseq}-",
          "label" : "DNA",
          "type" : "SequenceTrack",
+         "compress" : 1,
          "key" : "Reference sequence"
       },
       {
-         "style" : {
-            "className" : "feature",
-            "color" : "function(f) {var type = f.get('type'); if (type == 'breakpoint') {return 'pink';} var name = f._parent.get('Name'); if (typeof name === 'undefined') {return 'red';} if (name.match(/tRNA/)) {return 'gray';} if (name.match(/snoRNA/)) {return 'gray';} if (name.match(/CR[0-9]/)) {return 'gray';} if(name.match(/mir-[0-9]/)) {return 'gray';} return 'goldenrod'; }"
+         "glyph" : "{geneGlyph}",
+         "onClick" : {
+            "url" : "{curieUrl}",
+            "title" : "Click to open in a full window:",
+            "action" : "iframeDialog"
          },
-         "glyph" : "function(f) {var name = f.get('Name'); if (typeof name === 'undefined') {return 'JBrowse/View/FeatureGlyph/Gene';} if (name.match(/tRNA/)) {return 'JBrowse/View/FeatureGlyph/TRNAGene';} if (name.match(/snoRNA/)) {return 'JBrowse/View/FeatureGlyph/SnoRNAGene';} if (name.match(/CR[0-9]/)) {return 'JBrowse/View/FeatureGlyph/NcRNAGene';} if(name.match(/mir-[0-9]/)) {return 'JBrowse/View/FeatureGlyph/MiRNAGene';} return 'JBrowse/View/FeatureGlyph/WBGene'; }",
+         "style" : {
+            "color" : "{geneColor}",
+            "height" : "{geneHeight}",
+            "className" : "feature"
+         },
          "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : "CanvasFeatures",
@@ -32,6 +38,9 @@
          "label" : "All Genes",
          "maxHeight" : 3000
       }
+   ],
+   "include" : [
+      "../functions.conf"
    ],
    "dataset_id" : "fly",
    "formatVersion" : 1

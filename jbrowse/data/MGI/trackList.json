@@ -1,9 +1,4 @@
 {
-   "plugins" : [
-      "NeatHTMLFeatures",
-      "NeatCanvasFeatures",
-      "HideTrackLabels"
-   ],
    "tracks" : [
       {
          "chunkSize" : 20000,
@@ -12,18 +7,27 @@
          "category" : "Reference sequence",
          "type" : "SequenceTrack",
          "label" : "DNA",
+         "compress" : 1,
          "key" : "Reference sequence"
       },
       {
+         "glyph" : "{geneGlyph}",
+         "onClick" : {
+            "url" : "{curieUrl}",
+            "title" : "Click to open in a full window:",
+            "action" : "iframeDialog"
+         },
          "style" : {
+            "color" : "{geneColor}",
+            "height" : "{geneHeight}",
             "className" : "feature"
          },
          "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
-         "trackType" : null,
+         "trackType" : "CanvasFeatures",
          "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/MGI/mouse/tracks/All%20Genes/{refseq}/trackData.jsonz",
          "compress" : 1,
-         "type" : "FeatureTrack",
+         "type" : "CanvasFeatures",
          "label" : "All Genes",
          "maxHeight" : 3000
       }
@@ -32,6 +36,13 @@
       "url" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/MGI/mouse/names/",
       "type" : "Hash"
    },
+   "plugins" : [
+      "NeatHTMLFeatures",
+      "HideTrackLabels"
+   ],
+   "include" : [
+      "../functions.conf"
+   ],
 
    "dataset_id" : "mouse",
    "formatVersion" : 1
