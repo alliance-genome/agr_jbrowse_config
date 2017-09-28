@@ -1,7 +1,7 @@
 {
    "tracks" : [
       {
-         "chunkSize" : 20000,
+         "chunkSize" : 80000,
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
          "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/MGI/mouse/seq/{refseq_dirpath}/{refseq}-",
          "category" : "Reference sequence",

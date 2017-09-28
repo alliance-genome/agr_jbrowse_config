@@ -1,21 +1,34 @@
 {
    "plugins" : [
       "NeatHTMLFeatures",
-      "NeatCanvasFeatures",
       "HideTrackLabels",
       "FeatureSequence" 
+   ],
+   "include" : [
+      "../functions.conf"
    ],
    "tracks" : [
       {
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
-         "chunkSize" : 20000,
+         "chunkSize" : 80000,
          "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/RGD/rat/seq/{refseq_dirpath}/{refseq}-",
          "label" : "DNA",
+         "compress" : 1,
          "type" : "SequenceTrack",
          "key" : "Reference sequence"
       },
       {
+         "glyph" : "{geneGlyph}",
+         "onClick" : {
+            "url" : "{curieUrl}",
+            "title" : "Click to open in a full window:",
+            "label" : "Feature at AGR",
+            "action" : "iframeDialog"
+         },
          "style" : {
+            "color" : "{geneColor}",
+            "label" : "{geneLabel}",
+            "height" : "{geneHeight}",
             "className" : "feature"
          },
          "key" : "All Genes",
@@ -26,14 +39,6 @@
          "type" : "CanvasFeatures",
          "label" : "All Genes",
          "maxHeight" : 3000,
-         "menuTemplate" : [
-           {
-           "content" : "function(track,feature){return track.browser.plugins.FeatureSequence.callFxn(track, feature); }",
-           "iconClass" : "dijitIconDatabase",
-           "action" : "contentDialog",
-           "label" : "View Sequence"
-           }
-         ]
       }
    ],
    "names" : {
