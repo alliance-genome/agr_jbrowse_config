@@ -20,7 +20,7 @@
          "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/SGD/yeast/seq/{refseq_dirpath}/{refseq}-",
          "label" : "DNA",
          "compress" : 1,
-         "chunkSize" : 20000
+         "chunkSize" : 80000
       },
       {
          "type" : "CanvasFeatures",

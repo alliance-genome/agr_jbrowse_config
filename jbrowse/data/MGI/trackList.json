@@ -4,7 +4,6 @@
          "chunkSize" : 80000,
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
          "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/MGI/mouse/seq/{refseq_dirpath}/{refseq}-",
-         "category" : "Reference sequence",
          "type" : "SequenceTrack",
          "label" : "DNA",
          "compress" : 1,
@@ -20,6 +19,7 @@
          "style" : {
             "color" : "{geneColor}",
             "height" : "{geneHeight}",
+            "label" : "function(f) {var curie = f.get('curie'); var name = f.get('Name'); if (curie) {return name + ' (' + curie + ')';} return name;  }",
             "className" : "feature"
          },
          "key" : "All Genes",
@@ -37,7 +37,6 @@
       "type" : "Hash"
    },
    "plugins" : [
-      "NeatHTMLFeatures",
       "HideTrackLabels"
    ],
    "include" : [

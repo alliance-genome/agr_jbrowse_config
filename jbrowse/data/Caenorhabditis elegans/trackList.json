@@ -11,7 +11,8 @@
          "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/WormBase/c_elegans_PRJNA13758/seq/{refseq_dirpath}/{refseq}-",
          "seqType" : "dna",
          "type" : "SequenceTrack",
-         "chunkSize" : 20000
+         "compress" : 1,
+         "chunkSize" : 80000
       },
       {
          "label" : "All Genes",
