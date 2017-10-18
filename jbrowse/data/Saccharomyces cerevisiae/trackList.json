@@ -25,6 +25,7 @@
       {
          "type" : "CanvasFeatures",
          "glyph" : "{geneGlyph}",
+         "impliedUTRs" : true,
          "onClick" : {
             "url" : "{curieUrl}",
             "title" : "Click to open in a full window:",
