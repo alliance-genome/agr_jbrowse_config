@@ -29,6 +29,7 @@
          "onClick" : {
             "url" : "{curieUrl}",
             "title" : "Click to open in a full window:",
+            "label" : "function() {var note = this.feature.get('Note'); return note;  }",
             "action" : "iframeDialog"
          },
          "style" : {
@@ -36,7 +37,7 @@
             "height" : "{geneHeight}",
             "label" : "gene,name,id",
             "className" : "feature",
-            "description" : "description,note"
+            "description" : "display"
          },
          "label" : "All Genes",
          "trackType" : "CanvasFeatures",
