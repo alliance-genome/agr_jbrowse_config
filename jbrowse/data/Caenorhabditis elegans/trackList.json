@@ -1,7 +1,7 @@
 {
    "names" : {
       "type" : "Hash",
-      "url" : "names/"
+      "url" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/WormBase/c_elegans_PRJNA13758/names/"
    },
    "tracks" : [
       {
