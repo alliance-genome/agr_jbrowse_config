@@ -2,7 +2,6 @@
    "plugins" : [
       "NeatHTMLFeatures",
       "HideTrackLabels",
-      "FeatureSequence" 
    ],
    "include" : [
       "../functions.conf"
