@@ -1,14 +1,14 @@
 {
    "names" : {
       "type" : "Hash",
-      "url" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/WormBase/c_elegans_PRJNA13758/names/"
+      "url" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/WormBase/c_elegans_PRJNA13758/names/"
    },
    "tracks" : [
       {
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
          "key" : "Reference sequence",
          "label" : "DNA",
-         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/WormBase/c_elegans_PRJNA13758/seq/{refseq_dirpath}/{refseq}-",
+         "urlTemplate" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/WormBase/c_elegans_PRJNA13758/seq/{refseq_dirpath}/{refseq}-",
          "seqType" : "dna",
          "type" : "SequenceTrack",
          "compress" : 1,
@@ -33,7 +33,7 @@
             "className" : "feature"
          },
          "compress" : 1,
-         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/WormBase/c_elegans_PRJNA13758/tracks/All Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/WormBase/c_elegans_PRJNA13758/tracks/All Genes/{refseq}/trackData.jsonz",
          "type" : "CanvasFeatures",
          "key" : "All Genes"
       }
