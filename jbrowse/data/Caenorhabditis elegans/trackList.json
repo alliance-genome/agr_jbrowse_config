@@ -15,7 +15,7 @@
          "chunkSize" : 80000
       },
       {
-         "label" : "All Genes",
+         "label" : "All_Genes",
          "trackType" : "CanvasFeatures",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "glyph" : "{geneGlyph}",
