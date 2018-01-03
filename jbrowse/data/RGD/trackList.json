@@ -34,7 +34,7 @@
          "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : "JBrowse/View/Track/CanvasFeatures",
-         "urlTemplate" : "tracks/All%20Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "tracks/All%20Genes/{refseq}/trackData.json",
          "type" : "CanvasFeatures",
          "label" : "All Genes",
          "maxHeight" : 3000,

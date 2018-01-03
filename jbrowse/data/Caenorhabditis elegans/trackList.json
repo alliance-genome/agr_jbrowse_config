@@ -32,7 +32,7 @@
             "height" : "{geneHeight}",
             "className" : "feature"
          },
-         "urlTemplate" : "tracks/All Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "tracks/All Genes/{refseq}/trackData.json",
          "type" : "CanvasFeatures",
          "key" : "All Genes"
       }
