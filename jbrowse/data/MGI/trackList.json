@@ -26,15 +26,14 @@
          "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : "CanvasFeatures",
-         "urlTemplate" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/MGI/mouse/tracks/All%20Genes/{refseq}/trackData.jsonz",
-         "compress" : 1,
+         "urlTemplate" : "tracks/All%20Genes/{refseq}/trackData.jsonz",
          "type" : "CanvasFeatures",
          "label" : "All Genes",
          "maxHeight" : 3000
       }
    ],
    "names" : {
-      "url" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/MGI/mouse/names/",
+      "url" : "names/",
       "type" : "Hash"
    },
    "plugins" : [

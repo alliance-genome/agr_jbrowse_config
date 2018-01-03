@@ -1,7 +1,7 @@
 {
    "names" : {
       "type" : "Hash",
-      "url" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/WormBase/c_elegans_PRJNA13758/names/"
+      "url" : "names/"
    },
    "tracks" : [
       {
@@ -32,8 +32,7 @@
             "height" : "{geneHeight}",
             "className" : "feature"
          },
-         "compress" : 1,
-         "urlTemplate" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/WormBase/c_elegans_PRJNA13758/tracks/All Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "tracks/All Genes/{refseq}/trackData.jsonz",
          "type" : "CanvasFeatures",
          "key" : "All Genes"
       }
