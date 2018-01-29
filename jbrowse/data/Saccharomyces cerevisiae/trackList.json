@@ -9,7 +9,7 @@
    ],
    "formatVersion" : 1,
    "names" : {
-      "url" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/SGD/yeast/names/",
+      "url" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/SGD/yeast/names/",
       "type" : "Hash"
    },
    "tracks" : [
@@ -17,7 +17,7 @@
          "type" : "SequenceTrack",
          "key" : "Reference sequence",
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
-         "urlTemplate" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/SGD/yeast/seq/{refseq_dirpath}/{refseq}-",
+         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/SGD/yeast/seq/{refseq_dirpath}/{refseq}-",
          "label" : "DNA",
          "compress" : 1,
          "chunkSize" : 80000
@@ -46,7 +46,7 @@
          "key" : "All Genes",
          "maxHeight" : 3000,
          "compress" : 1,
-         "urlTemplate" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/SGD/yeast/tracks/All Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/SGD/yeast/tracks/All Genes/{refseq}/trackData.jsonz",
          "fmtDetailValue_Name" : "function(name, feature) {if(feature.get('type')=='gene') {return '<a href=\"http://www.yeastgenome.org/locus/'+name+'/overview\">'+name+'</a>';} else { return name;}}"
       }
    ],
