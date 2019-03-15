@@ -16,6 +16,7 @@
       },
       {
          "label" : "All_Genes",
+         "maxHeight" : 3000,
          "trackType" : "CanvasFeatures",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "glyph" : "{geneGlyph}",
