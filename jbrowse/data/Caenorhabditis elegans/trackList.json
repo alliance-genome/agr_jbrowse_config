@@ -15,7 +15,8 @@
          "chunkSize" : 80000
       },
       {
-         "label" : "All Genes",
+         "label" : "All_Genes",
+         "maxHeight" : 3000,
          "trackType" : "CanvasFeatures",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "glyph" : "{geneGlyph}",
@@ -36,6 +37,25 @@
          "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/WormBase/c_elegans_PRJNA13758/tracks/All Genes/{refseq}/trackData.jsonz",
          "type" : "CanvasFeatures",
          "key" : "All Genes"
+      },
+      {
+         "chunkSizeLimit" : 5000000,
+	 "unsafeMouseover" : true,
+	 "unsafePopup" : true,
+	 "style" : {
+             "label" : "{variationLabel}"
+         },
+	 "onClick" : {
+            "label" : "{variantsBalloon}",
+            "url" : "{variationCurieUrl}",
+            "title" : "Put a title here",
+            "action" : "iframeDialog"
+         },
+         "label" : "Phenotypic Variants",
+         "type" : "CanvasVariants",
+         "urlTemplate" : "WBcel235-2.2.0.vcf.gz",
+         "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
+         "key" : "Phenotypic Variants"
       }
    ],
    "dataset_id" : "worm",
