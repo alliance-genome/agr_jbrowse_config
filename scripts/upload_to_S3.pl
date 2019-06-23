@@ -14,6 +14,8 @@ upload_to_S3.pl - Uploads a set of JBrowse track data to an AWS S3 bucket
                     --local <path> --remote <path> \
                    [--notcompressed]
                    [--cors]
+                   [--skipseq]
+                   [--profile]
 
 =head1 AUTHOR
 
@@ -39,7 +41,7 @@ it under the same terms as Perl itself.
 
 ###TODO add a noindex option to not create the index.html file and not set website (because it's already been done presumably).
 
-my ($AWS, $BUCKET, $LOCAL, $REMOTE, $NOTCOMPRESSED, $CORS,$CREATE);
+my ($AWS, $BUCKET, $LOCAL, $REMOTE, $NOTCOMPRESSED, $CORS,$CREATE,$PROFILE,$SKIPSEQ);
 
 GetOptions(
     'aws=s'         => \$AWS,
@@ -48,12 +50,18 @@ GetOptions(
     'remote=s'      => \$REMOTE,
     'notcompressed' => \$NOTCOMPRESSED,
     'cors'          => \$CORS,
-    'create'        => \$CREATE
+    'create'        => \$CREATE,
+    'profile=s'     => \$PROFILE,
+    'skipseq'       => \$SKIPSEQ
 ) or ( system( 'pod2text', $0 ), exit -1 );
 
 $AWS    ||= '/home/scain/scain/bin/aws';
-$BUCKET ||= 'agrjbrowsestatic2';
+$BUCKET ||= 'agrjbrowse2';
 ($LOCAL && $REMOTE) or die 'need to supply --local and --remote options';
+
+if ($PROFILE) {
+    $AWS = "$AWS --profile $PROFILE ";
+}
 
 my $REMOTEPATH = "s3://$BUCKET/$REMOTE";
 
@@ -77,7 +85,10 @@ system("$AWS s3 cp $gzip --recursive --acl public-read names/ $REMOTEPATH/names/
 system("$AWS s3 cp --acl public-read names/meta.json $REMOTEPATH/names/meta.json");
 
 #transfer seq
-system("$AWS s3 cp --recursive --acl public-read seq/ $REMOTEPATH/seq/");
+unless ($SKIPSEQ) {
+    system("$AWS s3 cp $gzip --recursive --acl public-read seq/ $REMOTEPATH/seq/");
+    system("$AWS s3 cp --acl public-read seq/refSeqs.json $REMOTEPATH/seq/refSeqs.json");
+}
 
 #create bogus index.html, set website and optionally CORS
 open(INDEX, ">", "/tmp/index.html") or die;
