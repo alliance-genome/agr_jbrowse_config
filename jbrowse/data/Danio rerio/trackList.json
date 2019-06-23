@@ -39,6 +39,25 @@
          "type" : "CanvasFeatures",
          "label" : "All Genes",
          "maxHeight" : 3000
+      },
+      {
+         "chunkSizeLimit" : 5000000,
+         "unsafeMouseover" : true,
+         "unsafePopup" : true,
+         "style" : {
+             "label" : "{variationLabel}"
+         },
+         "onClick" : {
+            "label" : "{variantsBalloon}",
+            "url" : "{variationCurieUrl}",
+            "title" : "Put a title here",
+            "action" : "iframeDialog"
+         },
+         "label" : "Phenotypic Variants",
+         "type" : "CanvasVariants",
+         "urlTemplate" : "GRCz11-2.2.0.vcf.gz",
+         "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
+         "key" : "Phenotypic Variants"
       }
    ],
    "names" : {
