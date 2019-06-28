@@ -48,6 +48,24 @@
          "compress" : 1,
          "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/SGD/yeast/tracks/All Genes/{refseq}/trackData.jsonz",
          "fmtDetailValue_Name" : "function(name, feature) {if(feature.get('type')=='gene') {return '<a href=\"http://www.yeastgenome.org/locus/'+name+'/overview\">'+name+'</a>';} else { return name;}}"
+      },
+      {
+         "label" : "UCSC Conservation",
+         "variance_band" : 0,
+         "unsafeMouseover" : true,
+         "autoscale" : "local",
+         "type" : "JBrowse/View/Track/Wiggle/XYPlot",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/UCSC/sacCer3.phastCons7way.bw",
+         "unsafePopup" : true,
+         "key" : "UCSC Conservation",
+         "metadata" : {
+            "shortInfo" : "UCSC yeast conservation calculated across 7 species. For more information about these data, see the <a href='http://hgdownload.soe.ucsc.edu/goldenPath/sacCer3/phastCons7way/'>README at UCSC</a>. "
+         },
+         "style" : {
+            "height" : 20,
+            "pos_color"  : "grey"
+         },
+         "storeClass" : "JBrowse/Store/SeqFeature/BigWig"
       }
    ],
    "dataset_id" : "yeast",
