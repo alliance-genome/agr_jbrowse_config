@@ -56,6 +56,24 @@
          "urlTemplate" : "WBcel235-2.2.0.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Phenotypic Variants"
+      },
+      {
+         "label" : "UCSC Conservation",
+         "variance_band" : 0,
+         "unsafeMouseover" : true,
+         "autoscale" : "local",
+         "type" : "JBrowse/View/Track/Wiggle/XYPlot",
+         "urlTemplate" : "https://s3.amazonaws.com/wormbase-modencode/UCSC/ce11.phastCons26way.bw",
+         "unsafePopup" : true,
+         "key" : "UCSC Conservation",
+         "metadata" : {
+            "shortInfo" : "UCSC Nematode conservation calculated across nematode 26 species. For more information about these data, see the <a href='http://hgdownload.soe.ucsc.edu/goldenPath/ce11/phastCons26way/'>README at UCSC</a>. "
+         },
+         "style" : {
+            "height" : 20,
+            "pos_color"  : "grey"
+         },
+         "storeClass" : "JBrowse/Store/SeqFeature/BigWig"
       }
    ],
    "dataset_id" : "worm",
