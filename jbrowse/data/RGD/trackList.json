@@ -8,25 +8,6 @@
    ],
    "tracks" : [
       {
-         "chunkSizeLimit" : 5000000,
-         "unsafeMouseover" : true,
-         "unsafePopup" : true,
-         "style" : {
-             "label" : "{variationLabel}"
-         },
-         "onClick" : {
-            "label" : "{variantsBalloon}",
-            "url" : "{variationCurieUrl}",
-            "title" : "Put a title here",
-            "action" : "iframeDialog"
-         },
-         "label" : "Phenotypic Variants",
-         "type" : "CanvasVariants",
-         "urlTemplate" : "Rnor_6.0-2.2.0.vcf.gz",
-         "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
-         "key" : "Phenotypic Variants"
-      },
-      {
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
          "chunkSize" : 80000,
          "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/RGD/rat/seq/{refseq_dirpath}/{refseq}-",

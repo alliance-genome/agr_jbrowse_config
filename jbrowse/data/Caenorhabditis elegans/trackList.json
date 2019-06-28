@@ -39,25 +39,6 @@
          "key" : "All Genes"
       },
       {
-         "chunkSizeLimit" : 5000000,
-	 "unsafeMouseover" : true,
-	 "unsafePopup" : true,
-	 "style" : {
-             "label" : "{variationLabel}"
-         },
-	 "onClick" : {
-            "label" : "{variantsBalloon}",
-            "url" : "{variationCurieUrl}",
-            "title" : "Put a title here",
-            "action" : "iframeDialog"
-         },
-         "label" : "Phenotypic Variants",
-         "type" : "CanvasVariants",
-         "urlTemplate" : "WBcel235-2.2.0.vcf.gz",
-         "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
-         "key" : "Phenotypic Variants"
-      },
-      {
          "label" : "UCSC Conservation",
          "variance_band" : 0,
          "unsafeMouseover" : true,
