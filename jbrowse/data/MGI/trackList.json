@@ -22,7 +22,7 @@
       {
          "chunkSize" : 80000,
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
-         "urlTemplate" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/MGI/mouse/seq/{refseq_dirpath}/{refseq}-",
+         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/MGI/mouse/seq/{refseq_dirpath}/{refseq}-",
          "type" : "SequenceTrack",
          "label" : "DNA",
          "compress" : 1,
@@ -45,15 +45,33 @@
          "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : "CanvasFeatures",
-         "urlTemplate" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/MGI/mouse/tracks/All%20Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/MGI/mouse/tracks/All%20Genes/{refseq}/trackData.jsonz",
          "compress" : 1,
          "type" : "CanvasFeatures",
          "label" : "All Genes",
          "maxHeight" : 3000
+      },
+            {
+         "label" : "UCSC Conservation",
+         "variance_band" : 0,
+         "unsafeMouseover" : true,
+         "autoscale" : "local",
+         "type" : "JBrowse/View/Track/Wiggle/XYPlot",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/UCSC/mm10.60way.phastCons60wayEuarchontoGlire.bw",
+         "unsafePopup" : true,
+         "key" : "UCSC Conservation",
+         "metadata" : {
+            "shortInfo" : "UCSC mouse conservation calculated across 21 species (Glire and Euarchontoglire, including rat and human). For more information about these data, see the <a href='http://hgdownload.soe.ucsc.edu/goldenPath/mm10/phastCons60way/'>README at UCSC</a>. "
+         },
+         "style" : {
+            "height" : 20,
+            "pos_color"  : "grey"
+         },
+         "storeClass" : "JBrowse/Store/SeqFeature/BigWig"
       }
    ],
    "names" : {
-      "url" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/MGI/mouse/names/",
+      "url" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/MGI/mouse/names/",
       "type" : "Hash"
    },
    "plugins" : [

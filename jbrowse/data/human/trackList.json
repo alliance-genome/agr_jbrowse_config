@@ -10,7 +10,7 @@
       {
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
          "chunkSize" : 80000,
-         "urlTemplate" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/human/seq/{refseq_dirpath}/{refseq}-",
+         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/human/seq/{refseq_dirpath}/{refseq}-",
          "label" : "DNA",
          "compress" : 1,
          "type" : "SequenceTrack",
@@ -34,15 +34,33 @@
          "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : "CanvasFeatures",
-         "urlTemplate" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/human/tracks/All Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/human/tracks/All Genes/{refseq}/trackData.jsonz",
          "compress" : 1,
          "type" : "CanvasFeatures",
          "label" : "All Genes",
          "maxHeight" : 3000
+      },
+      {
+         "label" : "UCSC Conservation",
+         "variance_band" : 0,
+         "unsafeMouseover" : true,
+         "autoscale" : "local",
+         "type" : "JBrowse/View/Track/Wiggle/XYPlot",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/UCSC/hg38.phastCons20way.bw",
+         "unsafePopup" : true,
+         "key" : "UCSC Conservation",
+         "metadata" : {
+            "shortInfo" : "UCSC conservation calculated across 20 species (including mouse and rat). For more information about these data, see the <a href='http://hgdownload.cse.ucsc.edu/goldenPath/hg38/phastCons20way/'>README at UCSC</a>. "
+         },
+         "style" : {
+            "height" : 20,
+            "pos_color"  : "grey"
+         },
+         "storeClass" : "JBrowse/Store/SeqFeature/BigWig"
       }
    ],
    "names" : {
-      "url" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/human/names/",
+      "url" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/human/names/",
       "type" : "Hash"
    },
    "dataset_id" : "human",

@@ -11,7 +11,7 @@
          "chunkSize" : 80000,
          "compress" : 1,
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
-         "urlTemplate" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/zfin/zebrafish/seq/{refseq_dirpath}/{refseq}-",
+         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/zfin/zebrafish/seq/{refseq_dirpath}/{refseq}-",
          "type" : "SequenceTrack",
          "label" : "DNA",
          "key" : "Reference sequence"
@@ -34,7 +34,7 @@
          "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : "CanvasFeatures",
-         "urlTemplate" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/zfin/zebrafish/tracks/All Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/zfin/zebrafish/tracks/All Genes/{refseq}/trackData.jsonz",
          "compress" : 1,
          "type" : "CanvasFeatures",
          "label" : "All Genes",
@@ -61,7 +61,7 @@
       }
    ],
    "names" : {
-      "url" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/zfin/zebrafish/names/",
+      "url" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/zfin/zebrafish/names/",
       "type" : "Hash"
    },
    "dataset_id" : "zebrafish",
