@@ -53,7 +53,7 @@
          },
          "label" : "Phenotypic Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "WBcel235-2.2.0.vcf.gz",
+         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/VCF/WBcel235-2.2.0.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Phenotypic Variants"
       },
