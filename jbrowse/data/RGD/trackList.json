@@ -12,6 +12,7 @@
          "unsafeMouseover" : true,
          "unsafePopup" : true,
          "style" : {
+             "height" : 8,
              "label" : "{variationLabel}"
          },
          "glyph" : "{variationGlyph}",
