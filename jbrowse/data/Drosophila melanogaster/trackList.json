@@ -15,6 +15,7 @@
          "style" : {
              "label" : "{variationLabel}"
          },
+         "glyph" : "{variationGlyph}",
          "onClick" : {
             "label" : "{variantsBalloon}",
             "url" : "{variationCurieUrl}",
