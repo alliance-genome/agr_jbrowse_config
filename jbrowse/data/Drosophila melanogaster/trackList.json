@@ -13,6 +13,7 @@
          "unsafeMouseover" : true,
          "unsafePopup" : true,
          "style" : {
+             "color" : "{variationColor}",
              "height" : 8,
              "label" : "{variationLabel}"
          },
