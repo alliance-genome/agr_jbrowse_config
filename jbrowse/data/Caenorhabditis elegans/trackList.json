@@ -15,7 +15,7 @@
          "chunkSize" : 80000
       },
       {
-         "label" : "All_Genes",
+         "label" : "All Genes",
          "maxHeight" : 3000,
          "trackType" : "CanvasFeatures",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
