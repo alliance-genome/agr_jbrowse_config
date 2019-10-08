@@ -1,7 +1,7 @@
 {
    "names" : {
       "type" : "Hash",
-      "url" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/WormBase/c_elegans_PRJNA13758/names/"
+      "url" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/WormBase/c_elegans_PRJNA13758/names/"
    },
    "tracks" : [
       {
@@ -34,7 +34,7 @@
             "className" : "feature"
          },
          "compress" : 1,
-         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/WormBase/c_elegans_PRJNA13758/tracks/All Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/WormBase/c_elegans_PRJNA13758/tracks/All Genes/{refseq}/trackData.jsonz",
          "type" : "CanvasFeatures",
          "key" : "All Genes"
       },

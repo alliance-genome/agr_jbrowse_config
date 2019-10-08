@@ -56,7 +56,7 @@
          "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : "JBrowse/View/Track/CanvasFeatures",
-         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/RGD/rat/tracks/All%20Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/RGD/rat/tracks/All%20Genes/{refseq}/trackData.jsonz",
          "compress" : 1,
          "type" : "CanvasFeatures",
          "label" : "All Genes",
@@ -82,7 +82,7 @@
       }
    ],
    "names" : {
-      "url" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/RGD/rat/names/",
+      "url" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/RGD/rat/names/",
       "type" : "Hash"
    },
    "dataset_id" : "rat",

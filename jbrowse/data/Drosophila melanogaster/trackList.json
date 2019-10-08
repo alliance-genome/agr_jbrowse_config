@@ -4,7 +4,7 @@
       "HideTrackLabels"
    ],
    "names" : {
-      "url" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/FlyBase/fruitfly/names/",
+      "url" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/FlyBase/fruitfly/names/",
       "type" : "Hash"
    },
    "tracks" : [
@@ -55,7 +55,7 @@
          "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : "CanvasFeatures",
-         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/FlyBase/fruitfly/tracks/All Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "http://agrjbrowse2.s3-website-us-east-1.amazonaws.com/FlyBase/fruitfly/tracks/All Genes/{refseq}/trackData.jsonz",
          "compress" : 1,
          "type" : "CanvasFeatures",
          "label" : "All Genes",
