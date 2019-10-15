@@ -54,11 +54,11 @@
             "title" : "Put a title here",
             "action" : "iframeDialog"
          },
-         "label" : "Phenotypic Variants",
+         "label" : "PhenotypicVariants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "WBcel235-2.3.0.vcf.gz",
+         "urlTemplate" : "raw/WBcel235-2.3.0.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
-         "key" : "Phenotypic Variants"
+         "key" : "PhenotypicVariants"
       },
       {
          "label" : "UCSC Conservation",
