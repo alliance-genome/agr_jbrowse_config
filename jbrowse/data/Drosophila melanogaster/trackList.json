@@ -26,7 +26,6 @@
          },
          "label" : "Phenotypic Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/VCF/R6.29-2.3.0.vcf.gz",
          "urlTemplate" : "tracks/variants/VCF_R6_11.vcf.gz",
          "tbiUrlTemplate" : "tracks/variants/VCF_R6_11.vcf.gz.tbi",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
