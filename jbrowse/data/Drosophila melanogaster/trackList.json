@@ -26,8 +26,8 @@
          },
          "label" : "Phenotypic Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "tracks/variants/VCF_R6_11.vcf.gz",
-         "tbiUrlTemplate" : "tracks/variants/VCF_R6_11.vcf.gz.tbi",
+         "urlTemplate" : "tracks/variants/VCF_latest.vcf.gz",
+         "tbiUrlTemplate" : "tracks/variants/VCF_latest.vcf.gz.tbi",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Phenotypic Variants"
       },
