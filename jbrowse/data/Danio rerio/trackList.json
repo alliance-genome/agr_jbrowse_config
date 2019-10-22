@@ -47,6 +47,7 @@
          "style" : {
              "color" : "{variationColor}",
              "height" : 8,
+	     "description" : "{variationDescription}",
              "label" : "{variationLabel}"
          },
          "glyph" : "{variationGlyph}",
@@ -58,7 +59,7 @@
          },
          "label" : "Phenotypic Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/VCF/GRCz11-2.3.0.vcf.gz",
+         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/VCF/VCF_GRCz11_18.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Phenotypic Variants"
       }

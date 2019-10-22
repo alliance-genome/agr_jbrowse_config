@@ -45,6 +45,7 @@
 	 "style" : {
             "color" : "{variationColor}",
              "height" : 8,
+	     "description" : "{variationDescription}",
              "label" : "{variationLabel}"
          },
          "glyph" : "{variationGlyph}",
@@ -54,9 +55,12 @@
             "title" : "Put a title here",
             "action" : "iframeDialog"
          },
+	 "metadata" : {
+            "about" : "Phenotypic variants. Features are colored according to the Variant Effect Predictor's predicted impact: red for high, purple for modifier, gold/yellow for medium, and cyan for low."
+	 },
          "label" : "Phenotypic Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/VCF/WBcel235-2.3.0.vcf.gz",
+         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/VCF/VCF_WBcel235_16.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Phenotypic Variants"
       },
