@@ -19,7 +19,7 @@
          },
          "label" : "Phenotypic Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/VCF/VCF_GRCm38_17.vcf.gz",
+         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/VCF/VCF_GRCm38_21.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Phenotypic Variants"
       },
