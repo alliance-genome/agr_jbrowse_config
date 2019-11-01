@@ -62,7 +62,7 @@
          "type" : "CanvasVariants",
          "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/VCF/VCF_WBcel235_20.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
-         "key" : "Phenotypic Variants"
+         "key" : "Variants"
       },
       {
          "label" : "UCSC Conservation",
