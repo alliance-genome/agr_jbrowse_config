@@ -18,7 +18,7 @@
          },
          "type" : "CanvasFeatures",
          "label" : "Protein motifs",
-         "urlTemplate" : "https://www.wormbase.org/tools/genome/jbrowse/data/tracks/Protein motifs/{refseq}/trackData.jsonz",
+         "urlTemplate" : "https://www.wormbase.org/tools/genome/jbrowse/data/c_elegans_PRJNA13758/tracks/Protein motifs/{refseq}/trackData.jsonz",
          "unsafePopup" : true,
          "key" : "Protein motifs",
          "subParts" : "polypeptide_motif_part",
