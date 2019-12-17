@@ -9,11 +9,11 @@
       }
    },
    "names" : {
-      "url" : "https://www.wormbase.org/tools/genome/jbrowse/data/c_elegans_PRJNA13758/names/",
+      "url" : "names/",
       "type" : "Hash"
    },
    "include" : [
-      "https://www.wormbase.org/tools/genome/jbrowse/data/functions.conf"
+      "../functions.conf"
    ],
    "dataset_id" : "c_elegans_PRJNA13758",
    "formatVersion" : 1
