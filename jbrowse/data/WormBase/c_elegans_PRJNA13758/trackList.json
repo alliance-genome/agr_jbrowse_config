@@ -9,7 +9,7 @@
       }
    },
    "names" : {
-      "url" : "names/",
+      "url" : "https://www.wormbase.org/tools/genome/jbrowse/data/c_elegans_PRJNA13758/names/",
       "type" : "Hash"
    },
    "include" : [
