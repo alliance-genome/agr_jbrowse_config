@@ -84,7 +84,7 @@
 	 },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/VCF_WBcel235_20.vcf.gz",
+         "urlTemplate" : "/jbrowse/VCF_WBcel235_20.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       },
