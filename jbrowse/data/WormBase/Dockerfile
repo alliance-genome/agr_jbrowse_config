@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN mkdir -p /usr/share/man/man1 /usr/share/man/man7
 
 RUN apt-get -qq update --fix-missing
-RUN apt-get --no-install-recommends -y install curl software-properties-common git build-essential zlib1g-dev libpng-dev perl-doc ca-certificates
+RUN apt-get --no-install-recommends -y install vim curl software-properties-common git build-essential zlib1g-dev libpng-dev perl-doc ca-certificates
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 
@@ -23,13 +23,13 @@ RUN apt-get -y install nodejs
 
 #RUN git clone --single-branch --branch 1.16.6-release https://github.com/GMOD/jbrowse.git
 RUN git clone --single-branch --branch fix_lower_casing_in_name_store https://github.com/GMOD/jbrowse.git
-RUN git clone --single-branch --branch wormbase-ws274 https://github.com/alliance-genome/agr_jbrowse_config.git 
+#RUN git clone --single-branch --branch wormbase-ws274 https://github.com/alliance-genome/agr_jbrowse_config.git 
 #RUN git clone https://github.com/alliance-genome/agr_jbrowse_plugin.git
-RUN git clone --single-branch --branch jbrowse-staging https://github.com/WormBase/website-genome-browsers.git
+RUN git clone --single-branch --branch jbrowse-275 https://github.com/WormBase/website-genome-browsers.git
 RUN git clone --single-branch --branch 1.0 https://github.com/scottcain/MotifSearch.git
 RUN git clone https://github.com/bhofmei/jbplugin-hierarchicalcheckbox.git
 RUN git clone https://github.com/bhofmei/jbplugin-screenshot.git
-RUN git clone https://github.com/cmdcolin/colorbycds.git
+RUN git clone https://github.com/scottcain/colorbycds.git
 RUN git clone https://github.com/cmdcolin/wigglehighlighter.git
 RUN git clone https://github.com/twsaari/FeatureSequence.git
 
@@ -37,9 +37,16 @@ RUN mkdir /usr/share/nginx/html/jbrowse
 RUN mkdir /usr/share/nginx/html/jbrowse-simple
 
 RUN rm /usr/share/nginx/html/index.html && rm /usr/share/nginx/html/50x.html && \
-    cp -r /agr_jbrowse_config/jbrowse/data/WormBase/ /jbrowse/data/ && \
-    cp /website-genome-browsers/jbrowse/jbrowse/data/functions.conf /jbrowse/data/ && \
-    cp /website-genome-browsers/jbrowse/jbrowse/data/organisms.conf /jbrowse/data/ && \
+    cp -r /website-genome-browsers/jbrowse/jbrowse/data /jbrowse/data/ && \
+    cp -r /website-genome-browsers/jbrowse/jbrowse/plugins/RemoveGridOption /jbrowse/plugins && \
+    cp -r /website-genome-browsers/jbrowse/jbrowse/plugins/SwitchTrackSelector /jbrowse/plugins && \
+    cp -r /website-genome-browsers/jbrowse/jbrowse/plugins/wormbase-glyphs /jbrowse/plugins && \
+    cp -r /MotifSearch /jbrowse/plugins && \
+    cp -r /jbplugin-hierarchicalcheckbox /jbrowse/plugins/HierarchicalCheckboxPlugin && \
+    cp -r /jbplugin-screenshot /jbrowse/plugins/ScreenShotPlugin && \
+    cp -r /colorbycds /jbrowse/plugins/ColorByCDS && \
+    cp -r /wigglehighlighter /jbrowse/plugins/WiggleHighlighter && \
+    cp -r /FeatureSequence /jbrowse/plugins/FeatureSequence && \
     cp -r /jbrowse/* /usr/share/nginx/html/jbrowse && \
     cp -r /jbrowse/* /usr/share/nginx/html/jbrowse-simple && \
     cp /website-genome-browsers/jbrowse/jbrowse/jbrowse.conf /usr/share/nginx/html/jbrowse && \
@@ -47,16 +54,7 @@ RUN rm /usr/share/nginx/html/index.html && rm /usr/share/nginx/html/50x.html && 
     rm -rf /usr/share/nginx/html/jbrowse-simple/plugins && \
     ln -s /usr/share/nginx/html/jbrowse/plugins /usr/share/nginx/html/jbrowse-simple/plugins && \
     ln -s /usr/share/nginx/html/jbrowse/index.html /usr/share/nginx/html/jbrowse/full.html && \
-    ln -s /usr/share/nginx/html/jbrowse-simple/index.html /usr/share/nginx/html/jbrowse-simple/full.html && \
-    cp -r /website-genome-browsers/jbrowse/jbrowse/plugins/RemoveGridOption /usr/share/nginx/html/jbrowse/plugins && \
-    cp -r /website-genome-browsers/jbrowse/jbrowse/plugins/SwitchTrackSelector /usr/share/nginx/html/jbrowse/plugins && \
-    cp -r /website-genome-browsers/jbrowse/jbrowse/plugins/wormbase-glyphs /usr/share/nginx/html/jbrowse/plugins && \
-    cp -r /MotifSearch /usr/share/nginx/html/jbrowse/plugins && \
-    cp -r /jbplugin-hierarchicalcheckbox /usr/share/nginx/html/jbrowse/plugins/HierarchicalCheckboxPlugin && \
-    cp -r /jbplugin-screenshot /usr/share/nginx/html/jbrowse/plugins/ScreenShotPlugin && \
-    cp -r /colorbycds /usr/share/nginx/html/jbrowse/plugins/ColorByCDS && \
-    cp -r /wigglehighlighter /usr/share/nginx/html/jbrowse/plugins/WiggleHighlighter && \
-    cp -r /FeatureSequence /usr/share/nginx/html/jbrowse/plugins/FeatureSequence
+    ln -s /usr/share/nginx/html/jbrowse-simple/index.html /usr/share/nginx/html/jbrowse-simple/full.html 
  
 
 
