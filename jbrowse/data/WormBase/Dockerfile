@@ -33,8 +33,8 @@ RUN git clone https://github.com/scottcain/colorbycds.git
 RUN git clone https://github.com/cmdcolin/wigglehighlighter.git
 RUN git clone https://github.com/twsaari/FeatureSequence.git
 
-RUN mkdir /usr/share/nginx/html/jbrowse
-RUN mkdir /usr/share/nginx/html/jbrowse-simple
+RUN mkdir -p /usr/share/nginx/html/tools/genome/jbrowse
+RUN mkdir /usr/share/nginx/html/tools/genome/jbrowse-simple
 
 RUN rm /usr/share/nginx/html/index.html && rm /usr/share/nginx/html/50x.html && \
     cp -r /website-genome-browsers/jbrowse/jbrowse/data /jbrowse/data/ && \
@@ -47,18 +47,18 @@ RUN rm /usr/share/nginx/html/index.html && rm /usr/share/nginx/html/50x.html && 
     cp -r /colorbycds /jbrowse/plugins/ColorByCDS && \
     cp -r /wigglehighlighter /jbrowse/plugins/WiggleHighlighter && \
     cp -r /FeatureSequence /jbrowse/plugins/FeatureSequence && \
-    cp -r /jbrowse/* /usr/share/nginx/html/jbrowse && \
-    cp -r /jbrowse/* /usr/share/nginx/html/jbrowse-simple && \
-    cp /website-genome-browsers/jbrowse/jbrowse/jbrowse.conf /usr/share/nginx/html/jbrowse && \
-    cp /website-genome-browsers/jbrowse/jbrowse/jbrowse-simple.conf /usr/share/nginx/html/jbrowse-simple/jbrowse.conf && \
-    rm -rf /usr/share/nginx/html/jbrowse-simple/plugins && \
-    ln -s /usr/share/nginx/html/jbrowse/plugins /usr/share/nginx/html/jbrowse-simple/plugins && \
-    ln -s /usr/share/nginx/html/jbrowse/index.html /usr/share/nginx/html/jbrowse/full.html && \
-    ln -s /usr/share/nginx/html/jbrowse-simple/index.html /usr/share/nginx/html/jbrowse-simple/full.html 
+    cp -r /jbrowse/* /usr/share/nginx/html/tools/genome/jbrowse && \
+    cp -r /jbrowse/* /usr/share/nginx/html/tools/genome/jbrowse-simple && \
+    cp /website-genome-browsers/jbrowse/jbrowse/jbrowse.conf /usr/share/nginx/html/tools/genome/jbrowse && \
+    cp /website-genome-browsers/jbrowse/jbrowse/jbrowse-simple.conf /usr/share/nginx/html/tools/genome/jbrowse-simple/jbrowse.conf && \
+    rm -rf /usr/share/nginx/html/tools/genome/jbrowse-simple/plugins && \
+    ln -s /usr/share/nginx/html/tools/genome/jbrowse/plugins /usr/share/nginx/html/tools/genome/jbrowse-simple/plugins && \
+    ln -s /usr/share/nginx/html/tools/genome/jbrowse/index.html /usr/share/nginx/html/tools/genome/jbrowse/full.html && \
+    ln -s /usr/share/nginx/html/tools/genome/jbrowse-simple/index.html /usr/share/nginx/html/tools/genome/jbrowse-simple/full.html 
  
 
 
-WORKDIR /usr/share/nginx/html/jbrowse
+WORKDIR /usr/share/nginx/html/tools/genome/jbrowse
 
 #RUN npm install yarn
 #RUN ./node_modules/.bin/yarn
@@ -66,7 +66,7 @@ WORKDIR /usr/share/nginx/html/jbrowse
 
 RUN ./setup.sh
 
-RUN cp -r /usr/share/nginx/html/jbrowse/dist /usr/share/nginx/html/jbrowse-simple/dist/
+RUN cp -r /usr/share/nginx/html/tools/genome/jbrowse/dist /usr/share/nginx/html/tools/genome/jbrowse-simple/dist/
 
 VOLUME /data
 COPY docker-entrypoint.sh /
