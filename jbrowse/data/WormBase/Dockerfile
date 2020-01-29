@@ -1,6 +1,9 @@
 # JBrowse
 #this should really use the jbrowse dockerfile used for the Alliance and I'm sure it will be refactored to do so after it's completely working
-FROM nginx:latest
+FROM nginx:latest as linux
+
+ARG RELEASE=275
+
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN mkdir -p /usr/share/man/man1 /usr/share/man/man7
@@ -22,10 +25,10 @@ RUN apt-get -y install nodejs
 #RUN conda install -y --override-channels --channel iuc --channel conda-forge --channel bioconda --channel defaults jbrowse=1.16.6
 
 #RUN git clone --single-branch --branch 1.16.6-release https://github.com/GMOD/jbrowse.git
-RUN git clone --single-branch --branch fix_lower_casing_in_name_store https://github.com/GMOD/jbrowse.git
+RUN git clone --single-branch --branch 1.16.7-release https://github.com/GMOD/jbrowse.git
 #RUN git clone --single-branch --branch wormbase-ws274 https://github.com/alliance-genome/agr_jbrowse_config.git 
 #RUN git clone https://github.com/alliance-genome/agr_jbrowse_plugin.git
-RUN git clone --single-branch --branch jbrowse-275 https://github.com/WormBase/website-genome-browsers.git
+RUN git clone --single-branch --branch jbrowse-${RELEASE} https://github.com/WormBase/website-genome-browsers.git
 RUN git clone --single-branch --branch 1.0 https://github.com/scottcain/MotifSearch.git
 RUN git clone https://github.com/bhofmei/jbplugin-hierarchicalcheckbox.git
 RUN git clone https://github.com/bhofmei/jbplugin-screenshot.git
@@ -67,6 +70,11 @@ WORKDIR /usr/share/nginx/html/tools/genome/jbrowse
 RUN ./setup.sh
 
 RUN cp -r /usr/share/nginx/html/tools/genome/jbrowse/dist /usr/share/nginx/html/tools/genome/jbrowse-simple/dist/
+
+FROM nginx:latest as production
+COPY --from=linux /usr/share/nginx/html/tools/genome/ /usr/share/nginx/html/tools/genome/
+
+
 
 VOLUME /data
 COPY docker-entrypoint.sh /
