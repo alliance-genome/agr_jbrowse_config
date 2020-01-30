@@ -51,15 +51,16 @@ RUN rm /usr/share/nginx/html/index.html && rm /usr/share/nginx/html/50x.html && 
     cp -r /wigglehighlighter /jbrowse/plugins/WiggleHighlighter && \
     cp -r /FeatureSequence /jbrowse/plugins/FeatureSequence && \
     cp -r /jbrowse/* /usr/share/nginx/html/tools/genome/jbrowse && \
-    cp -r /jbrowse/* /usr/share/nginx/html/tools/genome/jbrowse-simple && \
-    cp /website-genome-browsers/jbrowse/jbrowse/jbrowse.conf /usr/share/nginx/html/tools/genome/jbrowse && \
-    cp /website-genome-browsers/jbrowse/jbrowse/jbrowse-simple.conf /usr/share/nginx/html/tools/genome/jbrowse-simple/jbrowse.conf && \
-    rm -rf /usr/share/nginx/html/tools/genome/jbrowse-simple/plugins && \
-    ln -s /usr/share/nginx/html/tools/genome/jbrowse/plugins /usr/share/nginx/html/tools/genome/jbrowse-simple/plugins && \
     ln -s /usr/share/nginx/html/tools/genome/jbrowse/index.html /usr/share/nginx/html/tools/genome/jbrowse/full.html && \
-    ln -s /usr/share/nginx/html/tools/genome/jbrowse-simple/index.html /usr/share/nginx/html/tools/genome/jbrowse-simple/full.html 
- 
+    cp /website-genome-browsers/jbrowse/jbrowse/jbrowse-simple.conf /usr/share/nginx/html/tools/genome/jbrowse-simple/jbrowse.conf
+    
 
+
+
+#    ln -s /usr/share/nginx/html/tools/genome/jbrowse/plugins /usr/share/nginx/html/tools/genome/jbrowse-simple/plugins && \
+#    ln -s /usr/share/nginx/html/tools/genome/jbrowse-simple/index.html /usr/share/nginx/html/tools/genome/jbrowse-simple/full.html 
+ 
+#    cp /website-genome-browsers/jbrowse/jbrowse/jbrowse-simple.conf /usr/share/nginx/html/tools/genome/jbrowse-simple/jbrowse.conf && \
 
 WORKDIR /usr/share/nginx/html/tools/genome/jbrowse
 
@@ -69,11 +70,32 @@ WORKDIR /usr/share/nginx/html/tools/genome/jbrowse
 
 RUN ./setup.sh
 
-RUN cp -r /usr/share/nginx/html/tools/genome/jbrowse/dist /usr/share/nginx/html/tools/genome/jbrowse-simple/dist/
 
 FROM nginx:latest as production
-COPY --from=linux /usr/share/nginx/html/tools/genome/ /usr/share/nginx/html/tools/genome/
+COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse/dist /usr/share/nginx/html/tools/genome/jbrowse/dist
+COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse/browser /usr/share/nginx/html/tools/genome/jbrowse/browser
+COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse/css /usr/share/nginx/html/tools/genome/jbrowse/css
+COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse/data /usr/share/nginx/html/tools/genome/jbrowse/data
+COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse/full.html /usr/share/nginx/html/tools/genome/jbrowse/full.html
+COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse/img /usr/share/nginx/html/tools/genome/jbrowse/img
+COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse/index.html /usr/share/nginx/html/tools/genome/jbrowse/index.html
+COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse/jbrowse_conf.json /usr/share/nginx/html/tools/genome/jbrowse/jbrowse_conf.json
+COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse/jbrowse.conf /usr/share/nginx/html/tools/genome/jbrowse/jbrowse.conf
+COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse/LICENSE /usr/share/nginx/html/tools/genome/jbrowse/LICENSE
+COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse/plugins /usr/share/nginx/html/tools/genome/jbrowse/plugins
+COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse-simple/jbrowse.conf /usr/share/nginx/html/tools/genome/jbrowse-simple/jbrowse.conf
 
+#the "jbrowse-simple" stuff is required to make the SwitchTrackSelector plugin work
+RUN ln -s /usr/share/nginx/html/tools/genome/jbrowse/dist /usr/share/nginx/html/tools/genome/jbrowse-simple/dist && \
+    ln -s /usr/share/nginx/html/tools/genome/jbrowse/browser /usr/share/nginx/html/tools/genome/jbrowse-simple/browser && \
+    ln -s /usr/share/nginx/html/tools/genome/jbrowse/css /usr/share/nginx/html/tools/genome/jbrowse-simple/css && \
+    ln -s /usr/share/nginx/html/tools/genome/jbrowse/data /usr/share/nginx/html/tools/genome/jbrowse-simple/data && \
+    ln -s /usr/share/nginx/html/tools/genome/jbrowse/full.html /usr/share/nginx/html/tools/genome/jbrowse-simple/full.html && \
+    ln -s /usr/share/nginx/html/tools/genome/jbrowse/img /usr/share/nginx/html/tools/genome/jbrowse-simple/img && \
+    ln -s /usr/share/nginx/html/tools/genome/jbrowse/index.html /usr/share/nginx/html/tools/genome/jbrowse-simple/index.html && \
+    ln -s /usr/share/nginx/html/tools/genome/jbrowse/jbrowse_conf.json /usr/share/nginx/html/tools/genome/jbrowse-simple/jbrowse_conf.json && \
+    ln -s /usr/share/nginx/html/tools/genome/jbrowse/LICENSE /usr/share/nginx/html/tools/genome/jbrowse-simple/LICENSE && \
+    ln -s /usr/share/nginx/html/tools/genome/jbrowse/plugins /usr/share/nginx/html/tools/genome/jbrowse-simple/plugins
 
 
 VOLUME /data
