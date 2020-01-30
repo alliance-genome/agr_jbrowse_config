@@ -91,6 +91,7 @@ COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse/jbrowse_conf.json /
 COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse/jbrowse.conf /usr/share/nginx/html/tools/genome/jbrowse/jbrowse.conf
 COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse/LICENSE /usr/share/nginx/html/tools/genome/jbrowse/LICENSE
 COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse/plugins /usr/share/nginx/html/tools/genome/jbrowse/plugins
+COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse/site.webmanifest /usr/share/nginx/html/tools/genome/jbrowse/site.webmanifest
 COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse-simple/jbrowse.conf /usr/share/nginx/html/tools/genome/jbrowse-simple/jbrowse.conf
 
 #the "jbrowse-simple" stuff is required to make the SwitchTrackSelector plugin work
@@ -103,7 +104,8 @@ RUN ln -s /usr/share/nginx/html/tools/genome/jbrowse/dist /usr/share/nginx/html/
     ln -s /usr/share/nginx/html/tools/genome/jbrowse/index.html /usr/share/nginx/html/tools/genome/jbrowse-simple/index.html && \
     ln -s /usr/share/nginx/html/tools/genome/jbrowse/jbrowse_conf.json /usr/share/nginx/html/tools/genome/jbrowse-simple/jbrowse_conf.json && \
     ln -s /usr/share/nginx/html/tools/genome/jbrowse/LICENSE /usr/share/nginx/html/tools/genome/jbrowse-simple/LICENSE && \
-    ln -s /usr/share/nginx/html/tools/genome/jbrowse/plugins /usr/share/nginx/html/tools/genome/jbrowse-simple/plugins
+    ln -s /usr/share/nginx/html/tools/genome/jbrowse/plugins /usr/share/nginx/html/tools/genome/jbrowse-simple/plugins && \
+    ln -s /usr/share/nginx/html/tools/genome/jbrowse/site.webmanifest /usr/share/nginx/html/tools/genome/jbrowse-simple/site.webmanifest
 
 
 VOLUME /data
