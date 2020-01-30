@@ -7,7 +7,6 @@
 # and it uses multistage builds, so after the build is done, the first image can be deleted and the second, usually much
 # smaller (200MB or so) can be used for production
 
-#this should really use the jbrowse dockerfile used for the Alliance and I'm sure it will be refactored to do so after it's completely working
 FROM nginx:latest as linux
 
 ARG RELEASE=275
@@ -23,15 +22,7 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 
 RUN apt-get -y install nodejs
 
-#RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.6.14-Linux-x86_64.sh -O ~/miniconda.sh && \
-#    /bin/bash ~/miniconda.sh -b -p /conda/ && \
-#    rm ~/miniconda.sh
-
-#ENV PATH="/conda/bin:${PATH}"
-
-#this probably isn't jbrowse-dev, so no adding plugins
-#RUN conda install -y --override-channels --channel iuc --channel conda-forge --channel bioconda --channel defaults jbrowse=1.16.6
-
+# JBrowse source
 RUN git clone --single-branch --branch 1.16.7-release https://github.com/GMOD/jbrowse.git
 
 #this pulls in several things:
@@ -80,14 +71,6 @@ RUN rm /usr/share/nginx/html/index.html && rm /usr/share/nginx/html/50x.html && 
     ln -s /usr/share/nginx/html/tools/genome/jbrowse/index.html /usr/share/nginx/html/tools/genome/jbrowse/full.html && \
     cp /website-genome-browsers/jbrowse/jbrowse/jbrowse-simple.conf /usr/share/nginx/html/tools/genome/jbrowse-simple/jbrowse.conf
     
-
-
-
-#    ln -s /usr/share/nginx/html/tools/genome/jbrowse/plugins /usr/share/nginx/html/tools/genome/jbrowse-simple/plugins && \
-#    ln -s /usr/share/nginx/html/tools/genome/jbrowse-simple/index.html /usr/share/nginx/html/tools/genome/jbrowse-simple/full.html 
- 
-#    cp /website-genome-browsers/jbrowse/jbrowse/jbrowse-simple.conf /usr/share/nginx/html/tools/genome/jbrowse-simple/jbrowse.conf && \
-
 WORKDIR /usr/share/nginx/html/tools/genome/jbrowse
 
 #RUN npm install yarn
