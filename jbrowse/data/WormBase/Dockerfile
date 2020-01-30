@@ -32,16 +32,34 @@ RUN apt-get -y install nodejs
 #this probably isn't jbrowse-dev, so no adding plugins
 #RUN conda install -y --override-channels --channel iuc --channel conda-forge --channel bioconda --channel defaults jbrowse=1.16.6
 
-#RUN git clone --single-branch --branch 1.16.6-release https://github.com/GMOD/jbrowse.git
 RUN git clone --single-branch --branch 1.16.7-release https://github.com/GMOD/jbrowse.git
-#RUN git clone --single-branch --branch wormbase-ws274 https://github.com/alliance-genome/agr_jbrowse_config.git 
-#RUN git clone https://github.com/alliance-genome/agr_jbrowse_plugin.git
+
+#this pulls in several things:
+#  * the config files for all of the species
+#  * two include files (one with functions and one that contains the species locations for jbrowse.conf
+#  * the jbrowse.conf files for both jbrowse and jbrowse-simple
+#  * Three plugins:
+#    * SwitchTrackSelector - provides a button to switch between faceted and hierarchical selectors
+#    * RemoveGridOption    - provides a menu item to remove the background grid lines
+#    * wormbase-glyphs     - provides some glyphs and places a logo in the page
 RUN git clone --single-branch --branch jbrowse-${RELEASE} https://github.com/WormBase/website-genome-browsers.git
+
+# Provides the PWM motif search plugin
 RUN git clone --single-branch --branch 1.0 https://github.com/scottcain/MotifSearch.git
+
+# Provides the all on/off checkboxes in the hierarchical selector
 RUN git clone https://github.com/bhofmei/jbplugin-hierarchicalcheckbox.git
+
+# Provides the phantomJS powered screenshot plugin
 RUN git clone https://github.com/bhofmei/jbplugin-screenshot.git
+
+# Provides the "usage by frame" plugin with WB specific colors
 RUN git clone https://github.com/scottcain/colorbycds.git
+
+# Provides the vistaplot-like glyph that takes a bigbed file to highlight peak calls in a BigWig
 RUN git clone https://github.com/cmdcolin/wigglehighlighter.git
+
+# Provides the View Sequence right click menu option
 RUN git clone https://github.com/twsaari/FeatureSequence.git
 
 RUN mkdir -p /usr/share/nginx/html/tools/genome/jbrowse
