@@ -1,4 +1,12 @@
 # JBrowse
+
+#this docker file uses a build arg to indicate the release version, so the typical command to build is
+
+#   docker build --no-cache -t wb_jbrowse  WormBase/ --build-arg RELEASE=275
+
+# and it uses multistage builds, so after the build is done, the first image can be deleted and the second, usually much
+# smaller (200MB or so) can be used for production
+
 #this should really use the jbrowse dockerfile used for the Alliance and I'm sure it will be refactored to do so after it's completely working
 FROM nginx:latest as linux
 
