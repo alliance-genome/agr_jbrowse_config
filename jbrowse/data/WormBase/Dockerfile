@@ -42,7 +42,7 @@ RUN git clone --single-branch --branch 1.0 https://github.com/scottcain/MotifSea
 RUN git clone https://github.com/bhofmei/jbplugin-hierarchicalcheckbox.git
 
 # Provides the phantomJS powered screenshot plugin
-RUN git clone https://github.com/bhofmei/jbplugin-screenshot.git
+RUN git clone https://github.com/WormBase/jbplugin-screenshot.git
 
 # Provides the "usage by frame" plugin with WB specific colors
 RUN git clone https://github.com/scottcain/colorbycds.git
@@ -68,6 +68,7 @@ RUN rm /usr/share/nginx/html/index.html && rm /usr/share/nginx/html/50x.html && 
     cp -r /wigglehighlighter /jbrowse/plugins/WiggleHighlighter && \
     cp -r /FeatureSequence /jbrowse/plugins/FeatureSequence && \
     cp -r /jbrowse/* /usr/share/nginx/html/tools/genome/jbrowse && \
+    cp -r /jbrowse/.htaccess /usr/share/nginx/html/tools/genome/jbrowse/.htaccess && \
     ln -s /usr/share/nginx/html/tools/genome/jbrowse/index.html /usr/share/nginx/html/tools/genome/jbrowse/full.html && \
     cp /website-genome-browsers/jbrowse/jbrowse/jbrowse-simple.conf /usr/share/nginx/html/tools/genome/jbrowse-simple/jbrowse.conf
     
@@ -93,6 +94,7 @@ COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse/jbrowse.conf /usr/s
 COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse/LICENSE /usr/share/nginx/html/tools/genome/jbrowse/LICENSE
 COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse/plugins /usr/share/nginx/html/tools/genome/jbrowse/plugins
 COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse/site.webmanifest /usr/share/nginx/html/tools/genome/jbrowse/site.webmanifest
+COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse/.htaccess /usr/share/nginx/html/tools/genome/jbrowse/.htaccess
 COPY --from=linux /usr/share/nginx/html/tools/genome/jbrowse-simple/jbrowse.conf /usr/share/nginx/html/tools/genome/jbrowse-simple/jbrowse.conf
 
 #the "jbrowse-simple" stuff is required to make the SwitchTrackSelector plugin work
@@ -106,7 +108,8 @@ RUN ln -s /usr/share/nginx/html/tools/genome/jbrowse/dist /usr/share/nginx/html/
     ln -s /usr/share/nginx/html/tools/genome/jbrowse/jbrowse_conf.json /usr/share/nginx/html/tools/genome/jbrowse-simple/jbrowse_conf.json && \
     ln -s /usr/share/nginx/html/tools/genome/jbrowse/LICENSE /usr/share/nginx/html/tools/genome/jbrowse-simple/LICENSE && \
     ln -s /usr/share/nginx/html/tools/genome/jbrowse/plugins /usr/share/nginx/html/tools/genome/jbrowse-simple/plugins && \
-    ln -s /usr/share/nginx/html/tools/genome/jbrowse/site.webmanifest /usr/share/nginx/html/tools/genome/jbrowse-simple/site.webmanifest
+    ln -s /usr/share/nginx/html/tools/genome/jbrowse/site.webmanifest /usr/share/nginx/html/tools/genome/jbrowse-simple/site.webmanifest && \
+    ln -s /usr/share/nginx/html/tools/genome/jbrowse/.htaccess /usr/share/nginx/html/tools/genome/jbrowse-simple/.htaccess
 
 
 VOLUME /data
