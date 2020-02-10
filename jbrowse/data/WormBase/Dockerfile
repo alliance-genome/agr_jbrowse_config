@@ -23,7 +23,7 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get -y install nodejs
 
 # JBrowse source
-RUN git clone --single-branch --branch 1.16.7-release https://github.com/GMOD/jbrowse.git
+RUN git clone --single-branch --branch 1.16.8-release https://github.com/GMOD/jbrowse.git
 
 #this pulls in several things:
 #  * the config files for all of the species
