@@ -1,7 +1,7 @@
 {
    "names" : {
       "type" : "Hash",
-      "url" : "https://s3.amazonaws.com/agrjbrowse2/WormBase/c_elegans_PRJNA13758/names/"
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0/WormBase/c_elegans_PRJNA13758/names/"
    },
    "tracks" : [
      {
@@ -26,7 +26,7 @@
          "maxExportSpan" : 50000000,
          "glyph" : "JBrowse/View/FeatureGlyph/Segments",
          "compress" : 1,
-         "unsafeMouseover" : true,
+         "unsafeMouseover" : true
       },
       {
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
@@ -58,7 +58,7 @@
             "className" : "feature"
          },
          "compress" : 1,
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse2/WormBase/c_elegans_PRJNA13758/tracks/All Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0/WormBase/c_elegans_PRJNA13758/tracks/All Genes/{refseq}/trackData.jsonz",
          "type" : "CanvasFeatures",
          "key" : "All Genes"
       },
