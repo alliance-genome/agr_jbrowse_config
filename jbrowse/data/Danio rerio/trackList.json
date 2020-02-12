@@ -68,7 +68,7 @@
       }
    ],
    "names" : {
-      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/zfin/zebrafish/names/",
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/zfin/zebrafish-11/names/",
       "type" : "Hash"
    },
    "dataset_id" : "zebrafish",
