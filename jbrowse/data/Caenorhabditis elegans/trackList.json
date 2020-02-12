@@ -1,33 +1,9 @@
 {
    "names" : {
       "type" : "Hash",
-      "url" : "https://s3.amazonaws.com/agrjbrowse2/WormBase/c_elegans_PRJNA13758/names/"
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/WormBase/c_elegans_PRJNA13758/names/"
    },
    "tracks" : [
-     {
-         "trackType" : "CanvasFeatures",
-         "style" : {
-            "className" : "feature",
-            "label" : "function(f) {var type =  f.get('Note'); if (typeof type ==='undefined') {return ' ';} return type;}",
-            "height" : 7,
-            "color" : "function(f) {var type =  f._parent.get('predictiontype'); if (type == 'tmhmm') {return 'magenta';} if (type == 'seg') {return 'lightseagreen';} if (type == 'signalp') {return 'aquamarine'} if (type == 'ncoils') {return 'chartreuse';} if (type == 'pfam') {return 'lightsalmon';} return 'purple'; }",
-            "description" : "function(f) {var aa_range = f.get('range'); var exons = f.get('exons'); var label = f.get('predictiontype'); if (aa_range) {label = label + '; amino acids: '+aa_range;} if (exons) {label = label + '; exons: '+exons;} if(label) {return label;} return 'No prediction type provided';}"
-         },
-         "metadata" : {
-            "shortInfo" : "This track shows the extent of predicted protein motifs. Note these spans correspond to amino acid coordinates interpolated onto the physical map.  Included are signal peptide (signalp), coiled coil (ncoils) and transmembrane (tmhmm) domains, regions of low complexity (seg), and Pfam annotated motif homologies."
-         },
-         "type" : "CanvasFeatures",
-         "label" : "Protein motifs",
-         "urlTemplate" : "https://www.wormbase.org/tools/genome/jbrowse/data/c_elegans_PRJNA13758/tracks/Protein motifs/{refseq}/trackData.jsonz",
-         "unsafePopup" : true,
-         "key" : "Protein motifs",
-         "subParts" : "polypeptide_motif_part",
-         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
-         "maxExportSpan" : 50000000,
-         "glyph" : "JBrowse/View/FeatureGlyph/Segments",
-         "compress" : 1,
-         "unsafeMouseover" : true,
-      },
       {
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
          "key" : "Reference sequence",
@@ -58,7 +34,7 @@
             "className" : "feature"
          },
          "compress" : 1,
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse2/WormBase/c_elegans_PRJNA13758/tracks/All Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/WormBase/c_elegans_PRJNA13758/tracks/All Genes/{refseq}/trackData.jsonz",
          "type" : "CanvasFeatures",
          "key" : "All Genes"
       },
