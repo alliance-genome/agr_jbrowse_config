@@ -37,5 +37,5 @@ wget -P ../jbrowse/data/MGI/$JBROWSE https://s3.amazonaws.com/agrjbrowse/VCF/$MO
 wget -P ../jbrowse/data/MGI/$JBROWSE https://s3.amazonaws.com/agrjbrowse/VCF/$MOUSEVCF.tbi
 
 wget -P ../jbrowse/data/RGD/$JBROWSE https://s3.amazonaws.com/agrjbrowse/VCF/$RATVCF
-wget -P ../jbrowse/data/RGD/$JBROWSE https://s3.amazonaws.com/agrjbrowse/VCF/$MOUSEVCF.tbi
+wget -P ../jbrowse/data/RGD/$JBROWSE https://s3.amazonaws.com/agrjbrowse/VCF/$RATVCF.tbi
 
