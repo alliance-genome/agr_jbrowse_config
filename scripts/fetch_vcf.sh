@@ -4,7 +4,7 @@
 CONTEXT=$1
 
 WORMVCF="VCF_WBcel235_20.vcf.gz"
-FLYVCF="VCF_R6_20.vcf.gz.tbi"
+FLYVCF="VCF_R6_20.vcf.gz"
 ZEBRAFISHVCF="VCF_GRCz11_22.vcf.gz" 
 MOUSEVCF="VCF_GRCm38_21.vcf.gz"
 RATVCF="VCF_Rnor60_19.vcf.gz"
