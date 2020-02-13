@@ -3,10 +3,9 @@
       "NeatHTMLFeatures",
       "HideTrackLabels"
    ],
-   "names" : {
-      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/FlyBase/fruitfly/names/",
-      "type" : "Hash"
-   },
+   "include" : [
+      "../functions.conf"
+   ],
    "tracks" : [
       {
          "chunkSizeLimit" : 5000000,
@@ -30,17 +29,17 @@
          },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/VCF_R6_20.vcf.gz",
+         "urlTemplate" : "jbrowse/VCF_Rnor60_19.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       },
       {
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
          "chunkSize" : 80000,
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/FlyBase/fruitfly/seq/{refseq_dirpath}/{refseq}-",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/RGD/rat/seq/{refseq_dirpath}/{refseq}-",
          "label" : "DNA",
-         "type" : "SequenceTrack",
          "compress" : 1,
+         "type" : "SequenceTrack",
          "key" : "Reference sequence"
       },
       {
@@ -49,17 +48,19 @@
          "onClick" : {
             "url" : "{curieUrl}",
             "title" : "Click to open in a full window:",
+            "label" : "Feature at AGR",
             "action" : "iframeDialog"
          },
          "style" : {
             "color" : "{geneColor}",
+            "label" : "{geneLabel}",
             "height" : "{geneHeight}",
             "className" : "feature"
          },
          "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
-         "trackType" : "CanvasFeatures",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/FlyBase/fruitfly/tracks/All Genes/{refseq}/trackData.jsonz",
+         "trackType" : "JBrowse/View/Track/CanvasFeatures",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/RGD/rat/tracks/All%20Genes/{refseq}/trackData.jsonz",
          "compress" : 1,
          "type" : "CanvasFeatures",
          "label" : "All Genes",
@@ -71,11 +72,11 @@
          "unsafeMouseover" : true,
          "autoscale" : "local",
          "type" : "JBrowse/View/Track/Wiggle/XYPlot",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/UCSC/dm6.27way.phastCons.bw",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/UCSC/rn6.phastCons20way.bw",
          "unsafePopup" : true,
          "key" : "UCSC Conservation",
          "metadata" : {
-            "shortInfo" : "UCSC drosophilid conservation calculated across 27 species. For more information about these data, see the <a href='http://hgdownload.soe.ucsc.edu/goldenPath/dm6/phastCons27way/'>README at UCSC</a>. "
+            "shortInfo" : "UCSC rat conservation calculated across 20 species (including mouse and human). For more information about these data, see the <a href='http://hgdownload.cse.ucsc.edu/goldenPath/rn6/phastCons20way/'>README at UCSC</a>. "
          },
          "style" : {
             "height" : 20,
@@ -84,9 +85,10 @@
          "storeClass" : "JBrowse/Store/SeqFeature/BigWig"
       }
    ],
-   "include" : [
-      "../functions.conf"
-   ],
-   "dataset_id" : "fly",
+   "names" : {
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/RGD/rat/names/",
+      "type" : "Hash"
+   },
+   "dataset_id" : "rat",
    "formatVersion" : 1
 }

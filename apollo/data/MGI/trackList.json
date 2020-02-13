@@ -1,12 +1,4 @@
 {
-   "plugins" : [
-      "NeatHTMLFeatures",
-      "HideTrackLabels"
-   ],
-   "names" : {
-      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/FlyBase/fruitfly/names/",
-      "type" : "Hash"
-   },
    "tracks" : [
       {
          "chunkSizeLimit" : 5000000,
@@ -30,16 +22,16 @@
          },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/VCF_R6_20.vcf.gz",
+         "urlTemplate" : "jbrowse/VCF_GRCm38_21.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       },
       {
-         "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
          "chunkSize" : 80000,
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/FlyBase/fruitfly/seq/{refseq_dirpath}/{refseq}-",
-         "label" : "DNA",
+         "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/MGI/mouse/seq/{refseq_dirpath}/{refseq}-",
          "type" : "SequenceTrack",
+         "label" : "DNA",
          "compress" : 1,
          "key" : "Reference sequence"
       },
@@ -54,28 +46,29 @@
          "style" : {
             "color" : "{geneColor}",
             "height" : "{geneHeight}",
+            "label" : "function(f) {var curie = f.get('curie'); var name = f.get('Name'); if (curie) {return name + ' (' + curie + ')';} return name;  }",
             "className" : "feature"
          },
          "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : "CanvasFeatures",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/FlyBase/fruitfly/tracks/All Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/MGI/mouse/tracks/All%20Genes/{refseq}/trackData.jsonz",
          "compress" : 1,
          "type" : "CanvasFeatures",
          "label" : "All Genes",
          "maxHeight" : 3000
       },
-      {
+            {
          "label" : "UCSC Conservation",
          "variance_band" : 0,
          "unsafeMouseover" : true,
          "autoscale" : "local",
          "type" : "JBrowse/View/Track/Wiggle/XYPlot",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/UCSC/dm6.27way.phastCons.bw",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/UCSC/mm10.60way.phastCons60wayEuarchontoGlire.bw",
          "unsafePopup" : true,
          "key" : "UCSC Conservation",
          "metadata" : {
-            "shortInfo" : "UCSC drosophilid conservation calculated across 27 species. For more information about these data, see the <a href='http://hgdownload.soe.ucsc.edu/goldenPath/dm6/phastCons27way/'>README at UCSC</a>. "
+            "shortInfo" : "UCSC mouse conservation calculated across 21 species (Glire and Euarchontoglire, including rat and human). For more information about these data, see the <a href='http://hgdownload.soe.ucsc.edu/goldenPath/mm10/phastCons60way/'>README at UCSC</a>. "
          },
          "style" : {
             "height" : 20,
@@ -84,9 +77,17 @@
          "storeClass" : "JBrowse/Store/SeqFeature/BigWig"
       }
    ],
+   "names" : {
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/MGI/mouse/names/",
+      "type" : "Hash"
+   },
+   "plugins" : [
+      "HideTrackLabels"
+   ],
    "include" : [
       "../functions.conf"
    ],
-   "dataset_id" : "fly",
+
+   "dataset_id" : "mouse",
    "formatVersion" : 1
 }
