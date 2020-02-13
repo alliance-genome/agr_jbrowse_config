@@ -1,0 +1,76 @@
+{
+   "plugins" : [
+      "NeatHTMLFeatures",
+      "HideTrackLabels"
+   ],
+   "include" : [
+      "../functions.conf"
+   ],
+   "tracks" : [
+      {
+         "chunkSize" : 80000,
+         "compress" : 1,
+         "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/zfin/zebrafish/seq/{refseq_dirpath}/{refseq}-",
+         "type" : "SequenceTrack",
+         "label" : "DNA",
+         "key" : "Reference sequence"
+      },
+      {
+         "glyph" : "{geneGlyph}",
+         "impliedUTRs" : true,
+         "onClick" : {
+            "url" : "{curieUrl}",
+            "title" : "Click to open in a full window:",
+            "label" : "Feature at AGR",
+            "action" : "iframeDialog"
+         },
+         "style" : {
+            "color" : "{geneColor}",
+            "label" : "function(f) { var type = f.get('type'); if (type == 'gene') { return f.get('gene_id');} return f.get('name'); }",
+            "height" : "{geneHeight}",
+            "className" : "feature"
+         },
+         "key" : "All Genes",
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "trackType" : "CanvasFeatures",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/zfin/zebrafish-11/tracks/All Genes/{refseq}/trackData.jsonz",
+         "compress" : 1,
+         "type" : "CanvasFeatures",
+         "label" : "All Genes",
+         "maxHeight" : 3000
+      },
+      {
+         "chunkSizeLimit" : 5000000,
+         "unsafeMouseover" : true,
+         "unsafePopup" : true,
+         "style" : {
+             "color" : "{variationColor}",
+             "height" : 8,
+	     "description" : "{variationDescription}",
+             "label" : "{variationLabel}"
+         },
+	          "metadata" : {
+         "about" : "Phenotypic variants. Features are colored according to the Variant Effect Predictor's predicted impact: red for high, purple for modifier, gold/yellow for medium, and cyan for low."
+         },
+         "glyph" : "{variationGlyph}",
+         "onClick" : {
+            "label" : "{variantsBalloon}",
+            "url" : "{variationCurieUrl}",
+            "title" : "Put a title here",
+            "action" : "iframeDialog"
+         },
+         "label" : "Variants",
+         "type" : "CanvasVariants",
+         "urlTemplate" : "jbrowse/VCF_GRCz11_22.vcf.gz",
+         "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
+         "key" : "Variants"
+      }
+   ],
+   "names" : {
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/zfin/zebrafish-11/names/",
+      "type" : "Hash"
+   },
+   "dataset_id" : "zebrafish",
+   "formatVersion" : 1
+}

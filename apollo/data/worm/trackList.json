@@ -1,0 +1,95 @@
+{
+   "names" : {
+      "type" : "Hash",
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/WormBase/c_elegans_PRJNA13758/names/"
+   },
+   "tracks" : [
+      {
+         "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
+         "key" : "Reference sequence",
+         "label" : "DNA",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/WormBase/c_elegans_PRJNA13758/seq/{refseq_dirpath}/{refseq}-",
+         "seqType" : "dna",
+         "type" : "SequenceTrack",
+         "compress" : 1,
+         "chunkSize" : 80000
+      },
+      {
+         "label" : "All Genes",
+         "maxHeight" : 3000,
+         "trackType" : "CanvasFeatures",
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "glyph" : "{geneGlyph}",
+         "impliedUTRs" : true,
+         "onClick" : {
+            "url" : "{curieUrl}",
+            "title" : "Click to open in a full window:",
+            "label" : "Feature at AGR",
+            "action" : "iframeDialog"
+         },
+         "style" : {
+            "color" : "{geneColor}",
+            "label" : "{geneLabel}",
+            "height" : "{geneHeight}",
+            "className" : "feature"
+         },
+         "compress" : 1,
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/WormBase/c_elegans_PRJNA13758/tracks/All Genes/{refseq}/trackData.jsonz",
+         "type" : "CanvasFeatures",
+         "key" : "All Genes"
+      },
+      {
+         "chunkSizeLimit" : 5000000,
+	 "unsafeMouseover" : true,
+	 "unsafePopup" : true,
+	 "style" : {
+            "color" : "{variationColor}",
+             "height" : 8,
+	     "description" : "{variationDescription}",
+             "label" : "{variationLabel}"
+         },
+         "glyph" : "{variationGlyph}",
+	 "onClick" : {
+            "label" : "{variantsBalloon}",
+            "url" : "{variationCurieUrl}",
+            "title" : "Put a title here",
+            "action" : "iframeDialog"
+         },
+	 "metadata" : {
+            "about" : "Phenotypic variants. Features are colored according to the Variant Effect Predictor's predicted impact: red for high, purple for modifier, gold/yellow for medium, and cyan for low."
+	 },
+         "label" : "Variants",
+         "type" : "CanvasVariants",
+         "urlTemplate" : "jbrowse/VCF_WBcel235_20.vcf.gz",
+         "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
+         "key" : "Variants"
+      },
+      {
+         "label" : "UCSC Conservation",
+         "variance_band" : 0,
+         "unsafeMouseover" : true,
+         "autoscale" : "local",
+         "type" : "JBrowse/View/Track/Wiggle/XYPlot",
+         "urlTemplate" : "https://s3.amazonaws.com/wormbase-modencode/UCSC/ce11.phastCons26way.bw",
+         "unsafePopup" : true,
+         "key" : "UCSC Conservation",
+         "metadata" : {
+            "shortInfo" : "UCSC Nematode conservation calculated across nematode 26 species. For more information about these data, see the <a href='http://hgdownload.soe.ucsc.edu/goldenPath/ce11/phastCons26way/'>README at UCSC</a>. "
+         },
+         "style" : {
+            "height" : 20,
+            "pos_color"  : "grey"
+         },
+         "storeClass" : "JBrowse/Store/SeqFeature/BigWig"
+      }
+   ],
+   "dataset_id" : "worm",
+   "plugins" : [
+      "NeatHTMLFeatures",
+      "HideTrackLabels"
+   ],
+   "include" : [
+      "../functions.conf"
+   ],
+   "formatVersion" : 1
+}

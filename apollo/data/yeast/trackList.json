@@ -1,0 +1,72 @@
+{
+   "include" : [
+      "../functions.conf"
+   ],
+
+   "plugins" : [
+      "NeatHTMLFeatures",
+      "HideTrackLabels"
+   ],
+   "formatVersion" : 1,
+   "names" : {
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/SGD/yeast/names/",
+      "type" : "Hash"
+   },
+   "tracks" : [
+      {
+         "type" : "SequenceTrack",
+         "key" : "Reference sequence",
+         "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/SGD/yeast/seq/{refseq_dirpath}/{refseq}-",
+         "label" : "DNA",
+         "compress" : 1,
+         "chunkSize" : 80000
+      },
+      {
+         "type" : "CanvasFeatures",
+         "glyph" : "{geneGlyph}",
+         "impliedUTRs" : true,
+         "onClick" : {
+            "url" : "{curieUrl}",
+            "title" : "Click to open in a full window:",
+            "label" : "function() {var note = this.feature.get('Note'); return note;  }",
+            "action" : "iframeDialog"
+         },
+         "style" : {
+            "color" : "{geneColor}",
+            "height" : "{geneHeight}",
+            "label" : "gene,name,id",
+            "className" : "feature",
+            "description" : "display"
+         },
+         "label" : "All Genes",
+         "trackType" : "CanvasFeatures",
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "labelTranscripts" : false,
+         "key" : "All Genes",
+         "maxHeight" : 3000,
+         "compress" : 1,
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/SGD/yeast/tracks/All Genes/{refseq}/trackData.jsonz",
+         "fmtDetailValue_Name" : "function(name, feature) {if(feature.get('type')=='gene') {return '<a href=\"http://www.yeastgenome.org/locus/'+name+'/overview\">'+name+'</a>';} else { return name;}}"
+      },
+      {
+         "label" : "UCSC Conservation",
+         "variance_band" : 0,
+         "unsafeMouseover" : true,
+         "autoscale" : "local",
+         "type" : "JBrowse/View/Track/Wiggle/XYPlot",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/UCSC/sacCer3.phastCons7way.bw",
+         "unsafePopup" : true,
+         "key" : "UCSC Conservation",
+         "metadata" : {
+            "shortInfo" : "UCSC yeast conservation calculated across 7 species. For more information about these data, see the <a href='http://hgdownload.soe.ucsc.edu/goldenPath/sacCer3/phastCons7way/'>README at UCSC</a>. "
+         },
+         "style" : {
+            "height" : 20,
+            "pos_color"  : "grey"
+         },
+         "storeClass" : "JBrowse/Store/SeqFeature/BigWig"
+      }
+   ],
+   "dataset_id" : "yeast",
+}
