@@ -62,7 +62,7 @@
          },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "/jbrowse/data/zebrafish/VCF_GRCz11_22.vcf.gz",
+         "urlTemplate" : "jbrowse/data/zebrafish/VCF_GRCz11_22.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       }
