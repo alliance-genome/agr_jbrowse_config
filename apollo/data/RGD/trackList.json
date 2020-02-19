@@ -29,7 +29,7 @@
          },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/VCF_Rnor60_41.vcf.gz",
+         "urlTemplate" : "jbrowse/VCF_Rnor60_19.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       },
