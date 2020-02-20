@@ -1,9 +1,35 @@
 {
    "tracks" : [
       {
+         "chunkSizeLimit" : 5000000,
+         "unsafeMouseover" : true,
+         "unsafePopup" : true,
+         "style" : {
+             "color" : "{variationColor}",
+             "height" : 8,
+	     "description" : "{variationDescription}",
+             "label" : "{variationLabel}"
+         },
+         "glyph" : "{variationGlyph}",
+	 "metadata" : {
+            "about" : "Phenotypic variants. Features are colored according to the Variant Effect Predictor's predicted impact: red for high, purple for modifier, gold/yellow for medium, and cyan for low."
+         },
+         "onClick" : {
+            "label" : "{variantsBalloon}",
+            "url" : "{variationCurieUrl}",
+            "title" : "Put a title here",
+            "action" : "iframeDialog"
+         },
+         "label" : "Variants",
+         "type" : "CanvasVariants",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/VCF_GRCm38_49.vcf.gz",
+         "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
+         "key" : "Variants"
+      },
+      {
          "chunkSize" : 80000,
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
-         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/MGI/mouse/seq/{refseq_dirpath}/{refseq}-",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/MGI/mouse/seq/{refseq_dirpath}/{refseq}-",
          "type" : "SequenceTrack",
          "label" : "DNA",
          "compress" : 1,
@@ -26,7 +52,7 @@
          "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : "CanvasFeatures",
-         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/MGI/mouse/tracks/All%20Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/MGI/mouse/tracks/All%20Genes/{refseq}/trackData.jsonz",
          "compress" : 1,
          "type" : "CanvasFeatures",
          "label" : "All Genes",
@@ -52,7 +78,7 @@
       }
    ],
    "names" : {
-      "url" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/MGI/mouse/names/",
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/MGI/mouse/names/",
       "type" : "Hash"
    },
    "plugins" : [

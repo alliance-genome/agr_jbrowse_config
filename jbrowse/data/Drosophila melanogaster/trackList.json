@@ -4,14 +4,40 @@
       "HideTrackLabels"
    ],
    "names" : {
-      "url" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/FlyBase/fruitfly/names/",
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/FlyBase/fruitfly/names/",
       "type" : "Hash"
    },
    "tracks" : [
       {
+         "chunkSizeLimit" : 5000000,
+         "unsafeMouseover" : true,
+         "unsafePopup" : true,
+         "style" : {
+             "color" : "{variationColor}",
+             "height" : 8,
+	     "description" : "{variationDescription}",
+             "label" : "{variationLabel}"
+         },
+         "glyph" : "{variationGlyph}",
+	 "metadata" : {
+            "about" : "Phenotypic variants. Features are colored according to the Variant Effect Predictor's predicted impact: red for high, purple for modifier, gold/yellow for medium, and cyan for low."
+         },
+         "onClick" : {
+            "label" : "{variantsBalloon}",
+            "url" : "{variationCurieUrl}",
+            "title" : "Put a title here",
+            "action" : "iframeDialog"
+         },
+         "label" : "Variants",
+         "type" : "CanvasVariants",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/VCF_R6_49.vcf.gz",
+         "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
+         "key" : "Variants"
+      },
+      {
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
          "chunkSize" : 80000,
-         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/FlyBase/fruitfly/seq/{refseq_dirpath}/{refseq}-",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/FlyBase/fruitfly/seq/{refseq_dirpath}/{refseq}-",
          "label" : "DNA",
          "type" : "SequenceTrack",
          "compress" : 1,
@@ -33,7 +59,7 @@
          "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : "CanvasFeatures",
-         "urlTemplate" : "http://agrjbrowse.s3-website-us-east-1.amazonaws.com/FlyBase/fruitfly/tracks/All Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/FlyBase/fruitfly/tracks/All Genes/{refseq}/trackData.jsonz",
          "compress" : 1,
          "type" : "CanvasFeatures",
          "label" : "All Genes",

@@ -1,11 +1,4 @@
 {
-   "plugins" : [
-      "NeatHTMLFeatures",
-      "HideTrackLabels"
-   ],
-   "include" : [
-      "../functions.conf"
-   ],
    "tracks" : [
       {
          "chunkSizeLimit" : 5000000,
@@ -29,17 +22,17 @@
          },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/VCF_Rnor60_41.vcf.gz",
+         "urlTemplate" : "jbrowse/VCF_GRCm38_49.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       },
       {
-         "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
          "chunkSize" : 80000,
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/RGD/rat/seq/{refseq_dirpath}/{refseq}-",
+         "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/MGI/mouse/seq/{refseq_dirpath}/{refseq}-",
+         "type" : "SequenceTrack",
          "label" : "DNA",
          "compress" : 1,
-         "type" : "SequenceTrack",
          "key" : "Reference sequence"
       },
       {
@@ -48,35 +41,34 @@
          "onClick" : {
             "url" : "{curieUrl}",
             "title" : "Click to open in a full window:",
-            "label" : "Feature at AGR",
             "action" : "iframeDialog"
          },
          "style" : {
             "color" : "{geneColor}",
-            "label" : "{geneLabel}",
             "height" : "{geneHeight}",
+            "label" : "function(f) {var curie = f.get('curie'); var name = f.get('Name'); if (curie) {return name + ' (' + curie + ')';} return name;  }",
             "className" : "feature"
          },
          "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
-         "trackType" : "JBrowse/View/Track/CanvasFeatures",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/RGD/rat/tracks/All%20Genes/{refseq}/trackData.jsonz",
+         "trackType" : "CanvasFeatures",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/MGI/mouse/tracks/All%20Genes/{refseq}/trackData.jsonz",
          "compress" : 1,
          "type" : "CanvasFeatures",
          "label" : "All Genes",
          "maxHeight" : 3000
       },
-      {
+            {
          "label" : "UCSC Conservation",
          "variance_band" : 0,
          "unsafeMouseover" : true,
          "autoscale" : "local",
          "type" : "JBrowse/View/Track/Wiggle/XYPlot",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/UCSC/rn6.phastCons20way.bw",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/UCSC/mm10.60way.phastCons60wayEuarchontoGlire.bw",
          "unsafePopup" : true,
          "key" : "UCSC Conservation",
          "metadata" : {
-            "shortInfo" : "UCSC rat conservation calculated across 20 species (including mouse and human). For more information about these data, see the <a href='http://hgdownload.cse.ucsc.edu/goldenPath/rn6/phastCons20way/'>README at UCSC</a>. "
+            "shortInfo" : "UCSC mouse conservation calculated across 21 species (Glire and Euarchontoglire, including rat and human). For more information about these data, see the <a href='http://hgdownload.soe.ucsc.edu/goldenPath/mm10/phastCons60way/'>README at UCSC</a>. "
          },
          "style" : {
             "height" : 20,
@@ -86,9 +78,16 @@
       }
    ],
    "names" : {
-      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/RGD/rat/names/",
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/MGI/mouse/names/",
       "type" : "Hash"
    },
-   "dataset_id" : "rat",
+   "plugins" : [
+      "HideTrackLabels"
+   ],
+   "include" : [
+      "../functions.conf"
+   ],
+
+   "dataset_id" : "mouse",
    "formatVersion" : 1
 }
