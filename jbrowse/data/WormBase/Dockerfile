@@ -70,6 +70,7 @@ RUN rm /usr/share/nginx/html/index.html && rm /usr/share/nginx/html/50x.html && 
     cp -r /jbrowse/* /usr/share/nginx/html/tools/genome/jbrowse && \
     cp -r /jbrowse/.htaccess /usr/share/nginx/html/tools/genome/jbrowse/.htaccess && \
     ln -s /usr/share/nginx/html/tools/genome/jbrowse/index.html /usr/share/nginx/html/tools/genome/jbrowse/full.html && \
+    cp /website-genome-browsers/jbrowse/jbrowse/jbrowse.conf /usr/share/nginx/html/tools/genome/jbrowse/jbrowse.conf && \
     cp /website-genome-browsers/jbrowse/jbrowse/jbrowse-simple.conf /usr/share/nginx/html/tools/genome/jbrowse-simple/jbrowse.conf
     
 WORKDIR /usr/share/nginx/html/tools/genome/jbrowse
