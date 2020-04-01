@@ -18,7 +18,7 @@
          "onClick" : {
             "label" : "{variantsBalloon}",
             "url" : "{variationCurieUrl}",
-            "title" : "Put a title here",
+            "title" : "_",
             "action" : "iframeDialog"
          },
          "label" : "Variants",
