@@ -58,7 +58,7 @@
          "onClick" : {
             "label" : "{variantsBalloon}",
             "url" : "{variationCurieUrl}",
-            "title" : "",
+            "title" : "_",
             "action" : "iframeDialog"
          },
          "label" : "Variants",
