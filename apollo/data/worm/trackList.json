@@ -89,7 +89,7 @@
       "HideTrackLabels"
    ],
    "include" : [
-      "../functions.conf"
+      "functions.conf"
    ],
    "formatVersion" : 1
 }

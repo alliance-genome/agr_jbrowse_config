@@ -4,7 +4,7 @@
       "HideTrackLabels"
    ],
    "include" : [
-      "../functions.conf"
+      "functions.conf"
    ],
    "tracks" : [
       {

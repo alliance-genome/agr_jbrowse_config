@@ -85,7 +85,7 @@
       "HideTrackLabels"
    ],
    "include" : [
-      "../functions.conf"
+      "functions.conf"
    ],
 
    "dataset_id" : "mouse",

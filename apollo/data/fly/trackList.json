@@ -85,7 +85,7 @@
       }
    ],
    "include" : [
-      "../functions.conf"
+      "functions.conf"
    ],
    "dataset_id" : "fly",
    "formatVersion" : 1
