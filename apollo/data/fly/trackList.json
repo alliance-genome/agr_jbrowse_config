@@ -30,7 +30,7 @@
          },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "jbrowse/VCF_R6_82.vcf.gz",
+         "urlTemplate" : "jbrowse/VCF_R6_latest.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       },
