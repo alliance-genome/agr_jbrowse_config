@@ -17,8 +17,8 @@ mkdir  ../apollo/data/MGI/jbrowse
 rm -rf ../apollo/data/RGD/jbrowse
 mkdir  ../apollo/data/RGD/jbrowse
 
-wget -O ../apollo/data/worm/jbrowse/VCF_WBcel_latest.vcf.gz https://s3.amazonaws.com/agrjbrowse/VCF/$WORMVCF
-wget -O ../apollo/data/worm/jbrowse/VCF_WBcel_latest.vcf.gz.tbi https://s3.amazonaws.com/agrjbrowse/VCF/$WORMVCF.tbi
+wget -O ../apollo/data/worm/jbrowse/VCF_WBcel235_latest.vcf.gz https://s3.amazonaws.com/agrjbrowse/VCF/$WORMVCF
+wget -O ../apollo/data/worm/jbrowse/VCF_WBcel235_latest.vcf.gz.tbi https://s3.amazonaws.com/agrjbrowse/VCF/$WORMVCF.tbi
 
 wget -O ../apollo/data/zebrafish/jbrowse/VCF_GRCz11_latest.vcf.gz https://s3.amazonaws.com/agrjbrowse/VCF/$ZEBRAFISHVCF
 wget -O ../apollo/data/zebrafish/jbrowse/VCF_GRCz11_latest.vcf.gz.tbi https://s3.amazonaws.com/agrjbrowse/VCF/$ZEBRAFISHVCF.tbi
