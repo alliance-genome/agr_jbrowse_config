@@ -55,8 +55,8 @@ GetOptions(
     'skipseq'       => \$SKIPSEQ
 ) or ( system( 'pod2text', $0 ), exit -1 );
 
-$AWS    ||= '/home/scain/scain/bin/aws';
-$BUCKET ||= 'agrjbrowse2';
+$AWS    ||= '/usr/local/bin/aws';
+$BUCKET ||= 'agrjbrowse';
 ($LOCAL && $REMOTE) or die 'need to supply --local and --remote options';
 
 if ($PROFILE) {
