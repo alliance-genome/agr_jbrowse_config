@@ -1,6 +1,6 @@
 {
    "include" : [
-      "../functions.conf"
+      "functions.conf"
    ],
 
    "plugins" : [

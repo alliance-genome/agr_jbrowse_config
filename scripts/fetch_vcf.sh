@@ -1,10 +1,10 @@
 #!/bin/bash
 
-WORMVCF="VCF_WBcel235_82.vcf.gz"
-ZEBRAFISHVCF="VCF_GRCz11_82.vcf.gz"
-FLYVCF="VCF_R6_82.vcf.gz"
-MOUSEVCF="VCF_GRCm38_82.vcf.gz"
-RATVCF="VCF_Rnor60_68.vcf.gz"
+WORMVCF="3.1.0/VCF_WBcel235_30.vcf.gz"
+ZEBRAFISHVCF="3.1.0/VCF_GRCz11_30.vcf.gz"
+FLYVCF="3.1.0/VCF_R6_30.vcf.gz"
+MOUSEVCF="3.1.0/VCF_GRCm38_30.vcf.gz"
+RATVCF="3.1.0/VCF_Rnor60_19.vcf.gz"
 
 rm -rf ../apollo/data/worm/jbrowse
 mkdir ../apollo/data/worm/jbrowse
@@ -17,18 +17,18 @@ mkdir  ../apollo/data/MGI/jbrowse
 rm -rf ../apollo/data/RGD/jbrowse
 mkdir  ../apollo/data/RGD/jbrowse
 
-wget -P ../apollo/data/worm/jbrowse/ https://s3.amazonaws.com/agrjbrowse/VCF/$WORMVCF
-wget -P ../apollo/data/worm/jbrowse/ https://s3.amazonaws.com/agrjbrowse/VCF/$WORMVCF.tbi
+wget -O ../apollo/data/worm/jbrowse/VCF_WBcel235_latest.vcf.gz https://s3.amazonaws.com/agrjbrowse/VCF/$WORMVCF
+wget -O ../apollo/data/worm/jbrowse/VCF_WBcel235_latest.vcf.gz.tbi https://s3.amazonaws.com/agrjbrowse/VCF/$WORMVCF.tbi
 
-wget -P ../apollo/data/zebrafish/jbrowse/ https://s3.amazonaws.com/agrjbrowse/VCF/$ZEBRAFISHVCF
-wget -P ../apollo/data/zebrafish/jbrowse/ https://s3.amazonaws.com/agrjbrowse/VCF/$ZEBRAFISHVCF.tbi
+wget -O ../apollo/data/zebrafish/jbrowse/VCF_GRCz11_latest.vcf.gz https://s3.amazonaws.com/agrjbrowse/VCF/$ZEBRAFISHVCF
+wget -O ../apollo/data/zebrafish/jbrowse/VCF_GRCz11_latest.vcf.gz.tbi https://s3.amazonaws.com/agrjbrowse/VCF/$ZEBRAFISHVCF.tbi
 
-wget -P ../apollo/data/fly/jbrowse/ https://s3.amazonaws.com/agrjbrowse/VCF/$FLYVCF
-wget -P ../apollo/data/fly/jbrowse/ https://s3.amazonaws.com/agrjbrowse/VCF/$FLYVCF.tbi
+wget -O ../apollo/data/fly/jbrowse/VCF_R6_latest.vcf.gz https://s3.amazonaws.com/agrjbrowse/VCF/$FLYVCF
+wget -O ../apollo/data/fly/jbrowse/VCF_R6_latest.vcf.gz.tbi https://s3.amazonaws.com/agrjbrowse/VCF/$FLYVCF.tbi
 
-wget -P ../apollo/data/MGI/jbrowse/ https://s3.amazonaws.com/agrjbrowse/VCF/$MOUSEVCF
-wget -P ../apollo/data/MGI/jbrowse/ https://s3.amazonaws.com/agrjbrowse/VCF/$MOUSEVCF.tbi
+wget -O ../apollo/data/MGI/jbrowse/VCF_GRCm38_latest.vcf.gz https://s3.amazonaws.com/agrjbrowse/VCF/$MOUSEVCF
+wget -O ../apollo/data/MGI/jbrowse/VCF_GRCm38_latest.vcf.gz.tbi https://s3.amazonaws.com/agrjbrowse/VCF/$MOUSEVCF.tbi
 
-wget -P ../apollo/data/RGD/jbrowse/ https://s3.amazonaws.com/agrjbrowse/VCF/$RATVCF
-wget -P ../apollo/data/RGD/jbrowse/ https://s3.amazonaws.com/agrjbrowse/VCF/$RATVCF.tbi
+wget -O ../apollo/data/RGD/jbrowse/VCF_Rnor60_latest.vcf.gz https://s3.amazonaws.com/agrjbrowse/VCF/$RATVCF
+wget -O ../apollo/data/RGD/jbrowse/VCF_Rnor60_latest.vcf.gz.tbi https://s3.amazonaws.com/agrjbrowse/VCF/$RATVCF.tbi
 

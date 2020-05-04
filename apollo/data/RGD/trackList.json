@@ -4,7 +4,7 @@
       "HideTrackLabels"
    ],
    "include" : [
-      "../functions.conf"
+      "functions.conf"
    ],
    "tracks" : [
       {
@@ -29,7 +29,7 @@
          },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "jbrowse/VCF_Rnor60_68.vcf.gz",
+         "urlTemplate" : "jbrowse/VCF_Rnor60_latest.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       },

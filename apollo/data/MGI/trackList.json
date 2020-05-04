@@ -22,7 +22,7 @@
          },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "jbrowse/VCF_GRCm38_82.vcf.gz",
+         "urlTemplate" : "jbrowse/VCF_GRCm38_latest.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       },
@@ -85,7 +85,7 @@
       "HideTrackLabels"
    ],
    "include" : [
-      "../functions.conf"
+      "functions.conf"
    ],
 
    "dataset_id" : "mouse",
