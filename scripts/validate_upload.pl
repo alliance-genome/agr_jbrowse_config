@@ -6,16 +6,7 @@ use Getopt::Long;
 use File::Find::Rule;
 #use URI::Escape;
 
-my %mod_mapping = (
-    WormBase => 'WormBase/c_elegans_PRJNA13758',
-    FlyBase  => 'FlyBase/fruitfly',
-    zfin     => 'zfin/zebrafish-11',
-    SGD      => 'SGD/yeast',
-    RGD      => 'RGD/rat',
-    human    => 'human',
-);
-
-my ($AWS, $BUCKET, $LOCAL, $REMOTE, $PROFILE,$SKIPFILECOUNT,$SKIPSEQ);
+my ($AWS, $BUCKET, $LOCAL, $REMOTE, $PROFILE,$SKIPFILECOUNT,$SKIPSEQ, $QUIET);
 
 GetOptions(
     'aws=s'         => \$AWS,
@@ -24,7 +15,8 @@ GetOptions(
     'remote=s'      => \$REMOTE,
     'profile=s'     => \$PROFILE,
     'skipfilecount' => \$SKIPFILECOUNT,
-    'skipseq'       => \$SKIPSEQ
+    'skipseq'       => \$SKIPSEQ,
+    'quiet'         => \$QUIET
 ) or ( system( 'pod2text', $0 ), exit -1 );
 
 $AWS    ||= '/usr/local/bin/aws';
@@ -59,10 +51,11 @@ unless ($SKIPFILECOUNT) {
     my @localtrack_result = `ls -Rl $LOCAL/tracks |grep -P "^-"|wc -l`;
     my $remote_count = scalar @remotetrack_result;
     if ($localtrack_result[0] != $remote_count) {
-        warn "WARNING: file count differs between local and remote tracks directories\nLOCAL: $localtrack_result[0]\nREMOTE: $remote_count\n";
+        print "WARNING: file count differs between local and remote tracks directories\nLOCAL: $localtrack_result[0]\nREMOTE: $remote_count\n";
+        die "stopping...";
     }
     else {
-        warn "File counts agree in tracks.\n";
+        print "File counts agree in tracks.\n" unless $QUIET;
     }
 
 #check names
@@ -70,14 +63,15 @@ unless ($SKIPFILECOUNT) {
 
     $remote_count = scalar @remotenames_result;
     if ($localnames_result[0] != $remote_count) {
-        warn "WARNING: file count differs between local and remote names directories\nLOCAL: $localnames_result[0]\nREMOTE: $remote_count\n";
+        print "WARNING: file count differs between local and remote names directories\nLOCAL: $localnames_result[0]\nREMOTE: $remote_count\n";
+        die "stopping...";
     }
     else {
-        warn "File counts agree in names.\n";
+        print "File counts agree in names.\n" unless $QUIET;
     }
 }
 
-warn "starting md5 comparison...\n";
+print "starting md5 comparison...\n" unless $QUIET;
 
 #get local file tree
 my @localfiles = File::Find::Rule->in("$LOCAL/tracks/");
@@ -97,7 +91,8 @@ for my $file (@localfiles)  {
 
             my $remotemd5 = get_remote_md5($REMOTE . '/' . $remotestem );
             if ($localmd5 ne $remotemd5) {
-                warn "$stem didn't match: **$localmd5**$remotemd5**\n";
+                print "$stem didn't match: $localmd5  $remotemd5\n";
+                die "stopping...";
             }
         }
         else {
