@@ -6,14 +6,14 @@ use Getopt::Long;
 use File::Find::Rule;
 #use URI::Escape;
 
-my %mod_mapping ={
+my %mod_mapping = (
     WormBase => 'WormBase/c_elegans_PRJNA13758',
     FlyBase  => 'FlyBase/fruitfly',
     zfin     => 'zfin/zebrafish-11',
     SGD      => 'SGD/yeast',
     RGD      => 'RGD/rat',
     human    => 'human',
-};
+);
 
 my ($AWS, $BUCKET, $LOCAL, $REMOTE, $PROFILE,$SKIPFILECOUNT,$SKIPSEQ);
 
@@ -49,13 +49,13 @@ my $REMOTEPATH = "s3://$BUCKET/$REMOTE";
 #chdir($LOCAL) or die "unable to cd to $LOCAL";
 
 my (@remotetrack_result, @remotenames_result);
-###
-#uncomment after the local file globbing is sorted
-# @remotetrack_result = `$AWS s3 ls --recursive $REMOTEPATH/tracks |grep -v htaccess`;
-# @remotenames_result = `$AWS s3 ls --recursive $REMOTEPATH/names |grep -v htaccess`;
 
 unless ($SKIPFILECOUNT) {
 #check tracks
+
+    @remotetrack_result = `$AWS s3 ls --recursive $REMOTEPATH/tracks |grep -v htaccess`;
+    @remotenames_result = `$AWS s3 ls --recursive $REMOTEPATH/names |grep -v htaccess`;
+
     my @localtrack_result = `ls -Rl $LOCAL/tracks |grep -P "^-"|wc -l`;
     my $remote_count = scalar @remotetrack_result;
     if ($localtrack_result[0] != $remote_count) {
@@ -85,17 +85,19 @@ push @localfiles, File::Find::Rule->in("$LOCAL/names/");
 for my $file (@localfiles)  {
     next if $file =~ /htaccess/;
     my ($root, $stem);
-    if ($file =~ /^(.*jbrowse\/data\/)(.*)$/) {
+    if ($file =~ m{^(.*\Q$LOCAL\E\/)(.*)}) {
         $root = $1;
         $stem = $2;
         if ($stem =~ /(txt|jsonz|json)$/) {
             my $localstem = my $remotestem = $stem;
             $localstem =~ s/ /\\ /g;
             my ($localmd5) = `md5sum $root$localstem`;        
+            ($localmd5,undef) = split /\s+/, $localmd5;
             $remotestem =~ s/ /%20/g; 
+
             my $remotemd5 = get_remote_md5($REMOTE . '/' . $remotestem );
             if ($localmd5 ne $remotemd5) {
-                warn "$stem didn't match: $localmd5 $remotemd5\n";
+                warn "$stem didn't match: **$localmd5**$remotemd5**\n";
             }
         }
         else {
@@ -103,22 +105,6 @@ for my $file (@localfiles)  {
         }
     }
 }
-die;
-
-warn $remotetrack_result[0];
-warn "\n$remotetrack_result[1]\n";
-
-my (undef,undef,undef,$path1,$path2) = split(/\s+/, $remotetrack_result[0]);
-my $path;
-if ($path2) {
-    $path = "$path1%20$path2";
-}
-else {
-    $path = $path1;
-}
-
-my $result = get_remote_md5($path);
-warn $result;
 
 exit(0);
 
@@ -128,9 +114,9 @@ sub get_remote_md5 {
 
     my $url = "https://s3.amazonaws.com/agrjbrowse/$path";
 
-    warn $url;
+    #warn $url;
 
-    my @remote_header = `curl -I $url`;
+    my @remote_header = `curl -Is $url`;
 
     my $sum;
     for my $line (@remote_header) {
