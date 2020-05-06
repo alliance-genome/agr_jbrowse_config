@@ -3,7 +3,17 @@ use strict;
 use warnings;
 
 use Getopt::Long;
+use File::Find::Rule;
 #use URI::Escape;
+
+my %mod_mapping ={
+    WormBase => 'WormBase/c_elegans_PRJNA13758',
+    FlyBase  => 'FlyBase/fruitfly',
+    zfin     => 'zfin/zebrafish-11',
+    SGD      => 'SGD/yeast',
+    RGD      => 'RGD/rat',
+    human    => 'human',
+};
 
 my ($AWS, $BUCKET, $LOCAL, $REMOTE, $PROFILE,$SKIPFILECOUNT,$SKIPSEQ);
 
@@ -38,8 +48,11 @@ my $REMOTEPATH = "s3://$BUCKET/$REMOTE";
 
 #chdir($LOCAL) or die "unable to cd to $LOCAL";
 
-my @remotetrack_result = `$AWS s3 ls --recursive $REMOTEPATH/tracks |grep -v htaccess`;
-my @remotenames_result = `$AWS s3 ls --recursive $REMOTEPATH/names |grep -v htaccess`;
+my (@remotetrack_result, @remotenames_result);
+###
+#uncomment after the local file globbing is sorted
+# @remotetrack_result = `$AWS s3 ls --recursive $REMOTEPATH/tracks |grep -v htaccess`;
+# @remotenames_result = `$AWS s3 ls --recursive $REMOTEPATH/names |grep -v htaccess`;
 
 unless ($SKIPFILECOUNT) {
 #check tracks
@@ -65,6 +78,32 @@ unless ($SKIPFILECOUNT) {
 }
 
 warn "starting md5 comparison...\n";
+
+#get local file tree
+my @localfiles = File::Find::Rule->in("$LOCAL/tracks/");
+push @localfiles, File::Find::Rule->in("$LOCAL/names/");
+for my $file (@localfiles)  {
+    next if $file =~ /htaccess/;
+    my ($root, $stem);
+    if ($file =~ /^(.*jbrowse\/data\/)(.*)$/) {
+        $root = $1;
+        $stem = $2;
+        if ($stem =~ /(txt|jsonz|json)$/) {
+            my $localstem = my $remotestem = $stem;
+            $localstem =~ s/ /\\ /g;
+            my ($localmd5) = `md5sum $root$localstem`;        
+            $remotestem =~ s/ /%20/g; 
+            my $remotemd5 = get_remote_md5($REMOTE . '/' . $remotestem );
+            if ($localmd5 ne $remotemd5) {
+                warn "$stem didn't match: $localmd5 $remotemd5\n";
+            }
+        }
+        else {
+            next;
+        }
+    }
+}
+die;
 
 warn $remotetrack_result[0];
 warn "\n$remotetrack_result[1]\n";
