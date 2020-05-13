@@ -31,7 +31,7 @@
          },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/3.0.1/VCF_R6_2.vcf.gz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/3.0.1/VCF_R6_4.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       },
