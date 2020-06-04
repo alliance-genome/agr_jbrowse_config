@@ -54,7 +54,7 @@
             "label" : "{variantsBalloon}",
             "url" : "{variationCurieUrl}",
             "title" : "_",
-            "action" : "iframeDialog"
+            "action" : "{variantsBalloon}"
          },
 	 "metadata" : {
             "about" : "Phenotypic variants. Features are colored according to the Variant Effect Predictor's predicted impact: red for high, purple for modifier, gold/yellow for medium, and cyan for low."
