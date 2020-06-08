@@ -19,7 +19,8 @@
          "maxHeight" : 3000,
          "trackType" : "CanvasFeatures",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
-         "glyph" : "{geneGlyph}",
+         "comment" : {"glyph" : "{geneGlyph}"},
+         "glyph" : "gene",
          "impliedUTRs" : true,
          "onClick" : {
             "url" : "{curieUrl}",
