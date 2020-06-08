@@ -20,7 +20,7 @@
          "trackType" : "CanvasFeatures",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "comment" : {"glyph" : "{geneGlyph}"},
-         "glyph" : "gene",
+         "glyph" : "Gene",
          "impliedUTRs" : true,
          "onClick" : {
             "url" : "{curieUrl}",
