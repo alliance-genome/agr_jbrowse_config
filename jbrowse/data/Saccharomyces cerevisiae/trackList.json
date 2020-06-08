@@ -24,7 +24,7 @@
       },
       {
          "type" : "CanvasFeatures",
-         "glyph" : "{geneGlyph}",
+         "glyph" : "JBrowse/View/FeatureGlyph/Gene",
          "impliedUTRs" : true,
          "onClick" : {
             "url" : "{curieUrl}",
