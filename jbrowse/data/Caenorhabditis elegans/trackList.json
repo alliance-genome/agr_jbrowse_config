@@ -54,14 +54,14 @@
             "label" : "{variantsBalloon}",
             "url" : "{variationCurieUrl}",
             "title" : "_",
-            "action" : "{variantsBalloon}"
+            "action" : "iframeDialog"
          },
 	 "metadata" : {
             "about" : "Phenotypic variants. Features are colored according to the Variant Effect Predictor's predicted impact: red for high, purple for modifier, gold/yellow for medium, and cyan for low."
 	 },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/3.1.0/VCF_WBcel235_63.vcf.gz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/3.1.0/VCF_WBcel235_73.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       },
