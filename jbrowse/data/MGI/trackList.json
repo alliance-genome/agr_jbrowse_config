@@ -47,7 +47,6 @@
          "style" : {
             "color" : "{geneColor}",
             "height" : "{geneHeight}",
-            "label" : "function(f) {var curie = f.get('curie'); var name = f.get('Name'); if (curie) {return name + ' (' + curie + ')';} return name;  }",
             "className" : "feature"
          },
          "key" : "All Genes",
