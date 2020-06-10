@@ -46,8 +46,8 @@
 	 "style" : {
             "color" : "{variationColor}",
              "height" : 8,
-	     "comment": {"description" : "{variationDescription}",
-             "label" : "{variationLabel}"
+	     "description" : "{variationDescription}",
+             "comment" : {"label" : "{variationLabel}"
             }
          },
          "glyph" : "{variationGlyph}",
