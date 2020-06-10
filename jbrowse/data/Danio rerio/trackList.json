@@ -28,6 +28,7 @@
          "style" : {
             "color" : "{geneColor}",
             "height" : "{geneHeight}",
+            "label" : "{geneLabel}",
             "className" : "feature"
          },
          "key" : "All Genes",

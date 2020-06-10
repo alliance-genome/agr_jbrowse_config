@@ -30,6 +30,7 @@
          "style" : {
             "color" : "{geneColor}",
             "height" : "{geneHeight}",
+            "label" : "{geneLabel}",
             "className" : "feature"
          },
          "compress" : 1,
