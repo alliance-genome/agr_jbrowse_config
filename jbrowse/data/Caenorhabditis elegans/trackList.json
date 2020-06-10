@@ -43,14 +43,13 @@
          "maxHeight" : 3000,
 	 "unsafeMouseover" : true,
 	 "unsafePopup" : true,
-      "comment" : {
 	 "style" : {
             "color" : "{variationColor}",
              "height" : 8,
-	     "description" : "{variationDescription}",
+	     "comment": {"description" : "{variationDescription}",
              "label" : "{variationLabel}"
-         }
-      },
+            }
+         },
          "glyph" : "{variationGlyph}",
 	 "onClick" : {
             "label" : "{variantsBalloon}",
