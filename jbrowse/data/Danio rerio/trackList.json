@@ -27,7 +27,6 @@
          },
          "style" : {
             "color" : "{geneColor}",
-            "label" : "function(f) { var type = f.get('type'); if (type == 'gene') { return f.get('gene_id');} return f.get('name'); }",
             "height" : "{geneHeight}",
             "className" : "feature"
          },

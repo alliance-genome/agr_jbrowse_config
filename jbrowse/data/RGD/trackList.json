@@ -54,7 +54,6 @@
          },
          "style" : {
             "color" : "{geneColor}",
-            "label" : "{geneLabel}",
             "height" : "{geneHeight}",
             "className" : "feature"
          },
