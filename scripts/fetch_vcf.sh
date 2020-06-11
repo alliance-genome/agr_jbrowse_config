@@ -1,10 +1,10 @@
 #!/bin/bash
 
-WORMVCF="3.1.0/VCF_WBcel235_73.vcf.gz"
-ZEBRAFISHVCF="3.1.0/VCF_GRCz11_73.vcf.gz"
-FLYVCF="3.1.0/VCF_R6_73.vcf.gz"
-MOUSEVCF="3.1.0/VCF_GRCm38_73.vcf.gz"
-RATVCF="3.1.0/VCF_Rnor60_54.vcf.gz"
+WORMVCF="3.1.0/VCF_WBcel235_78.vcf.gz"
+ZEBRAFISHVCF="3.1.0/VCF_GRCz11_78.vcf.gz"
+FLYVCF="3.1.0/VCF_R6_78.vcf.gz"
+MOUSEVCF="3.1.0/VCF_GRCm38_78.vcf.gz"
+RATVCF="3.1.0/VCF_Rnor60_59.vcf.gz"
 
 rm -rf ../apollo/data/worm/jbrowse
 mkdir ../apollo/data/worm/jbrowse
