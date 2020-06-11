@@ -24,9 +24,9 @@
          },
          "onClick" : {
             "label" : "{variantsBalloon}",
-            "url" : "{variationCurieUrl}",
-            "title" : "_",
-            "action" : "iframeDialog"
+            "content" : "{variantsBalloon}",
+            "title" : "{name}",
+            "action" : "contentDialog"
          },
          "label" : "Variants",
          "type" : "CanvasVariants",

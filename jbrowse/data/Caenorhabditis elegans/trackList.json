@@ -53,7 +53,7 @@
 	 "onClick" : {
             "label" : "{variantsBalloon}",
             "content" : "{variantsBalloon}",
-            "title" : "_",
+            "title" : "{name}",
             "action" : "contentDialog"
          },
 	 "metadata" : {
