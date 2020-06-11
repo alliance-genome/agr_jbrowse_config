@@ -27,8 +27,8 @@
          },
          "style" : {
             "color" : "{geneColor}",
-            "label" : "function(f) { var type = f.get('type'); if (type == 'gene') { return f.get('gene_id');} return f.get('name'); }",
             "height" : "{geneHeight}",
+            "label" : "{geneLabel}",
             "className" : "feature"
          },
          "key" : "All Genes",
@@ -57,9 +57,9 @@
          "glyph" : "{variationGlyph}",
          "onClick" : {
             "label" : "{variantsBalloon}",
-            "url" : "{variationCurieUrl}",
-            "title" : "_",
-            "action" : "iframeDialog"
+            "content" : "{variantsBalloon}",
+            "title" : "{name}",
+            "action" : "contentDialog"
          },
          "label" : "Variants",
          "type" : "CanvasVariants",

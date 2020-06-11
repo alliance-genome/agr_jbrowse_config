@@ -27,8 +27,8 @@
          },
          "style" : {
             "color" : "{geneColor}",
-            "label" : "{geneLabel}",
             "height" : "{geneHeight}",
+            "label" : "{geneLabel}",
             "className" : "feature"
          },
          "key" : "All Genes",

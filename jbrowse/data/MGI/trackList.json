@@ -17,9 +17,9 @@
          },
          "onClick" : {
             "label" : "{variantsBalloon}",
-            "url" : "{variationCurieUrl}",
-            "title" : "_",
-            "action" : "iframeDialog"
+            "content" : "{variantsBalloon}",
+            "title" : "{name}",
+            "action" : "contentDialog"
          },
          "label" : "Variants",
          "type" : "CanvasVariants",
@@ -47,7 +47,7 @@
          "style" : {
             "color" : "{geneColor}",
             "height" : "{geneHeight}",
-            "label" : "function(f) {var curie = f.get('curie'); var name = f.get('Name'); if (curie) {return name + ' (' + curie + ')';} return name;  }",
+            "label" : "{geneLabel}",
             "className" : "feature"
          },
          "key" : "All Genes",

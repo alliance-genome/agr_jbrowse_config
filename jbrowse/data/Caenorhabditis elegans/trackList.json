@@ -29,8 +29,8 @@
          },
          "style" : {
             "color" : "{geneColor}",
-            "label" : "{geneLabel}",
             "height" : "{geneHeight}",
+            "label" : "{geneLabel}",
             "className" : "feature"
          },
          "compress" : 1,
@@ -52,9 +52,9 @@
          "glyph" : "{variationGlyph}",
 	 "onClick" : {
             "label" : "{variantsBalloon}",
-            "url" : "{variationCurieUrl}",
-            "title" : "_",
-            "action" : "iframeDialog"
+            "content" : "{variantsBalloon}",
+            "title" : "{name}",
+            "action" : "contentDialog"
          },
 	 "metadata" : {
             "about" : "Phenotypic variants. Features are colored according to the Variant Effect Predictor's predicted impact: red for high, purple for modifier, gold/yellow for medium, and cyan for low."
