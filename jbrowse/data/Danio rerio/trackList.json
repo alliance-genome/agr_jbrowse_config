@@ -27,8 +27,8 @@
          },
          "style" : {
             "color" : "{geneColor}",
-            "label" : "function(f) { var type = f.get('type'); if (type == 'gene') { return f.get('gene_id');} return f.get('name'); }",
             "height" : "{geneHeight}",
+            "label" : "{geneLabel}",
             "className" : "feature"
          },
          "key" : "All Genes",
@@ -57,13 +57,13 @@
          "glyph" : "{variationGlyph}",
          "onClick" : {
             "label" : "{variantsBalloon}",
-            "url" : "{variationCurieUrl}",
-            "title" : "_",
-            "action" : "iframeDialog"
+            "content" : "{variantsBalloon}",
+            "title" : "{name}",
+            "action" : "contentDialog"
          },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/3.1.0/VCF_GRCz11_73.vcf.gz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/3.1.0/VCF_GRCz11_78.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       }
