@@ -52,7 +52,7 @@
          "glyph" : "{variationGlyph}",
 	 "onClick" : {
             "label" : "{variantsBalloon}",
-            "url" : "{variationCurieUrl}",
+            "content" : "{variantsBalloon}",
             "title" : "_",
             "action" : "iframeDialog"
          },
