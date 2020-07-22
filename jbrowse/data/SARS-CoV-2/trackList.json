@@ -7,7 +7,6 @@
    },
    "tracks" : [
       {
-         "category" : "Reference sequence",
          "chunkSize" : 80000,
          "compress" : 1,
          "key" : "Reference sequence",
