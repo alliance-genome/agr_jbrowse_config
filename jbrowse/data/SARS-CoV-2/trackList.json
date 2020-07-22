@@ -1,0 +1,79 @@
+:1
+{
+   "dataset_id" : "SARS-CoV-2",
+   "formatVersion" : 1,
+   "names" : {
+      "type" : "Hash",
+      "url" : "https://s3.amazonaws.com/gmod-genomes-of-interest/jbrowse/data/SARS-CoV-2/names/"
+   },
+   "tracks" : [
+      {
+         "compress" : 1,
+         "key" : "All Genes",
+         "label" : "All Genes",
+         "metadata" : {
+            "about" : "Reference sequence and gene features are from RefSeq: https://www.ncbi.nlm.nih.gov/nuccore/NC_045512."
+         },
+         "onClick" : {
+            "action" : "newWindow",
+            "iconClass" : "dijitIconDatabase",
+            "label" : "Go to the gene page for {name} at GenBank",
+            "url" : "function(track,f) {var dbxref = f.get('dbxref'); dbxref = dbxref.substring(7);  return 'https://www.ncbi.nlm.nih.gov/gene/' + dbxref; }"
+         },
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "style" : {
+            "className" : "feature",
+            "color" : "deeppink",
+            "height" : 5
+         },
+         "trackType" : "CanvasFeatures",
+         "type" : "CanvasFeatures",
+         "urlTemplate" : "https://s3.amazonaws.com/gmod-genomes-of-interest/jbrowse/data/SARS-CoV-2/tracks/Genes/{refseq}/trackData.jsonz"
+      },
+      {
+         "compress" : 1,
+         "key" : "CDS",
+         "label" : "CDS",
+         "metadata" : {
+            "about" : "Reference sequence and gene features are from RefSeq: https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.  The color scheme for CDS features attempts to mimic the colors used at NextStrain: https://nextstrain.org/ncov?gmin=27585"
+         },
+         "onClick" : {
+            "action" : "newWindow",
+            "iconClass" : "dijitIconDatabase",
+            "label" : "Go to the protein page for {name} at GenBank",
+            "url" : "https://www.ncbi.nlm.nih.gov/protein/{name}"
+         },
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "style" : {
+            "className" : "feature",
+            "color" : "function(f) {var name =f.get('name'); var len = f.get('length'); if(len >13000 || name=='YP_009725295.1') {return '#DA994B';} if (name=='YP_009724389.1') {return '#ADBC61';} if (name=='YP_009724390.1' ||name=='YP_009724392.1' ) {return '#D2AE52';} if(name=='YP_009724391.1') {return '#CE5035';} if (name=='YP_009724393.1') {return '#6295B7';} if (name=='YP_009724394.1') {return '#C2B959';} if (name=='YP_009724395.1') {return '#84B586';} if (name=='YP_009724396.1') {return '#72A89E';} if (name=='YP_009724397.2') {return '#D77741';} if (name=='YP_009725255.1') {return '#98BB70';} return 'darkpink'; }"
+         },
+         "trackType" : "CanvasFeatures",
+         "type" : "CanvasFeatures",
+         "urlTemplate" : "https://s3.amazonaws.com/gmod-genomes-of-interest/jbrowse/data/SARS-CoV-2/tracks/CDS/{refseq}/trackData.jsonz"
+      },
+      {
+         "compress" : 1,
+         "key" : "Mature peptides (RefSeq)",
+         "label" : "Mature peptides (RefSeq)",
+         "metadata" : {
+            "about" : "Mature peptide regions for orf1ab came directly from a GFF download from NCBI at https://www.ncbi.nlm.nih.gov/nuccore/NC_045512. The remainder of the features in this track were inferred from the feature descriptions at the same page for NC_045512.  The resulting GFF was processed with the flatfile_to_json."
+         },
+         "onClick" : {
+            "action" : "newWindow",
+            "iconClass" : "dijitIconDatabase",
+            "label" : "Go to the protein page for {name} at GenBank",
+            "url" : "function(track,f) {var name = f.get('Name');  return 'https://www.ncbi.nlm.nih.gov/protein/' + name; }"
+         },
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "style" : {
+            "className" : "feature",
+            "color" : "cyan",
+            "height" : 5
+         },
+         "trackType" : "CanvasFeatures",
+         "type" : "CanvasFeatures",
+         "urlTemplate" : "https://s3.amazonaws.com/gmod-genomes-of-interest/jbrowse/data/SARS-CoV-2/tracks/Mature peptides (RefSeq)/{refseq}/trackData.jsonz"
+      }
+   ]
+}
