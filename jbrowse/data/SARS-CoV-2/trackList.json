@@ -93,9 +93,6 @@
          "label" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "style" : {
-            "className" : "feature"
-         },
-         "style" : {
             "className" : "feature",
             "color" : "cyan",
             "borderWidth" : 2,
