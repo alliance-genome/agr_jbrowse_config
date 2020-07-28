@@ -22,6 +22,7 @@
       {
          "compress" : 1,
          "unsafePopup" : true,
+         "unsafeMouseover" : true,
          "key" : "CDS",
          "label" : "CDS",
          "metadata" : {
@@ -46,6 +47,7 @@
       {
          "compress" : 1,
          "unsafePopup" : true,
+         "unsafeMouseover" : true,
          "key" : "Mature peptides",
          "label" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
