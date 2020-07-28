@@ -30,12 +30,12 @@
             "action" : "iframeDialog",
             "title" : "Go to the Alliance  page for {name}",
             "label" : "Go to the Alliance  page for {name}",
-            "url" : "function(track,f) {var name = f.get('name'); var regex=/\.\d+/;name=name.replace(regex, '');  return '/gene/RefSeq:'+name;}"
+            "url" : "function(track,f) {var name = f.get('name'); name=name.replace('.1', '');name=name.replace('.2', '');  return '/gene/RefSeq:'+name;}"
          },
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "style" : {
             "className" : "feature",
-            "label" : "function(f) {var id=f.get('name'); var gene = f.get('gene');return id+' ('+gene+')';}",
+            "label" : "function(f) {var id=f.get('name'); var gene = f.get('gene');return id+' (<b>'+gene+'</b>)';}",
             "color" : "function(f) {var name =f.get('name'); var len = f.get('length'); if(len >13000 || name=='YP_009725295.1') {return '#DA994B';} if (name=='YP_009724389.1') {return '#ADBC61';} if (name=='YP_009724390.1' ||name=='YP_009724392.1' ) {return '#D2AE52';} if(name=='YP_009724391.1') {return '#CE5035';} if (name=='YP_009724393.1') {return '#6295B7';} if (name=='YP_009724394.1') {return '#C2B959';} if (name=='YP_009724395.1') {return '#84B586';} if (name=='YP_009724396.1') {return '#72A89E';} if (name=='YP_009724397.2') {return '#D77741';} if (name=='YP_009725255.1') {return '#98BB70';} return 'darkpink'; }"
          },
          "trackType" : "CanvasFeatures",
@@ -58,7 +58,7 @@
             "action" : "iframeDialog",
             "title" : "Go to the Alliance  page for {name}",
             "label" : "Go to the Alliance  page for {name}",
-            "url" : "function(track,f) {var name = f.get('name'); var regex=/\.\d+/;name=name.replace(regex, '');  return '/gene/RefSeq:'+name;}"
+            "url" : "function(track,f) {var name = f.get('name'); name=name.replace('.1', '');name=name.replace('.2', '');  return '/gene/RefSeq:'+name;}"
          },
          "metadata" : {
             "about" : "Data in this track are primarily derived from RefSeq GFF for NC_045512.2, with some additions noted in the header for the GFF file, at https://github.com/GMOD/sars-cov-2-jbrowse/blob/master/jbrowse/data/SARS-CoV-2/NC_045512.2.gff3."
