@@ -27,10 +27,10 @@
             "about" : "Reference sequence and gene features are from RefSeq: https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.  The color scheme for CDS features attempts to mimic the colors used at NextStrain: https://nextstrain.org/ncov?gmin=27585"
          },
          "onClick" : {
-            "action" : "newWindow",
-            "iconClass" : "dijitIconDatabase",
+            "action" : "iframeDialog",
+            "title" : "Go to the Alliance  page for {name}",
             "label" : "Go to the Alliance  page for {name}",
-            "url" : "/gene/RefSeq:{name}"
+            "url" : "function(track,f) {var name = f.get('name'); const reg=/\.\d+/;name=name.replace(regex, '');  return '/gene/RefSeq:'+name;"
          },
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "style" : {
@@ -55,10 +55,10 @@
             "height" : 7
          },
          "onClick" : {
-            "action" : "newWindow",
-            "iconClass" : "dijitIconDatabase",
-            "label" : "Go to the protein page for {name} at GenBank",
-            "url" : "function(track,f) {var name = f.get('Name');  return 'https://www.ncbi.nlm.nih.gov/protein/' + name; }"
+            "action" : "iframeDialog",
+            "title" : "Go to the Alliance  page for {name}",
+            "label" : "Go to the Alliance  page for {name}",
+            "url" : "function(track,f) {var name = f.get('name'); const reg=/\.\d+/;name=name.replace(regex, '');  return '/gene/RefSeq:'+name;"
          },
          "metadata" : {
             "about" : "Data in this track are primarily derived from RefSeq GFF for NC_045512.2, with some additions noted in the header for the GFF file, at https://github.com/GMOD/sars-cov-2-jbrowse/blob/master/jbrowse/data/SARS-CoV-2/NC_045512.2.gff3."
