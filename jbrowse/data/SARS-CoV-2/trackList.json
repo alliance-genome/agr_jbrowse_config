@@ -30,8 +30,8 @@
          },
          "onClick" : {
             "action" : "iframeDialog",
-            "title" : "Go to the Alliance  page for {name}",
-            "label" : "Go to the Alliance  page for {name}",
+            "title" : "function(track,f) {var gene = f.get('gene'); if (gene.indexOf('ORF1a') > -1) {return 'Go to the RefSeq page for '+gene;} return 'Go to the Alliance  page for '+gene;}",
+            "label" : "function(track,f) {var gene = f.get('gene'); if (gene.indexOf('ORF1a') > -1) {return 'Go to the RefSeq page for '+gene;} return 'Go to the Alliance  page for '+gene;}", 
             "url" : "function(track,f) {var name = f.get('name'); var gene = f.get('gene'); if (gene.indexOf('ORF1a') > -1) {return 'https://www.ncbi.nlm.nih.gov/protein/'+name;  } name=name.replace('.1', '');name=name.replace('.2', '');  return '/gene/RefSeq:'+name;}"
          },
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
