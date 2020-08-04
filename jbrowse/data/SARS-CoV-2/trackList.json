@@ -56,6 +56,7 @@
             "color" : "cyan",
             "borderWidth" : 2,
             "borderColor" : "black",
+            "label" : "function(f) {var pname=f.get('protein_name'); var name = f.get('name'); return pname + ' ('+name+')'; }",
             "height" : 7
          },
          "onClick" : {
