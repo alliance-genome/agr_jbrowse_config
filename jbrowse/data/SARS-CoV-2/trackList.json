@@ -3,7 +3,7 @@
    "formatVersion" : 1,
    "names" : {
       "type" : "Hash",
-      "url" : "https://s3.amazonaws.com/gmod-genomes-of-interest/jbrowse/data/SARS-CoV-2/names/"
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.2.0/SARS-CoV-2/names/"
    },
    "tracks" : [
       {
@@ -17,7 +17,7 @@
          "seqType" : "dna",
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
          "type" : "SequenceTrack",
-         "urlTemplate" : "https://s3.amazonaws.com/gmod-genomes-of-interest/jbrowse/data/SARS-CoV-2/seq/{refseq_dirpath}/{refseq}-"
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.2.0/SARS-CoV-2/seq/{refseq_dirpath}/{refseq}-"
       },
       {
          "compress" : 1,
@@ -42,7 +42,7 @@
          },
          "trackType" : "CanvasFeatures",
          "type" : "CanvasFeatures",
-         "urlTemplate" : "https://s3.amazonaws.com/gmod-genomes-of-interest/jbrowse/data/SARS-CoV-2/tracks/CDS/{refseq}/trackData.jsonz"
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.2.0/SARS-CoV-2/tracks/CDS/{refseq}/trackData.jsonz"
       },
       {
          "compress" : 1,
@@ -71,7 +71,7 @@
          "type" : "CanvasFeatures",
          "subParts" : "mature_protein_region",
          "glyph" : "JBrowse/View/FeatureGlyph/Segments",
-         "urlTemplate" : "https://s3.amazonaws.com/gmod-genomes-of-interest/jbrowse/data/SARS-CoV-2/tracks/All Genes/{refseq}/trackData.jsonz"
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.2.0/SARS-CoV-2/tracks/All Genes/{refseq}/trackData.jsonz"
       }
    ]
 }
