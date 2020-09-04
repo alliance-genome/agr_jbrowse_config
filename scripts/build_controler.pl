@@ -4,21 +4,26 @@ use warnings;
 
 use Getopt::Long;
 
-my ($AWS, $BUCKET, $LOCAL, $REMOTE, $NOTCOMPRESSED, $CORS,$CREATE,$PROFILE,
-    $SKIPSEQ, $AWSACCESS, $AWSSECRET);
+my ($AWS, $BUCKET, $NOTCOMPRESSED, $CORS,$CREATE,
+    $SKIPSEQ, $AWSACCESS, $AWSSECRET, $RELEASE);
 
 GetOptions(
     'aws=s'         => \$AWS,
     'bucket=s'      => \$BUCKET,
-    'local=s'       => \$LOCAL,
-    'remote=s'      => \$REMOTE,
     'notcompressed' => \$NOTCOMPRESSED,
     'cors'          => \$CORS,
     'create'        => \$CREATE,
-    'profile=s'     => \$PROFILE,
-    'skipseq'       => \$SKIPSEQ
+    'skipseq'       => \$SKIPSEQ,
+    'awsaccess=s'   => \$AWSACCESS,
+    'awssecret=s'   => \$AWSSECRET,
+    'release=s'     => \$RELEASE
 ) or ( system( 'pod2text', $0 ), exit -1 );
 
+$AWS    ||= '/usr/local/bin/aws';
+$BUCKET ||= 'agrjbrowse';
+$RELEASE or die 'need to supply --release version';
+
+($AWSACCESS && $AWSSECRET) or warn 'without --awsaccess and --awssecret keys, upload will fail.\n';
 
 my %species;
 
@@ -40,7 +45,7 @@ $species{'human'}{'remote_path'}     = 'human';
 
 $species{'yeast'}{'gff'}     = 'yeast.gff';
 $species{'worm'}{'gff'}      = 'worm.gff';
-$species{'fly'}{'gff'}       = 'fruitfly.gff';
+$species{'fly'}{'gff'}       = 'fly.gff';
 $species{'zebrafish'}{'gff'} = 'zebrafish.gff';
 $species{'mouse'}{'gff'}     = 'mouse.gff';
 $species{'rat'}{'gff'}       = 'rat.gff';
@@ -49,13 +54,30 @@ $species{'human'}{'gff'}     = 'human.gff';
 
 # run flatfile to json
 for my $key (keys %species) {
-    my $ff_command = "bin/flatfile-to=json.pl bin/flatfile-to-json.pl --compress --gff $species{$key}{'gff'} --out data/$key --type gene,ncRNA_gene,pseudogene,rRNA_gene,snRNA_gene,snoRNA_gene,tRNA_gene,telomerase_RNA_gene,transposable_element_gene --trackLabel \"All Genes\"  --trackType CanvasFeatures --key \"All Genes\" --maxLookback 1000000";
-    system($ff_command) == 0 or die "$ff_command failed";
+    warn "running ff2j on $key\n"; 
+
+    #super hacky: 
+    # This is a way to make really big mammalian GFF files
+    # split into two files:
+    # One where the chromosome starts with "1" (ie, 1, 10, 11...)
+    # and one with all the rest (2,3,20,X...)
+    system("grep -P '^1' $species{$key}{'gff'} > some.gff" );
+    system("grep -vP '^1' $species{$key}{'gff'} > rest.gff" );
+
+    my $ff_command = "bin/flatfile-to-json.pl bin/flatfile-to-json.pl --compress --gff some.gff --out data/$key --type gene,ncRNA_gene,pseudogene,rRNA_gene,snRNA_gene,snoRNA_gene,tRNA_gene,telomerase_RNA_gene,transposable_element_gene --trackLabel \"All Genes\"  --trackType CanvasFeatures --key \"All Genes\" --maxLookback 100000";
+    # for non-vertebrates, some.gff won't exist
+    if (-e 'some.gff') {system($ff_command) == 0 or warn "$ff_command failed";}
+
+    $ff_command = "bin/flatfile-to-json.pl bin/flatfile-to-json.pl --compress --gff rest.gff --out data/$key --type gene,ncRNA_gene,pseudogene,rRNA_gene,snRNA_gene,snoRNA_gene,tRNA_gene,telomerase_RNA_gene,transposable_element_gene --trackLabel \"All Genes\"  --trackType CanvasFeatures --key \"All Genes\" --maxLookback 100000";
+    system($ff_command) == 0 or warn "$ff_command failed";
 }
 
+unlink 'some.gff' if -e 'some.gff';
+unlink 'rest.gff';
 
 # run generate names
 for my $key (keys %species) {
+    warn "running gen names on $key\n";
     my $gn_command = "bin/generate-names.pl --compress --out data/$key";
     system($gn_command) == 0 or die "$gn_command failed";
 }
@@ -63,3 +85,6 @@ for my $key (keys %species) {
 
 # upload to s3
 my $remote_path_const = "s3://$BUCKET/docker/$RELEASE/";
+warn $remote_path_const;
+
+exit(0);
