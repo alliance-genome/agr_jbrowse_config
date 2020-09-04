@@ -41,7 +41,7 @@ it under the same terms as Perl itself.
 
 ###TODO add a noindex option to not create the index.html file and not set website (because it's already been done presumably).
 
-my ($AWS, $BUCKET, $LOCAL, $REMOTE, $NOTCOMPRESSED, $CORS,$CREATE,$PROFILE,$SKIPSEQ);
+my ($AWS, $BUCKET, $LOCAL, $REMOTE, $NOTCOMPRESSED, $CORS,$CREATE,$PROFILE,$SKIPSEQ, $AWSACCESS, $AWSSECRET);
 
 GetOptions(
     'aws=s'         => \$AWS,
@@ -52,6 +52,8 @@ GetOptions(
     'cors'          => \$CORS,
     'create'        => \$CREATE,
     'profile=s'     => \$PROFILE,
+    'awsaccess=s'   => \$AWSACCESS,
+    'awssecret=s'   => \$AWSSECRET,
     'skipseq'       => \$SKIPSEQ
 ) or ( system( 'pod2text', $0 ), exit -1 );
 
@@ -61,6 +63,10 @@ $BUCKET ||= 'agrjbrowse';
 
 if ($PROFILE) {
     $AWS = "$AWS --profile $PROFILE ";
+}
+
+if ($AWSSECRET && $AWSACCESS) {
+    $AWS = "AWS_ACCESS_KEY_ID=$AWSACCESS AWS_SECRET_ACCESS_KEY=$AWSSECRET $AWS ";
 }
 
 my $REMOTEPATH = "s3://$BUCKET/$REMOTE";

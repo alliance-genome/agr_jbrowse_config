@@ -3,6 +3,7 @@ use strict;
 use warnings;
 
 use Getopt::Long;
+use FindBin qw($Bin);
 
 my ($AWS, $BUCKET, $NOTCOMPRESSED, $CORS,$CREATE,
     $SKIPSEQ, $AWSACCESS, $AWSSECRET, $RELEASE);
@@ -79,12 +80,18 @@ unlink 'rest.gff';
 for my $key (keys %species) {
     warn "running gen names on $key\n";
     my $gn_command = "bin/generate-names.pl --compress --out data/$key";
-    system($gn_command) == 0 or die "$gn_command failed";
+    system($gn_command) == 0 or warn "$gn_command failed";
 }
 
 
 # upload to s3
-my $remote_path_const = "s3://$BUCKET/docker/$RELEASE/";
+my $remote_path_const = "s3://$BUCKET/docker/$RELEASE";
 warn $remote_path_const;
+
+for my $key (keys %species) {
+    my $local_path = "data/$key";
+    my $command = "$Bin/upload_to_S3.pl --awsaccess $AWSACCESS --awssecret $AWSSECRET --local $local_path --remote $remote_path_const/$species{$key}{'remote_path'} --bucket agrjbrowse --skipseq";
+    system($command) == 0 or warn "$command failed";
+}
 
 exit(0);
