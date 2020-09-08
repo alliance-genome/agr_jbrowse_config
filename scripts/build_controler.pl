@@ -6,7 +6,7 @@ use Getopt::Long;
 use FindBin qw($Bin);
 
 my ($AWS, $BUCKET, $NOTCOMPRESSED, $CORS,$CREATE,
-    $SKIPSEQ, $AWSACCESS, $AWSSECRET, $RELEASE);
+    $SKIPSEQ, $AWSACCESS, $AWSSECRET, $RELEASE, $SINGLE);
 
 GetOptions(
     'aws=s'         => \$AWS,
@@ -17,6 +17,7 @@ GetOptions(
     'skipseq'       => \$SKIPSEQ,
     'awsaccess=s'   => \$AWSACCESS,
     'awssecret=s'   => \$AWSSECRET,
+    'single=s'      => \$SINGLE,
     'release=s'     => \$RELEASE
 ) or ( system( 'pod2text', $0 ), exit -1 );
 
@@ -55,6 +56,7 @@ $species{'human'}{'gff'}     = 'human.gff';
 
 # run flatfile to json
 for my $key (keys %species) {
+    next if ($SINGLE && $SINGLE ne $key);
     warn "running ff2j on $key\n"; 
 
     #super hacky: 
@@ -78,6 +80,7 @@ unlink 'rest.gff' if -e 'rest.gff';
 
 # run generate names
 for my $key (keys %species) {
+    next if ($SINGLE && $SINGLE ne $key);
     warn "running gen names on $key\n";
     my $gn_command = "bin/generate-names.pl --compress --out data/$key";
     system($gn_command) == 0 or warn "$gn_command failed";
@@ -89,6 +92,7 @@ my $remote_path_const = "s3://$BUCKET/docker/$RELEASE";
 warn $remote_path_const;
 
 for my $key (keys %species) {
+    next if ($SINGLE && $SINGLE ne $key);
     my $local_path = "data/$key";
     my $command = "$Bin/upload_to_S3.pl --awsaccess $AWSACCESS --awssecret $AWSSECRET --local $local_path --remote $remote_path_const/$species{$key}{'remote_path'} --bucket agrjbrowse --skipseq";
     system($command) == 0 or warn "$command failed";
