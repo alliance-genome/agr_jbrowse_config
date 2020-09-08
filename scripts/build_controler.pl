@@ -40,7 +40,7 @@ $species{'human'}{'fullname'}     = 'Homo sapiens';
 $species{'yeast'}{'remote_path'}     = 'SGD/yeast';
 $species{'worm'}{'remote_path'}      = 'WormBase/c_elegans_PRJNA13758';
 $species{'fly'}{'remote_path'}       = 'FlyBase/fruitfly';
-$species{'zebrafish'}{'remote_path'} = 'zfin/zebrafish';
+$species{'zebrafish'}{'remote_path'} = 'zfin/zebrafish-11';
 $species{'mouse'}{'remote_path'}     = 'MGI/mouse';
 $species{'rat'}{'remote_path'}       = 'RGD/rat';
 $species{'human'}{'remote_path'}     = 'human';
@@ -88,7 +88,7 @@ for my $key (keys %species) {
 
 
 # upload to s3
-my $remote_path_const = "$BUCKET/docker/$RELEASE";
+my $remote_path_const = "docker/$RELEASE";
 warn $remote_path_const;
 
 for my $key (keys %species) {
