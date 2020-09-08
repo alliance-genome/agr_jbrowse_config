@@ -70,11 +70,11 @@ for my $key (keys %species) {
     if (-e 'some.gff') {system($ff_command) == 0 or warn "$ff_command failed";}
 
     $ff_command = "bin/flatfile-to-json.pl bin/flatfile-to-json.pl --compress --gff rest.gff --out data/$key --type gene,ncRNA_gene,pseudogene,rRNA_gene,snRNA_gene,snoRNA_gene,tRNA_gene,telomerase_RNA_gene,transposable_element_gene --trackLabel \"All Genes\"  --trackType CanvasFeatures --key \"All Genes\" --maxLookback 100000";
-    system($ff_command) == 0 or warn "$ff_command failed";
+    if (-e 'rest.gff') {system($ff_command) == 0 or warn "$ff_command failed"};
 }
 
 unlink 'some.gff' if -e 'some.gff';
-unlink 'rest.gff';
+unlink 'rest.gff' if -e 'rest.gff';
 
 # run generate names
 for my $key (keys %species) {
