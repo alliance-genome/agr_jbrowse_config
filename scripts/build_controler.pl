@@ -17,7 +17,7 @@ GetOptions(
     'skipseq'       => \$SKIPSEQ,
     'awsaccess=s'   => \$AWSACCESS,
     'awssecret=s'   => \$AWSSECRET,
-    'single=s'      => \$SINGLE,
+    'single:s'      => \$SINGLE,
     'release=s'     => \$RELEASE
 ) or ( system( 'pod2text', $0 ), exit -1 );
 
