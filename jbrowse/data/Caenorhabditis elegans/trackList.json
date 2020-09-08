@@ -61,7 +61,8 @@
 	 },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/3.2.0/VCF_WBcel235_23.vcf.gz",
+         "urlTemplate" : "https://download.alliancegenome.org/3.2.0/VCF-GZ/GRCz11/VCF-GZ_GRCz11_17.vcf.gz",
+         "tbiUrlTemplate" : "https://download.alliancegenome.org/3.2.0/VCF-GZ-TBI/R6/VCF-GZ-TBI_R6_11.vcf.gz.tbi",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       },
