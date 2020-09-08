@@ -38,7 +38,7 @@ $species{'rat'}{'fullname'}       = 'Rattus norvegicus';
 $species{'human'}{'fullname'}     = 'Homo sapiens';
 
 $species{'yeast'}{'remote_path'}     = 'SGD/yeast';
-$species{'worm'}{'remote_path'}      = 'WormBase/worm';
+$species{'worm'}{'remote_path'}      = 'WormBase/c_elegans_PRJNA13758';
 $species{'fly'}{'remote_path'}       = 'FlyBase/fruitfly';
 $species{'zebrafish'}{'remote_path'} = 'zfin/zebrafish';
 $species{'mouse'}{'remote_path'}     = 'MGI/mouse';
@@ -69,10 +69,10 @@ for my $key (keys %species) {
 
     my $ff_command = "bin/flatfile-to-json.pl bin/flatfile-to-json.pl --compress --gff some.gff --out data/$key --type gene,ncRNA_gene,pseudogene,rRNA_gene,snRNA_gene,snoRNA_gene,tRNA_gene,telomerase_RNA_gene,transposable_element_gene --trackLabel \"All Genes\"  --trackType CanvasFeatures --key \"All Genes\" --maxLookback 100000";
     # for non-vertebrates, some.gff won't exist
-    if (-e 'some.gff') {system($ff_command) == 0 or warn "$ff_command failed";}
+    if (!-z 'some.gff') {system($ff_command) == 0 or warn "$ff_command failed";}
 
     $ff_command = "bin/flatfile-to-json.pl bin/flatfile-to-json.pl --compress --gff rest.gff --out data/$key --type gene,ncRNA_gene,pseudogene,rRNA_gene,snRNA_gene,snoRNA_gene,tRNA_gene,telomerase_RNA_gene,transposable_element_gene --trackLabel \"All Genes\"  --trackType CanvasFeatures --key \"All Genes\" --maxLookback 100000";
-    if (-e 'rest.gff') {system($ff_command) == 0 or warn "$ff_command failed"};
+    if (!-z 'rest.gff') {system($ff_command) == 0 or warn "$ff_command failed"};
 }
 
 unlink 'some.gff' if -e 'some.gff';
@@ -88,7 +88,7 @@ for my $key (keys %species) {
 
 
 # upload to s3
-my $remote_path_const = "s3://$BUCKET/docker/$RELEASE";
+my $remote_path_const = "$BUCKET/docker/$RELEASE";
 warn $remote_path_const;
 
 for my $key (keys %species) {
