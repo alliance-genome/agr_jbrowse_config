@@ -23,11 +23,17 @@ $RELEASE or die 'need to supply --release version';
 
 my %species;
 
-$species{mouse}{vcf}    = "GRCm38_17.vcf";
-$species{rat}{vcf}      = "Rnor60_20.vcf";
-$species{fly}{vcf}      = "R6_17.vcf";
-$species{worm}{vcf}     = "WBcel235_17.vcf";
-$species{zebrafish}{vcf}= "GRCz11_17.vcf";
+$species{mouse}{vcf}    = "GRCm38_19.vcf";
+$species{rat}{vcf}      = "Rnor60_23.vcf";
+$species{fly}{vcf}      = "R6_19.vcf";
+$species{worm}{vcf}     = "WBcel235_19.vcf";
+$species{zebrafish}{vcf}= "GRCz11_19.vcf";
+
+$species{mouse}{tbi}    = "GRCm38_12.vcf.gz.tbi";
+$species{rat}{tbi}      = "Rnor60_12.vcf.gz.tbi";
+$species{fly}{tbi}      = "R6_13.vcf.gz.tbi";
+$species{worm}{tbi}     = "WBcel235_12.vcf.gz.tbi";
+$species{zebrafish}{tbi}= "GRCz11_12.vcf.gz.tbi";
 
 $species{mouse}{assembly}    = "GRCm38";
 $species{rat}{assembly}      = "Rnor60";
@@ -38,23 +44,22 @@ $species{zebrafish}{assembly}= "GRCz11";
 #download the files to local
 for my $key (keys %species) {
     my $downloadURL = "https://download.alliancegenome.org/$RELEASE/VCF-GZ/$species{$key}{assembly}/VCF-GZ_$species{$key}{vcf}.gz";
-    system("curl -o $species{$key}{vcf}.gz $downloadURL") == 0 or die "$downloadURL failed";
+    system("wget -O $key-latest.vcf.gz $downloadURL") == 0 or die "$downloadURL failed";
 
-    $downloadURL = "https://download.alliancegenome.org/$RELEASE/VCF-GZ-TBI/$species{$key}{assembly}/VCF-GZ-TBI_$species{$key}{vcf}.gz.tbi";
-    system("curl -o $species{$key}{vcf}.gz.tbi $downloadURL") == 0 or die "$downloadURL failed";
+    $downloadURL = "https://download.alliancegenome.org/$RELEASE/VCF-GZ-TBI/$species{$key}{assembly}/VCF-GZ-TBI_$species{$key}{tbi}";
+    system("wget -O $key-latest.vcf.gz.tbi $downloadURL") == 0 or die "$downloadURL failed";
 }
 
 #put in S3
 for my $key (keys %species) {
-    my $remote = "s3://$BUCKET/VCF/$RELEASE/$species{$key}{vcf}.gz";
-    system("$AWS s3 cp --acl public-read $species{$key}{vcf}.gz $remote") == 0 or warn "upload $remote failed";
+    my $remote = "s3://$BUCKET/VCF/$RELEASE/";
+    system("$AWS s3 cp --acl public-read $key-latest.vcf.gz $remote") == 0 or warn "upload of $key-latest.vcf.gz to $remote failed";
 
-    $remote = "s3://$BUCKET/VCF/$RELEASE/$species{$key}{vcf}.gz.tbi";
-    system("$AWS s3 cp --acl public-read $species{$key}{vcf}.gz.tbi $remote") == 0 or warn "upload $remote failed";
+    system("$AWS s3 cp --acl public-read $key-latest.vcf.gz.tbi $remote") == 0 or warn "upload of $key-latest.vcf.gz.tbi to $remote failed";
 }
 
 #delete the local copies
 for my $key (keys %species) {
-    unlink "$species{$key}{vcf}.gz";
-    unlink "$species{$key}{vcf}.gz.tbi";
+#    unlink "$species{$key}{vcf}.gz";
+#    unlink "$species{$key}{vcf}.gz.tbi";
 }
