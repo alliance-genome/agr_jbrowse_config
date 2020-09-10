@@ -5,16 +5,11 @@ use warnings;
 use Getopt::Long;
 use FindBin qw($Bin);
 
-my ($AWS, $BUCKET, $NOTCOMPRESSED, $CORS,$CREATE,
-    $SKIPSEQ, $AWSACCESS, $AWSSECRET, $RELEASE, $SINGLE);
+my ($AWS, $BUCKET, $SKIPSEQ, $AWSACCESS, $AWSSECRET, $RELEASE, $SINGLE);
 
 GetOptions(
     'aws=s'         => \$AWS,
     'bucket=s'      => \$BUCKET,
-    'notcompressed' => \$NOTCOMPRESSED,
-    'cors'          => \$CORS,
-    'create'        => \$CREATE,
-    'skipseq'       => \$SKIPSEQ,
     'awsaccess=s'   => \$AWSACCESS,
     'awssecret=s'   => \$AWSSECRET,
     'single:s'      => \$SINGLE,
