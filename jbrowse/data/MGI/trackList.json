@@ -70,7 +70,6 @@
             "color" : "function(f) { var color = 'black'; var cons = f.get('geneImpact'); if (typeof cons === 'undefined' ) { return color; } for (var i=0; i < cons.length; i++) { if      (cons[i].match('HIGH'))     {return 'red';} } for (var i=0; i < cons.length; i++) { if      (cons[i].match('MODIFIER'))     {return 'purple';} } for (var i=0; i < cons.length; i++) { if      (cons[i].match('MODERATE'))     {return 'gold';} } return 'cyan'; }",
             "height" : 8
          },
-         "comment" : {"do I need this","subParts" : "point_mutation,deletion,insertion"},
          "trackType" : "CanvasFeatures",
          "type" : "CanvasFeatures",
          "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.2.0/MGI/mouse/tracks/Multiple-Variant Alleles/{refseq}/trackData.jsonz"
