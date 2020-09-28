@@ -23,17 +23,17 @@ $RELEASE or die 'need to supply --release version';
 
 my %species;
 
-$species{mouse}{vcf}    = "GRCm38_19.vcf";
-$species{rat}{vcf}      = "Rnor60_23.vcf";
-$species{fly}{vcf}      = "R6_19.vcf";
-$species{worm}{vcf}     = "WBcel235_19.vcf";
-$species{zebrafish}{vcf}= "GRCz11_19.vcf";
+$species{mouse}{vcf}    = "GRCm38_25.vcf";
+$species{rat}{vcf}      = "Rnor60_29.vcf";
+$species{fly}{vcf}      = "R6_25.vcf";
+$species{worm}{vcf}     = "WBcel235_25.vcf";
+$species{zebrafish}{vcf}= "GRCz11_25.vcf";
 
-$species{mouse}{tbi}    = "GRCm38_12.vcf.gz.tbi";
-$species{rat}{tbi}      = "Rnor60_12.vcf.gz.tbi";
-$species{fly}{tbi}      = "R6_13.vcf.gz.tbi";
-$species{worm}{tbi}     = "WBcel235_12.vcf.gz.tbi";
-$species{zebrafish}{tbi}= "GRCz11_12.vcf.gz.tbi";
+$species{mouse}{tbi}    = "GRCm38_18.vcf.gz.tbi";
+$species{rat}{tbi}      = "Rnor60_18.vcf.gz.tbi";
+$species{fly}{tbi}      = "R6_18.vcf.gz.tbi";
+$species{worm}{tbi}     = "WBcel235_18.vcf.gz.tbi";
+$species{zebrafish}{tbi}= "GRCz11_18.vcf.gz.tbi";
 
 $species{mouse}{assembly}    = "GRCm38";
 $species{rat}{assembly}      = "Rnor60";
