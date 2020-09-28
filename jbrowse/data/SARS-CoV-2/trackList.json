@@ -56,7 +56,7 @@
             "color" : "cyan",
             "borderWidth" : 2,
             "borderColor" : "black",
-            "description" : "function(f) {var name=f.get('protein_name');console.log(name); var note = f.get('note');return name + note;}",
+            "description" : "function(f) {var name=f.get('protein_name'); var note = f.get('note');return name ? name + '; ' + note : note;}",
             "label" : "function(f) {var pname=f.get('protein_symbol'); var name = f.get('name'); return pname + ' ('+name+')'; }",
             "height" : 7
          },

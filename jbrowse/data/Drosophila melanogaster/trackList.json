@@ -4,7 +4,7 @@
       "HideTrackLabels"
    ],
    "names" : {
-      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.1.1/FlyBase/fruitfly/names/",
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.2.0/FlyBase/fruitfly/names/",
       "type" : "Hash"
    },
    "tracks" : [
@@ -31,7 +31,7 @@
          },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/3.1.1/VCF_R6_23.vcf.gz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/3.2.0/fly-latest.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       },
@@ -61,11 +61,32 @@
          "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : "CanvasFeatures",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.1.1/FlyBase/fruitfly/tracks/All Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.2.0/FlyBase/fruitfly/tracks/All Genes/{refseq}/trackData.jsonz",
          "compress" : 1,
          "type" : "CanvasFeatures",
          "label" : "All Genes",
          "maxHeight" : 3000
+      },
+      {
+         "compress" : 1,
+         "glyph" : "wormbase-glyphs/View/FeatureGlyph/MultipleVariantAllele",
+         "key" : "Multiple-Variant Alleles",
+         "label" : "Multiple-Variant Alleles",
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "onClick" : {
+            "url" : "function(track,f) {var id = f.get('id'); return '/allele/' + id }",
+            "title" : "Click to open in a full window:",
+            "action" : "iframeDialog"
+         },
+         "style" : {
+            "className" : "feature",
+            "label" : "function(f) {return f.get('symbol_text');}",
+            "color" : "function(f) { var color = 'black'; var cons = f.get('geneImpacts'); if (typeof cons === 'undefined' ) { return color; } if (Array.isArray(cons)) { for (var i=0; i < cons.length; i++) { if (cons[i].match('HIGH')) {return 'red';} } for (var i=0; i < cons.length; i++) { if (cons[i].match('MODIFIER')) {return 'purple';} } for (var i=0; i < cons.length; i++) { if (cons[i].match('MODERATE')){return 'gold';} } } else {if (cons.match('HIGH')) {return 'red';} if (cons.match('MODIFIER')) {return 'purple';} if (cons.match('MODERATE')){return 'gold';} } return 'cyan'; }",
+            "height" : 8
+         },
+         "trackType" : "CanvasFeatures",
+         "type" : "CanvasFeatures",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.2.0/FlyBase/fruitfly/tracks/Multiple-Variant Alleles/{refseq}/trackData.jsonz"
       },
       {
          "label" : "UCSC Conservation",
