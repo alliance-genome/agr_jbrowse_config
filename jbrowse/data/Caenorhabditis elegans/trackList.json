@@ -34,7 +34,7 @@
             "className" : "feature"
          },
          "compress" : 1,
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.2.0/WormBase/c_elegans_PRJNA13758/tracks/All Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/4.0.0/WormBase/c_elegans_PRJNA13758/tracks/All Genes/{refseq}/trackData.jsonz",
          "type" : "CanvasFeatures",
          "key" : "All Genes"
       },

@@ -5,7 +5,7 @@ use warnings;
 use Getopt::Long;
 use FindBin qw($Bin);
 
-my ($AWS, $BUCKET, $SKIPSEQ, $AWSACCESS, $AWSSECRET, $RELEASE, $SINGLE);
+my ($AWS, $BUCKET, $SKIPSEQ, $AWSACCESS, $AWSSECRET, $RELEASE, $SINGLE, $SKIPFLATFILE);
 
 GetOptions(
     'aws=s'         => \$AWS,
@@ -13,6 +13,7 @@ GetOptions(
     'awsaccess=s'   => \$AWSACCESS,
     'awssecret=s'   => \$AWSSECRET,
     'single:s'      => \$SINGLE,
+    'skipflatfile'  => \$SKIPFLATFILE,
     'release=s'     => \$RELEASE
 ) or ( system( 'pod2text', $0 ), exit -1 );
 
@@ -50,6 +51,7 @@ $species{'human'}{'gff'}     = 'human.gff';
               
 
 # run flatfile to json
+unless ($SKIPFLATFILE) {
 for my $key (keys %species) {
     next if ($SINGLE && $SINGLE ne $key);
     warn "running ff2j on $key\n"; 
@@ -62,14 +64,19 @@ for my $key (keys %species) {
     system("grep -P '^1' $species{$key}{'gff'} > some.gff" );
     system("grep -vP '^1' $species{$key}{'gff'} > rest.gff" );
 
-    my $ff_command = "bin/flatfile-to-json.pl bin/flatfile-to-json.pl --compress --gff some.gff --out data/$key --type gene,ncRNA_gene,pseudogene,rRNA_gene,snRNA_gene,snoRNA_gene,tRNA_gene,telomerase_RNA_gene,transposable_element_gene --trackLabel \"All Genes\"  --trackType CanvasFeatures --key \"All Genes\" --maxLookback 100000";
-    # for non-vertebrates, some.gff won't exist
-    if (!-z 'some.gff') {system($ff_command) == 0 or warn "$ff_command failed";}
+    if (-e 'some.gff') {
+        my $ff_command = "nice bin/flatfile-to-json.pl bin/flatfile-to-json.pl --compress --gff some.gff --out data/$key --type gene,ncRNA_gene,pseudogene,rRNA_gene,snRNA_gene,snoRNA_gene,tRNA_gene,telomerase_RNA_gene,transposable_element_gene --trackLabel \"All Genes\"  --trackType CanvasFeatures --key \"All Genes\" ";
+        system($ff_command) == 0 or die "$ff_command failed";
 
-    $ff_command = "bin/flatfile-to-json.pl bin/flatfile-to-json.pl --compress --gff rest.gff --out data/$key --type gene,ncRNA_gene,pseudogene,rRNA_gene,snRNA_gene,snoRNA_gene,tRNA_gene,telomerase_RNA_gene,transposable_element_gene --trackLabel \"All Genes\"  --trackType CanvasFeatures --key \"All Genes\" --maxLookback 100000";
-    if (!-z 'rest.gff') {system($ff_command) == 0 or warn "$ff_command failed"};
+        $ff_command = "nice bin/flatfile-to-json.pl bin/flatfile-to-json.pl --compress --gff rest.gff --out data/$key --type gene,ncRNA_gene,pseudogene,rRNA_gene,snRNA_gene,snoRNA_gene,tRNA_gene,telomerase_RNA_gene,transposable_element_gene --trackLabel \"All Genes\"  --trackType CanvasFeatures --key \"All Genes\" ";
+        system($ff_command) == 0 or die "$ff_command failed";
+    }
+    else {
+        my $ff_command = "nice bin/flatfile-to-json.pl bin/flatfile-to-json.pl --compress --gff $species{$key}{'gff'} --out data/$key --type gene,ncRNA_gene,pseudogene,rRNA_gene,snRNA_gene,snoRNA_gene,tRNA_gene,telomerase_RNA_gene,transposable_element_gene --trackLabel \"All Genes\"  --trackType CanvasFeatures --key \"All Genes\" ";
+        system($ff_command) == 0 or die "$ff_command failed";
+    }
 }
-
+} #end skipping
 unlink 'some.gff' if -e 'some.gff';
 unlink 'rest.gff' if -e 'rest.gff';
 
@@ -78,7 +85,7 @@ for my $key (keys %species) {
     next if ($SINGLE && $SINGLE ne $key);
     warn "running gen names on $key\n";
     my $gn_command = "bin/generate-names.pl --compress --out data/$key";
-    system($gn_command) == 0 or warn "$gn_command failed";
+    system($gn_command) == 0 or die "$gn_command failed";
 }
 
 
