@@ -40,7 +40,6 @@
          "maxHeight" : 3000,
          "unsafeMouseover" : true,
          "unsafePopup" : true,
-         "glyph" : "{variationGlyph}",
          "metadata" : {
             "about" : "High Throughput variants. Features are colored according to the Variant Effect Predictor's predicted impact: red for high, purple for modifier, gold/yellow for medium, and cyan for low."
          },
