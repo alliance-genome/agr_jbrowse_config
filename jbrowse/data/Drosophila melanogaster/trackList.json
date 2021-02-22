@@ -36,6 +36,33 @@
          "key" : "Variants"
       },
       {
+         "chunkSizeLimit" : 5000000,
+         "maxHeight" : 3000,
+         "unsafeMouseover" : true,
+         "unsafePopup" : true,
+         "style" : {
+             "color" : "{variationColor}",
+             "height" : 8,
+             "description" : "{variationDescription}",
+             "label" : "{variationLabel}"
+         },
+         "glyph" : "{variationGlyph}",
+         "metadata" : {
+            "about" : "High Throughput variants. Features are colored according to the Variant Effect Predictor's predicted impact: red for high, purple for modifier, gold/yellow for medium, and cyan for low."
+         },
+         "onClick" : {
+            "label" : "{variantsBalloon}",
+            "content" : "{variantsBalloon}",
+            "title" : "{name}",
+            "action" : "contentDialog"
+         },
+         "label" : "High Throughput Variants",
+         "type" : "CanvasVariants",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/4.0.0/HTPOSTVEPVCF_FB_3.vcf.gz",
+         "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
+         "key" : "High Throughput Variants"
+      },
+      {
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
          "chunkSize" : 80000,
          "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/FlyBase/fruitfly/seq/{refseq_dirpath}/{refseq}-",
