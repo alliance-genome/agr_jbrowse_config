@@ -22,6 +22,12 @@
          "unsafeMouseover" : true,
          "unsafePopup" : true,
          "glyph" : "{simpleVariationGlyph}",
+         "onClick" : {
+            "label" : "{htpVariantsBalloon}",
+            "content" : "{htpVariantsBalloon}",
+            "title" : " ",
+            "action" : "contentDialog"
+         },
          "style" : {
              "color" : "{htpVariationColor}",
              "height" : 8
