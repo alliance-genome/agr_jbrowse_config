@@ -44,7 +44,7 @@
          "onClick" : {
             "label" : "{htpVariantsBalloon}",
             "content" : "{htpVariantsBalloon}",
-            "title" : "",
+            "title" : " ",
             "action" : "contentDialog"
          },
          "style" : {
