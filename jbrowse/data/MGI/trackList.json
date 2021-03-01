@@ -5,6 +5,31 @@
          "maxHeight" : 3000,
          "unsafeMouseover" : true,
          "unsafePopup" : true,
+         "glyph" : "{simpleVariationGlyph}",
+         "onClick" : {
+            "label" : "{htpVariantsBalloon}",
+            "content" : "{htpVariantsBalloon}",
+            "title" : " ",
+            "action" : "contentDialog"
+         },
+         "style" : {
+             "color" : "{htpVariationColor}",
+             "height" : 8
+         },
+         "metadata" : {
+            "about" : "High Throughput variants. Features are colored according to the Variant Effect Predictor's predicted impact: red for high, purple for modifier, gold/yellow for medium, and cyan for low."
+         },
+         "label" : "High Throughput Variants",
+         "type" : "CanvasVariants",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/4.0.0/HTPOSTVEPVCF_MGI_0.vcf.gz",
+         "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
+         "key" : "High Throughput Variants"
+      },
+      {
+         "chunkSizeLimit" : 5000000,
+         "maxHeight" : 3000,
+         "unsafeMouseover" : true,
+         "unsafePopup" : true,
          "style" : {
              "color" : "{variationColor}",
              "height" : 8,
