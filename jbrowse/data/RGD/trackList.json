@@ -112,7 +112,7 @@
       }
    ],
    "names" : {
-      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.2.0/RGD/rat/names/",
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/4.0.0/RGD/rat/names/",
       "type" : "Hash"
    },
    "dataset_id" : "rat",
