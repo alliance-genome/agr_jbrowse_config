@@ -103,7 +103,7 @@
          },
          "trackType" : "CanvasFeatures",
          "type" : "CanvasFeatures",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.2.0/MGI/mouse/tracks/Multiple-Variant Alleles/{refseq}/trackData.jsonz"
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/4.0.0/MGI/mouse/tracks/Multiple-Variant Alleles/{refseq}/trackData.jsonz"
       },
             {
          "label" : "UCSC Conservation",
