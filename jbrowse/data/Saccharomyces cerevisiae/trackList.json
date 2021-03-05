@@ -9,7 +9,7 @@
    ],
    "formatVersion" : 1,
    "names" : {
-      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.2.0/SGD/yeast/names/",
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/4.0.0/SGD/yeast/names/",
       "type" : "Hash"
    },
    "tracks" : [
