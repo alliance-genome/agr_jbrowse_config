@@ -70,7 +70,7 @@
          "key" : "Reference sequence"
       },
       {
-         "glyph" : "{geneGlyph}",,
+         "glyph" : "{geneGlyph}",
          "impliedUTRs" : true,
          "onClick" : {
             "url" : "{curieUrl}",
