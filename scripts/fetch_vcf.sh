@@ -29,8 +29,8 @@ mkdir  ../apollo/data/fly/jbrowse
 mkdir  ../apollo/data/MGI/jbrowse
 rm -rf ../apollo/data/RGD/jbrowse
 mkdir  ../apollo/data/RGD/jbrowse
-rm -rf ../apollo/data/SGD/jbrowse
-mkdir  ../apollo/data/SGD/jbrowse
+rm -rf ../apollo/data/yeast/jbrowse
+mkdir  ../apollo/data/yeast/jbrowse
 
 wget -O ../apollo/data/worm/jbrowse/VCF_WBcel235_latest.vcf.gz https://s3.amazonaws.com/agrjbrowse/VCF/$WORMVCF
 wget -O ../apollo/data/worm/jbrowse/VCF_WBcel235_latest.vcf.gz.tbi https://s3.amazonaws.com/agrjbrowse/VCF/$WORMVCF.tbi
