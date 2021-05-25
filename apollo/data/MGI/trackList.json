@@ -2,6 +2,33 @@
    "tracks" : [
       {
          "chunkSizeLimit" : 5000000,
+         "maxHeight" : 3000,
+         "unsafeMouseover" : true,
+         "unsafePopup" : true,
+         "glyph" : "{variationGlyph}",
+         "onClick" : {
+            "label" : "{variantsBalloon}",
+            "url" : "{variationCurieUrl}",
+            "title" : "Put a title here",
+            "action" : "iframeDialog"
+         },
+         "style" : {
+             "color" : "{variationColor}",
+             "description" : "{variationDescription}",
+             "label" : "{variationLabel}",
+             "height" : 8
+         },
+         "metadata" : {
+            "about" : "High Throughput variants. Features are colored according to the Variant Effect Predictor's predicted impact: red for high, purple for modifier, gold/yellow for medium, and cyan for low."
+         },
+         "label" : "High Throughput Variants",
+         "type" : "CanvasVariants",
+         "urlTemplate" : "jbrowse/HTPOSTVEPVCF_MGI_latest.vcf.gz",
+         "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
+         "key" : "High Throughput Variants"
+      },
+      {
+         "chunkSizeLimit" : 5000000,
          "unsafeMouseover" : true,
          "unsafePopup" : true,
          "style" : {
