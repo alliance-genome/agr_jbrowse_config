@@ -1,10 +1,10 @@
 #!/bin/bash
 
-WORMVCF="4.0.0/worm-latest.vcf.gz"
-ZEBRAFISHVCF="4.0.0/zebrafish-latest.vcf.gz"
-FLYVCF="4.0.0/fly-latest.vcf.gz"
-MOUSEVCF="4.0.0/mouse-latest.vcf.gz"
-RATVCF="4.0.0/rat-latest.vcf.gz"
+WORMVCF="4.1.0/worm-latest.vcf.gz"
+ZEBRAFISHVCF="4.1.0/zebrafish-latest.vcf.gz"
+FLYVCF="4.1.0/fly-latest.vcf.gz"
+MOUSEVCF="4.1.0/mouse-latest.vcf.gz"
+RATVCF="4.1.0/rat-latest.vcf.gz"
 
 HTPWORMVCF="HTPOSTVEPVCF_WB_latest.vcf.gz"
 HTPZEBRAFISHVCF="HTPOSTVEPVCF_ZFIN_latest.vcf.gz"
@@ -20,17 +20,23 @@ HTPMOUSEVCFPATH="4.1.0/HTPOSTVEPVCF_MGI_latest.vcf.gz"
 HTPRATVCFPATH="4.1.0/HTPOSTVEPVCF_RGD_latest.vcf.gz"
 HTPYEASTVCFPATH="4.1.0/HTPOSTVEPVCF_SGD_latest.vcf.gz"
 
+HUMANDOWNLOADPATH="https://download.alliancegenome.org/variants/HUMAN"
+MOUSEDOWNLOADPATH="https://download.alliancegenome.org/variants/MGI"
+
 rm -rf ../apollo/data/worm/jbrowse
 mkdir ../apollo/data/worm/jbrowse
 rm -rf ../apollo/data/zebrafish/jbrowse
 mkdir  ../apollo/data/zebrafish/jbrowse
 rm -rf ../apollo/data/fly/jbrowse
 mkdir  ../apollo/data/fly/jbrowse
+rm -rf ../apollo/data/MGI/jbrowse
 mkdir  ../apollo/data/MGI/jbrowse
 rm -rf ../apollo/data/RGD/jbrowse
 mkdir  ../apollo/data/RGD/jbrowse
 rm -rf ../apollo/data/yeast/jbrowse
 mkdir  ../apollo/data/yeast/jbrowse
+#rm -rf ../apollo/data/human/jbrowse
+#mkdir  ../apollo/data/human/jbrowse
 
 wget -O ../apollo/data/worm/jbrowse/VCF_WBcel235_latest.vcf.gz https://s3.amazonaws.com/agrjbrowse/VCF/$WORMVCF
 wget -O ../apollo/data/worm/jbrowse/VCF_WBcel235_latest.vcf.gz.tbi https://s3.amazonaws.com/agrjbrowse/VCF/$WORMVCF.tbi
@@ -49,6 +55,7 @@ wget -O ../apollo/data/fly/jbrowse/$HTPFLYVCF.tbi https://s3.amazonaws.com/agrjb
 
 wget -O ../apollo/data/MGI/jbrowse/VCF_GRCm38_latest.vcf.gz https://s3.amazonaws.com/agrjbrowse/VCF/$MOUSEVCF
 wget -O ../apollo/data/MGI/jbrowse/VCF_GRCm38_latest.vcf.gz.tbi https://s3.amazonaws.com/agrjbrowse/VCF/$MOUSEVCF.tbi
+#need to get the per-chromosome vcfs and update the config
 wget -O ../apollo/data/MGI/jbrowse/$HTPMOUSEVCF https://s3.amazonaws.com/agrjbrowse/VCF/$HTPMOUSEVCFPATH
 wget -O ../apollo/data/MGI/jbrowse/$HTPMOUSEVCF.tbi https://s3.amazonaws.com/agrjbrowse/VCF/$HTPMOUSEVCFPATH.tbi
 
@@ -60,4 +67,35 @@ wget -O ../apollo/data/RGD/jbrowse/$HTPRATVCF.tbi https://s3.amazonaws.com/agrjb
 wget -O ../apollo/data/yeast/jbrowse/$HTPYEASTVCF https://s3.amazonaws.com/agrjbrowse/VCF/$HTPYEASTVCFPATH
 wget -O ../apollo/data/yeast/jbrowse/$HTPYEASTVCF.tbi https://s3.amazonaws.com/agrjbrowse/VCF/$HTPYEASTVCFPATH.tbi
 
+#for CHR in {1..22} ; do
+#    wget -O "../apollo/data/human/jbrowse/HUMAN.vep.$CHR.vcf.gz"     "$HUMANDOWNLOADPATH/HUMAN.vep.$CHR.vcf.gz"
+#    wget -O "../apollo/data/human/jbrowse/HUMAN.vep.$CHR.vcf.gz.tbi" "$HUMANDOWNLOADPATH/HUMAN.vep.$CHR.vcf.gz.tbi"
+#done
+#CHR=MT
+#    wget -O "../apollo/data/human/jbrowse/HUMAN.vep.$CHR.vcf.gz"     "$HUMANDOWNLOADPATH/HUMAN.vep.$CHR.vcf.gz"
+#    wget -O "../apollo/data/human/jbrowse/HUMAN.vep.$CHR.vcf.gz.tbi" "$HUMANDOWNLOADPATH/HUMAN.vep.$CHR.vcf.gz.tbi"
 
+#CHR=X
+#    wget -O "../apollo/data/human/jbrowse/HUMAN.vep.$CHR.vcf.gz"     "$HUMANDOWNLOADPATH/HUMAN.vep.$CHR.vcf.gz"
+#    wget -O "../apollo/data/human/jbrowse/HUMAN.vep.$CHR.vcf.gz.tbi" "$HUMANDOWNLOADPATH/HUMAN.vep.$CHR.vcf.gz.tbi"
+
+#CHR=Y
+#    wget -O "../apollo/data/human/jbrowse/HUMAN.vep.$CHR.vcf.gz"     "$HUMANDOWNLOADPATH/HUMAN.vep.$CHR.vcf.gz"
+#    wget -O "../apollo/data/human/jbrowse/HUMAN.vep.$CHR.vcf.gz.tbi" "$HUMANDOWNLOADPATH/HUMAN.vep.$CHR.vcf.gz.tbi"
+
+#for CHR in {1..19} ; do
+#    wget -O "../apollo/data/MGI/jbrowse/MOUSE.vep.$CHR.vcf.gz"     "$MOUSEDOWNLOADPATH/MGI.vep.$CHR.vcf.gz"
+#    wget -O "../apollo/data/MGI/jbrowse/MOUSE.vep.$CHR.vcf.gz.tbi" "$MOUSEDOWNLOADPATH/MGI.vep.$CHR.vcf.gz.tbi"
+#done
+
+#CHR=MT
+#    wget -O "../apollo/data/MGI/jbrowse/MOUSE.vep.$CHR.vcf.gz"     "$MOUSEDOWNLOADPATH/MGI.vep.$CHR.vcf.gz"
+#    wget -O "../apollo/data/MGI/jbrowse/MOUSE.vep.$CHR.vcf.gz.tbi" "$MOUSEDOWNLOADPATH/MGI.vep.$CHR.vcf.gz.tbi"
+
+#CHR=Y
+#    wget -O "../apollo/data/MGI/jbrowse/MOUSE.vep.$CHR.vcf.gz"     "$MOUSEDOWNLOADPATH/MGI.vep.$CHR.vcf.gz"
+#    wget -O "../apollo/data/MGI/jbrowse/MOUSE.vep.$CHR.vcf.gz.tbi" "$MOUSEDOWNLOADPATH/MGI.vep.$CHR.vcf.gz.tbi"
+
+#CHR=X
+#    wget -O "../apollo/data/MGI/jbrowse/MOUSE.vep.$CHR.vcf.gz"     "$MOUSEDOWNLOADPATH/MGI.vep.$CHR.vcf.gz"
+#    wget -O "../apollo/data/MGI/jbrowse/MOUSE.vep.$CHR.vcf.gz.tbi" "$MOUSEDOWNLOADPATH/MGI.vep.$CHR.vcf.gz.tbi"
