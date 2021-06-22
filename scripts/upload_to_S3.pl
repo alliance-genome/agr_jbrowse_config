@@ -80,6 +80,7 @@ chdir($LOCAL) or die "unable to cd to $LOCAL";
 #transfer trackList.json and tracks.conf
 system("$AWS s3 cp --acl public-read trackList.json $REMOTEPATH/trackList.json");
 system("$AWS s3 cp --acl public-read tracks.conf    $REMOTEPATH/tracks.conf");
+system("$AWS s3 cp --acl public-read trackList.json.old $REMOTEPATH/trackList.json.old") if -e "trackList.json.old";
 
 my $gzip = $NOTCOMPRESSED ? '' : " --content-encoding gzip ";
 
