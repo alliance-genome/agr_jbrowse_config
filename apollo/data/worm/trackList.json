@@ -1,7 +1,7 @@
 {
    "names" : {
       "type" : "Hash",
-      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.2.0/WormBase/c_elegans_PRJNA13758/names/"
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/4.1.0/WormBase/c_elegans_PRJNA13758/names/"
    },
    "tracks" : [
       {

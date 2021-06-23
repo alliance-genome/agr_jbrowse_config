@@ -4,7 +4,7 @@
       "HideTrackLabels"
    ],
    "names" : {
-      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.2.0/FlyBase/fruitfly/names/",
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/4.1.0/FlyBase/fruitfly/names/",
       "type" : "Hash"
    },
    "tracks" : [

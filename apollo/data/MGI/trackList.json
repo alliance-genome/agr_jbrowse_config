@@ -105,7 +105,7 @@
       }
    ],
    "names" : {
-      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.2.0/MGI/mouse/names/",
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/4.1.0/MGI/mouse/names/",
       "type" : "Hash"
    },
    "plugins" : [
