@@ -16,6 +16,7 @@ upload_to_S3.pl - Uploads a set of JBrowse track data to an AWS S3 bucket
                    [--cors]
                    [--skipseq]
                    [--profile]
+                   [--tracklistonly]
 
 =head1 AUTHOR
 
@@ -41,7 +42,7 @@ it under the same terms as Perl itself.
 
 ###TODO add a noindex option to not create the index.html file and not set website (because it's already been done presumably).
 
-my ($AWS, $BUCKET, $LOCAL, $REMOTE, $NOTCOMPRESSED, $CORS,$CREATE,$PROFILE,$SKIPSEQ, $AWSACCESS, $AWSSECRET);
+my ($AWS, $BUCKET, $LOCAL, $REMOTE, $NOTCOMPRESSED, $CORS,$CREATE,$PROFILE,$SKIPSEQ, $AWSACCESS, $AWSSECRET, $TRACKLISTONLY);
 
 GetOptions(
     'aws=s'         => \$AWS,
@@ -54,7 +55,8 @@ GetOptions(
     'profile=s'     => \$PROFILE,
     'awsaccess=s'   => \$AWSACCESS,
     'awssecret=s'   => \$AWSSECRET,
-    'skipseq'       => \$SKIPSEQ
+    'skipseq'       => \$SKIPSEQ,
+    'tracklistonly' => \$TRACKLISTONLY
 ) or ( system( 'pod2text', $0 ), exit -1 );
 
 $AWS    ||= '/usr/local/bin/aws';
@@ -85,16 +87,16 @@ system("$AWS s3 cp --acl public-read trackList.json.old $REMOTEPATH/trackList.js
 my $gzip = $NOTCOMPRESSED ? '' : " --content-encoding gzip ";
 
 #transfer tracks
-system("$AWS s3 cp $gzip --recursive --acl public-read tracks/ $REMOTEPATH/tracks/");
+system("$AWS s3 cp $gzip --recursive --acl public-read tracks/ $REMOTEPATH/tracks/") unless $TRACKLISTONLY;
 
 #transfer names (if compressed, transfer meta separately)
-system("$AWS s3 cp $gzip --recursive --acl public-read names/ $REMOTEPATH/names/");
-system("$AWS s3 cp --acl public-read names/meta.json $REMOTEPATH/names/meta.json");
+system("$AWS s3 cp $gzip --recursive --acl public-read names/ $REMOTEPATH/names/") unless $TRACKLISTONLY;
+system("$AWS s3 cp --acl public-read names/meta.json $REMOTEPATH/names/meta.json") unless $TRACKLISTONLY;
 
 #transfer seq
 unless ($SKIPSEQ) {
-    system("$AWS s3 cp $gzip --recursive --acl public-read seq/ $REMOTEPATH/seq/");
-    system("$AWS s3 cp --acl public-read seq/refSeqs.json $REMOTEPATH/seq/refSeqs.json");
+    system("$AWS s3 cp $gzip --recursive --acl public-read seq/ $REMOTEPATH/seq/") unless $TRACKLISTONLY;
+    system("$AWS s3 cp --acl public-read seq/refSeqs.json $REMOTEPATH/seq/refSeqs.json") unless $TRACKLISTONLY;
 }
 
 #create bogus index.html, set website and optionally CORS
