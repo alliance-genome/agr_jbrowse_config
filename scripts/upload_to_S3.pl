@@ -43,7 +43,7 @@ it under the same terms as Perl itself.
 
 ###TODO add a noindex option to not create the index.html file and not set website (because it's already been done presumably).
 
-my ($AWS, $BUCKET, $LOCAL, $REMOTE, $NOTCOMPRESSED, $CORS,$CREATE,$PROFILE,$SKIPSEQ, $AWSACCESS, $AWSSECRET, $TRACKLISTONLY, $VERBOSE);
+my ($AWS, $BUCKET, $LOCAL, $REMOTE, $NOTCOMPRESSED, $CORS,$CREATE,$PROFILE,$SKIPSEQ, $SKIPTRACKS, $AWSACCESS, $AWSSECRET, $TRACKLISTONLY, $VERBOSE);
 
 GetOptions(
     'aws=s'         => \$AWS,
@@ -57,6 +57,7 @@ GetOptions(
     'awsaccess=s'   => \$AWSACCESS,
     'awssecret=s'   => \$AWSSECRET,
     'skipseq'       => \$SKIPSEQ,
+    'skiptracks'    => \$SKIPTRACKS,
     'tracklistonly' => \$TRACKLISTONLY,
     'verbose'       => \$VERBOSE
 ) or ( system( 'pod2text', $0 ), exit -1 );
@@ -94,7 +95,7 @@ system("$AWS s3 cp $QUIET --acl public-read trackList.json.old $REMOTEPATH/track
 my $gzip = $NOTCOMPRESSED ? '' : " --content-encoding gzip ";
 
 #transfer tracks
-system("$AWS s3 cp $gzip $QUIET --recursive --acl public-read tracks/ $REMOTEPATH/tracks/") unless $TRACKLISTONLY;
+system("$AWS s3 cp $gzip $QUIET --recursive --acl public-read tracks/ $REMOTEPATH/tracks/") unless ($TRACKLISTONLY or $SKIPTRACKS);
 
 #transfer names (if compressed, transfer meta separately)
 system("$AWS s3 cp $gzip $QUIET --recursive --acl public-read names/ $REMOTEPATH/names/") unless $TRACKLISTONLY;
