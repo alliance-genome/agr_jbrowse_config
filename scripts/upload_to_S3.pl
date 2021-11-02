@@ -12,10 +12,12 @@ upload_to_S3.pl - Uploads a set of JBrowse track data to an AWS S3 bucket
 
   % upload_to_S3.pl --aws <path> --bucket <name> \
                     --local <path> --remote <path> \
+                   [--verbose]
                    [--notcompressed]
                    [--cors]
                    [--skipseq]
                    [--profile]
+                   [--tracklistonly]
 
 =head1 AUTHOR
 
@@ -41,7 +43,7 @@ it under the same terms as Perl itself.
 
 ###TODO add a noindex option to not create the index.html file and not set website (because it's already been done presumably).
 
-my ($AWS, $BUCKET, $LOCAL, $REMOTE, $NOTCOMPRESSED, $CORS,$CREATE,$PROFILE,$SKIPSEQ, $AWSACCESS, $AWSSECRET);
+my ($AWS, $BUCKET, $LOCAL, $REMOTE, $NOTCOMPRESSED, $CORS,$CREATE,$PROFILE,$SKIPSEQ, $SKIPTRACKS, $AWSACCESS, $AWSSECRET, $TRACKLISTONLY, $VERBOSE);
 
 GetOptions(
     'aws=s'         => \$AWS,
@@ -54,7 +56,10 @@ GetOptions(
     'profile=s'     => \$PROFILE,
     'awsaccess=s'   => \$AWSACCESS,
     'awssecret=s'   => \$AWSSECRET,
-    'skipseq'       => \$SKIPSEQ
+    'skipseq'       => \$SKIPSEQ,
+    'skiptracks'    => \$SKIPTRACKS,
+    'tracklistonly' => \$TRACKLISTONLY,
+    'verbose'       => \$VERBOSE
 ) or ( system( 'pod2text', $0 ), exit -1 );
 
 $AWS    ||= '/usr/local/bin/aws';
@@ -69,6 +74,11 @@ if ($AWSSECRET && $AWSACCESS) {
     $AWS = "AWS_ACCESS_KEY_ID=$AWSACCESS AWS_SECRET_ACCESS_KEY=$AWSSECRET $AWS ";
 }
 
+my $QUIET = '';
+unless ($VERBOSE) {
+    $QUIET = ' --quiet ';
+}
+
 my $REMOTEPATH = "s3://$BUCKET/$REMOTE";
 
 if ($CREATE) {
@@ -79,22 +89,22 @@ chdir($LOCAL) or die "unable to cd to $LOCAL";
 
 #transfer trackList.json and tracks.conf
 system("$AWS s3 cp --acl public-read trackList.json $REMOTEPATH/trackList.json");
-system("$AWS s3 cp --acl public-read tracks.conf    $REMOTEPATH/tracks.conf");
-system("$AWS s3 cp --acl public-read trackList.json.old $REMOTEPATH/trackList.json.old") if -e "trackList.json.old";
+system("$AWS s3 cp $QUIET --acl public-read tracks.conf    $REMOTEPATH/tracks.conf");
+system("$AWS s3 cp $QUIET --acl public-read trackList.json.old $REMOTEPATH/trackList.json.old") if -e "trackList.json.old";
 
 my $gzip = $NOTCOMPRESSED ? '' : " --content-encoding gzip ";
 
 #transfer tracks
-system("$AWS s3 cp $gzip --recursive --acl public-read tracks/ $REMOTEPATH/tracks/");
+system("$AWS s3 cp $gzip $QUIET --recursive --acl public-read tracks/ $REMOTEPATH/tracks/") unless ($TRACKLISTONLY or $SKIPTRACKS);
 
 #transfer names (if compressed, transfer meta separately)
-system("$AWS s3 cp $gzip --recursive --acl public-read names/ $REMOTEPATH/names/");
-system("$AWS s3 cp --acl public-read names/meta.json $REMOTEPATH/names/meta.json");
+system("$AWS s3 cp $gzip $QUIET --recursive --acl public-read names/ $REMOTEPATH/names/") unless $TRACKLISTONLY;
+system("$AWS s3 cp --acl public-read names/meta.json $REMOTEPATH/names/meta.json") unless $TRACKLISTONLY;
 
 #transfer seq
 unless ($SKIPSEQ) {
-    system("$AWS s3 cp $gzip --recursive --acl public-read seq/ $REMOTEPATH/seq/");
-    system("$AWS s3 cp --acl public-read seq/refSeqs.json $REMOTEPATH/seq/refSeqs.json");
+    system("$AWS s3 cp $gzip $QUIET --recursive --acl public-read seq/ $REMOTEPATH/seq/") unless $TRACKLISTONLY;
+    system("$AWS s3 cp --acl public-read seq/refSeqs.json $REMOTEPATH/seq/refSeqs.json") unless $TRACKLISTONLY;
 }
 
 #create bogus index.html, set website and optionally CORS
@@ -104,7 +114,7 @@ while(<DATA>) {
 }
 close INDEX;
 
-system("$AWS s3 cp --acl public-read /tmp/index.html s3://$BUCKET");
+system("$AWS s3 cp $QUIET --acl public-read /tmp/index.html s3://$BUCKET");
 system("$AWS s3 website s3://$BUCKET --index-document index.html");
 
 if ($CORS) {
