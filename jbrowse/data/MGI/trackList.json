@@ -55,7 +55,7 @@
       {
          "chunkSize" : 80000,
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/MGI/mouse/seq/{refseq_dirpath}/{refseq}-",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/MGI/mouse39/seq/{refseq_dirpath}/{refseq}-",
          "type" : "SequenceTrack",
          "label" : "DNA",
          "compress" : 1,
