@@ -44,7 +44,6 @@
          "key" : "High Throughput Variants"
       },
       {
-         "glyph" : "{geneGlyph}",
          "impliedUTRs" : true,
          "onClick" : {
             "url" : "{curieUrl}",

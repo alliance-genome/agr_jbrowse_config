@@ -63,7 +63,6 @@
          "key" : "Reference sequence"
       },
       {
-         "glyph" : "{geneGlyph}",
          "impliedUTRs" : true,
          "onClick" : {
             "url" : "{curieUrl}",
