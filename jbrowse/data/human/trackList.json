@@ -37,7 +37,7 @@
          },
          "label" : "High Throughput Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : " https://s3.amazonaws.com/agrjbrowse/docker/4.1.0/human/VCF/HUMAN.vep.{refseq}.vcf.gz",
+         "urlTemplate" : " https://s3.amazonaws.com/agrjbrowse/docker/4.2.0/human/VCF/HUMAN.vep.{refseq}.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "High Throughput Variants"
       },
