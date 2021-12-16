@@ -1,7 +1,7 @@
 {
    "names" : {
       "type" : "Hash",
-      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/4.1.0/WormBase/c_elegans_PRJNA13758/names/"
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/4.2.0/WormBase/c_elegans_PRJNA13758/names/"
    },
    "tracks" : [
       {
@@ -46,7 +46,6 @@
          "maxHeight" : 3000,
          "trackType" : "CanvasFeatures",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
-         "glyph" : "{geneGlyph}",
          "impliedUTRs" : true,
          "onClick" : {
             "url" : "{curieUrl}",
@@ -61,7 +60,7 @@
             "className" : "feature"
          },
          "compress" : 1,
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/4.1.0/WormBase/c_elegans_PRJNA13758/tracks/All Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/4.2.0/WormBase/c_elegans_PRJNA13758/tracks/All_Genes/{refseq}/trackData.jsonz",
          "type" : "CanvasFeatures",
          "key" : "All Genes"
       },
