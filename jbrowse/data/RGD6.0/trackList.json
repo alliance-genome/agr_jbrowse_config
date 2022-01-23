@@ -1,0 +1,120 @@
+{
+   "plugins" : [
+      "NeatHTMLFeatures",
+      "HideTrackLabels"
+   ],
+   "include" : [
+      "../functions.conf"
+   ],
+   "tracks" : [
+      {
+         "chunkSizeLimit" : 5000000,
+         "maxHeight" : 3000,
+         "unsafeMouseover" : true,
+         "unsafePopup" : true,
+         "glyph" : "{simpleVariationGlyph}",
+         "onClick" : {
+            "label" : "{htpVariantsBalloon}",
+            "content" : "{htpVariantsBalloon}",
+            "title" : " ",
+            "action" : "contentDialog"
+         },
+         "style" : {
+             "color" : "{htpVariationColor}",
+             "height" : 8
+         },
+         "metadata" : {
+            "about" : "High Throughput variants. Features are colored according to the Variant Effect Predictor's predicted impact: red for high, purple for modifier, gold/yellow for medium, and cyan for low."
+         },
+         "label" : "High Throughput Variants",
+         "type" : "CanvasVariants",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/5.0.0/HTPOSTVEPVCF_RGD_latest.vcf.gz",
+         "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
+         "key" : "High Throughput Variants"
+      },
+      {
+         "chunkSizeLimit" : 5000000,
+         "maxHeight" : 3000,
+         "unsafeMouseover" : true,
+         "unsafePopup" : true,
+         "style" : {
+             "color" : "{variationColor}",
+             "height" : 8,
+	     "description" : "{variationDescription}",
+             "label" : "{variationLabel}"
+         },
+         "glyph" : "{variationGlyph}",
+	 "metadata" : {
+            "about" : "Phenotypic variants. Features are colored according to the Variant Effect Predictor's predicted impact: red for high, purple for modifier, gold/yellow for medium, and cyan for low."
+         },
+         "onClick" : {
+            "label" : "{variantsBalloon}",
+            "content" : "{variantsBalloon}",
+            "title" : "{name}",
+            "action" : "contentDialog"
+         },
+         "label" : "Variants",
+         "type" : "CanvasVariants",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/5.0.0/rat-latest.vcf.gz",
+         "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
+         "key" : "Variants"
+      },
+      {
+         "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
+         "chunkSize" : 80000,
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/RGD/rat/seq/{refseq_dirpath}/{refseq}-",
+         "label" : "DNA",
+         "compress" : 1,
+         "type" : "SequenceTrack",
+         "key" : "Reference sequence"
+      },
+      {
+         "glyph" : "JBrowse/View/FeatureGlyph/Gene",
+         "impliedUTRs" : true,
+         "onClick" : {
+            "url" : "{curieUrl}",
+            "title" : "Click to open in a full window:",
+            "label" : "Feature at AGR",
+            "action" : "iframeDialog"
+         },
+         "style" : {
+            "color" : "{geneColor}",
+            "height" : "{geneHeight}",
+            "label" : "{geneLabel}",
+            "className" : "feature"
+         },
+         "key" : "All Genes",
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "trackType" : "JBrowse/View/Track/CanvasFeatures",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/5.0.0/RGD/rat/tracks/All_Genes/{refseq}/trackData.jsonz",
+         "compress" : 1,
+         "type" : "CanvasFeatures",
+         "label" : "All Genes",
+         "maxHeight" : 3000
+      },
+      {
+         "label" : "UCSC Conservation",
+         "variance_band" : 0,
+         "unsafeMouseover" : true,
+         "autoscale" : "local",
+         "type" : "JBrowse/View/Track/Wiggle/XYPlot",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/UCSC/rn6.phastCons20way.bw",
+         "unsafePopup" : true,
+         "key" : "UCSC Conservation",
+         "metadata" : {
+            "shortInfo" : "UCSC rat conservation calculated across 20 species (including mouse and human). For more information about these data, see the <a href='http://hgdownload.cse.ucsc.edu/goldenPath/rn6/phastCons20way/'>README at UCSC</a>. "
+         },
+         "style" : {
+            "height" : 20,
+            "pos_color"  : "grey"
+         },
+         "storeClass" : "JBrowse/Store/SeqFeature/BigWig"
+      }
+   ],
+   "names" : {
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/5.0.0/RGD/rat/names/",
+      "type" : "Hash"
+   },
+   "dataset_id" : "rat",
+   "formatVersion" : 1
+}
