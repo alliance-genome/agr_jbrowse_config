@@ -62,7 +62,7 @@
       {
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
          "chunkSize" : 80000,
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/RGD/rat/seq/{refseq_dirpath}/{refseq}-",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/RGD/rat_rn7.2/seq/{refseq_dirpath}/{refseq}-",
          "label" : "DNA",
          "compress" : 1,
          "type" : "SequenceTrack",

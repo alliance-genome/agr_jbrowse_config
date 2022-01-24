@@ -4,7 +4,7 @@
       "HideTrackLabels"
    ],
    "include" : [
-      "functions.conf"
+      "../functions.conf"
    ],
    "tracks" : [
       {
@@ -12,17 +12,15 @@
          "maxHeight" : 3000,
          "unsafeMouseover" : true,
          "unsafePopup" : true,
-         "glyph" : "{variationGlyph}",
+         "glyph" : "{simpleVariationGlyph}",
          "onClick" : {
-            "label" : "{variantsBalloon}",
-            "url" : "{variationCurieUrl}",
-            "title" : "Put a title here",
-            "action" : "iframeDialog"
+            "label" : "{htpVariantsBalloon}",
+            "content" : "{htpVariantsBalloon}",
+            "title" : " ",
+            "action" : "contentDialog"
          },
          "style" : {
-             "color" : "{variationColor}",
-             "description" : "{variationDescription}",
-             "label" : "{variationLabel}",
+             "color" : "{htpVariationColor}",
              "height" : 8
          },
          "metadata" : {
@@ -30,12 +28,13 @@
          },
          "label" : "High Throughput Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "jbrowse/HTPOSTVEPVCF_RGD_latest.vcf.gz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/5.0.0/HTPOSTVEPVCF_RGD_latest.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "High Throughput Variants"
       },
       {
          "chunkSizeLimit" : 5000000,
+         "maxHeight" : 3000,
          "unsafeMouseover" : true,
          "unsafePopup" : true,
          "style" : {
@@ -50,26 +49,27 @@
          },
          "onClick" : {
             "label" : "{variantsBalloon}",
-            "url" : "{variationCurieUrl}",
-            "title" : "Put a title here",
-            "action" : "iframeDialog"
+            "content" : "{variantsBalloon}",
+            "title" : "{name}",
+            "action" : "contentDialog"
          },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "jbrowse/VCF_Rnor60_latest.vcf.gz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/5.0.0/rat-latest.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       },
       {
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
          "chunkSize" : 80000,
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/RGD/rat_rn7.2/seq/{refseq_dirpath}/{refseq}-",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/RGD/rat/seq/{refseq_dirpath}/{refseq}-",
          "label" : "DNA",
          "compress" : 1,
          "type" : "SequenceTrack",
          "key" : "Reference sequence"
       },
       {
+         "glyph" : "JBrowse/View/FeatureGlyph/Gene",
          "impliedUTRs" : true,
          "onClick" : {
             "url" : "{curieUrl}",
@@ -79,8 +79,8 @@
          },
          "style" : {
             "color" : "{geneColor}",
-            "label" : "{geneLabel}",
             "height" : "{geneHeight}",
+            "label" : "{geneLabel}",
             "className" : "feature"
          },
          "key" : "All Genes",
