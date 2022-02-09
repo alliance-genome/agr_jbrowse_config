@@ -13,12 +13,12 @@ HTPMOUSEVCF="HTPOSTVEPVCF_MGI_latest.vcf.gz"
 HTPRATVCF="HTPOSTVEPVCF_RGD_latest.vcf.gz"
 HTPYEASTVCF="HTPOSTVEPVCF_SGD_latest.vcf.gz"
 
-HTPWORMVCFPATH="5.0.0/HTPOSTVEPVCF_WB_latest.vcf.gz"
-HTPZEBRAFISHVCFPATH="5.0.0/HTPOSTVEPVCF_ZFIN_latest.vcf.gz"
-HTPFLYVCFPATH="5.0.0/HTPOSTVEPVCF_FB_latest.vcf.gz"
+HTPWORMVCFPATH="5.1.0/HTPOSTVEPVCF_WB_latest.vcf.gz"
+HTPZEBRAFISHVCFPATH="5.1.0/HTPOSTVEPVCF_ZFIN_latest.vcf.gz"
+HTPFLYVCFPATH="5.1.0/HTPOSTVEPVCF_FB_latest.vcf.gz"
 HTPMOUSEVCFPATH="5.0.0/HTPOSTVEPVCF_MGI_latest.vcf.gz"
-HTPRATVCFPATH="5.0.0/HTPOSTVEPVCF_RGD_latest.vcf.gz"
-HTPYEASTVCFPATH="5.0.0/HTPOSTVEPVCF_SGD_latest.vcf.gz"
+HTPRATVCFPATH="5.1.0/HTPOSTVEPVCF_RGD_latest.vcf.gz"
+HTPYEASTVCFPATH="5.1.0/HTPOSTVEPVCF_SGD_latest.vcf.gz"
 
 HUMANDOWNLOADPATH="https://download.alliancegenome.org/variants/HUMAN"
 MOUSEDOWNLOADPATH="https://download.alliancegenome.org/variants/MGI"
@@ -56,8 +56,8 @@ wget -q -O ../apollo/data/fly/jbrowse/$HTPFLYVCF.tbi https://s3.amazonaws.com/ag
 wget -q -O ../apollo/data/MGI/jbrowse/VCF_GRCm38_latest.vcf.gz https://s3.amazonaws.com/agrjbrowse/VCF/$MOUSEVCF
 wget -q -O ../apollo/data/MGI/jbrowse/VCF_GRCm38_latest.vcf.gz.tbi https://s3.amazonaws.com/agrjbrowse/VCF/$MOUSEVCF.tbi
 #need to get the per-chromosome vcfs and update the config
-wget -q -O ../apollo/data/MGI/jbrowse/$HTPMOUSEVCF https://s3.amazonaws.com/agrjbrowse/VCF/$HTPMOUSEVCFPATH
-wget -q -O ../apollo/data/MGI/jbrowse/$HTPMOUSEVCF.tbi https://s3.amazonaws.com/agrjbrowse/VCF/$HTPMOUSEVCFPATH.tbi
+#wget -q -O ../apollo/data/MGI/jbrowse/$HTPMOUSEVCF https://s3.amazonaws.com/agrjbrowse/VCF/$HTPMOUSEVCFPATH
+#wget -q -O ../apollo/data/MGI/jbrowse/$HTPMOUSEVCF.tbi https://s3.amazonaws.com/agrjbrowse/VCF/$HTPMOUSEVCFPATH.tbi
 
 wget -q -O ../apollo/data/RGD/jbrowse/VCF_Rnor60_latest.vcf.gz https://s3.amazonaws.com/agrjbrowse/VCF/$RATVCF
 wget -q -O ../apollo/data/RGD/jbrowse/VCF_Rnor60_latest.vcf.gz.tbi https://s3.amazonaws.com/agrjbrowse/VCF/$RATVCF.tbi
