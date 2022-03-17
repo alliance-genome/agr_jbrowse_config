@@ -99,7 +99,7 @@ system("$AWS s3 cp $gzip $QUIET --recursive --acl public-read tracks/ $REMOTEPAT
 
 #transfer tabix gff if it exists
 if (-e "gff-tabix") {
-    system("$AWS s3 cp --recursive --acl public-read gff-tabix/ $REMOTEPATH/gff-tabix/") unless ($TRACKLISTONLY or $SKIPTRACKS);
+    system("$AWS s3 cp $QUIET --recursive --acl public-read gff-tabix/ $REMOTEPATH/gff-tabix/") unless ($TRACKLISTONLY or $SKIPTRACKS);
 }
 
 #transfer names (if compressed, transfer meta separately)
