@@ -78,7 +78,7 @@
          "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : "CanvasFeatures",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/5.1.0/MGI/mouse/tracks/All_Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/5.1.1/MGI/mouse/tracks/All_Genes/{refseq}/trackData.jsonz",
 
          "compress" : 1,
          "type" : "CanvasFeatures",
@@ -126,7 +126,7 @@
       }
    ],
    "names" : {
-      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/5.1.0/MGI/mouse/names/",
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/5.1.1/MGI/mouse/names/",
       "type" : "Hash"
    },
    "plugins" : [
