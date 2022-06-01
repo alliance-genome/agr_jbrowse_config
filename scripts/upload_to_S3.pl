@@ -97,6 +97,11 @@ my $gzip = $NOTCOMPRESSED ? '' : " --content-encoding gzip ";
 #transfer tracks
 system("$AWS s3 cp $gzip $QUIET --recursive --acl public-read tracks/ $REMOTEPATH/tracks/") unless ($TRACKLISTONLY or $SKIPTRACKS);
 
+#transfer tabix gff if it exists
+if (-e "gff-tabix") {
+    system("$AWS s3 cp $QUIET --recursive --acl public-read gff-tabix/ $REMOTEPATH/gff-tabix/") unless ($TRACKLISTONLY or $SKIPTRACKS);
+}
+
 #transfer names (if compressed, transfer meta separately)
 system("$AWS s3 cp $gzip $QUIET --recursive --acl public-read names/ $REMOTEPATH/names/") unless $TRACKLISTONLY;
 system("$AWS s3 cp --acl public-read names/meta.json $REMOTEPATH/names/meta.json") unless $TRACKLISTONLY;
