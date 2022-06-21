@@ -63,7 +63,7 @@
          },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/5.2.0/zebrafish-latest.vcf.gz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/5.2.1/zebrafish-latest.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       },
@@ -88,7 +88,7 @@
          },
          "label" : "High Throughput Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/5.2.0/HTPOSTVEPVCF_ZFIN_latest.vcf.gz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/5.2.1/HTPOSTVEPVCF_ZFIN_latest.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "High Throughput Variants"
       }
