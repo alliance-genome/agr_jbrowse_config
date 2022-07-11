@@ -9,7 +9,7 @@
    ],
    "formatVersion" : 1,
    "names" : {
-      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/5.2.1/SGD/yeast/names/",
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/5.2.2/SGD/yeast/names/",
       "type" : "Hash"
    },
    "tracks" : [
@@ -71,7 +71,7 @@
          "key" : "All Genes",
          "maxHeight" : 3000,
          "compress" : 1,
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/5.2.1/SGD/yeast/tracks/All_Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/5.2.2/SGD/yeast/tracks/All_Genes/{refseq}/trackData.jsonz",
          "fmtDetailValue_Name" : "function(name, feature) {if(feature.get('type')=='gene') {return '<a href=\"http://www.yeastgenome.org/locus/'+name+'/overview\">'+name+'</a>';} else { return name;}}"
       },
       {
