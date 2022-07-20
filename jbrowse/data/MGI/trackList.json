@@ -21,7 +21,7 @@
          },
          "label" : "High Throughput Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/5.2.1/MGI/mouse/VCF/MGI.vep.{refseq}.vcf.gz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/5.2.2/MGI/mouse/VCF/MGI.vep.{refseq}.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "High Throughput Variants"
       },
@@ -48,7 +48,7 @@
          },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/5.2.1/mouse-latest.vcf.gz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/5.2.2/mouse-latest.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       },
