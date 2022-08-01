@@ -11,7 +11,7 @@
          "chunkSize" : 80000,
          "compress" : 1,
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/XenBase/X_laevis/seq/{refseq_dirpath}/{refseq}-",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/XenBase/x_laevis/seq/{refseq_dirpath}/{refseq}-",
          "type" : "SequenceTrack",
          "label" : "DNA",
          "key" : "Reference sequence"
