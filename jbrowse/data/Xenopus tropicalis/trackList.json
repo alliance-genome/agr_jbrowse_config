@@ -34,7 +34,7 @@
          "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : "CanvasFeatures",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/5.2.2/XenBase/X_tropicalis/tracks/All_Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/5.3.0/XenBase/X_tropicalis/tracks/All_Genes/{refseq}/trackData.jsonz",
          "compress" : 1,
          "type" : "CanvasFeatures",
          "label" : "All Genes",
@@ -94,7 +94,7 @@
       }
    ],
    "names" : {
-      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/5.2.2/XenBase/X_tropicalis/names/",
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/5.3.0/XenBase/X_tropicalis/names/",
       "type" : "Hash"
    },
    "dataset_id" : "X_tropicalis",
