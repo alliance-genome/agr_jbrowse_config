@@ -94,7 +94,7 @@
       }
    ],
    "names" : {
-      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/5.3.0/XenBase/X_tropicalis/names/",
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/5.3.0/XenBase/x_tropicalis/names/",
       "type" : "Hash"
    },
    "dataset_id" : "X_tropicalis",
