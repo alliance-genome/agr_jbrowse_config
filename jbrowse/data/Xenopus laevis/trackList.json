@@ -63,7 +63,7 @@
          },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/5.2.2/x_laevis-latest.vcf.gz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/5.3.0/x_laevis-latest.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       },
@@ -88,7 +88,7 @@
          },
          "label" : "High Throughput Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/5.2.2/HTPOSTVEPVCF_X_laevis_latest.vcf.gz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/5.3.0/HTPOSTVEPVCF_X_laevis_latest.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "High Throughput Variants"
       }
