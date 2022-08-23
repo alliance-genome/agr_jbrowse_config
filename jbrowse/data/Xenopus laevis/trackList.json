@@ -11,7 +11,7 @@
          "chunkSize" : 80000,
          "compress" : 1,
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/XenBase/X_laevis/seq/{refseq_dirpath}/{refseq}-",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/XenBase/x_laevis/seq/{refseq_dirpath}/{refseq}-",
          "type" : "SequenceTrack",
          "label" : "DNA",
          "key" : "Reference sequence"
@@ -34,7 +34,7 @@
          "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : "CanvasFeatures",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/5.2.2/XenBase/X_laevis/tracks/All_Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/5.3.0/XenBase/x_laevis/tracks/All_Genes/{refseq}/trackData.jsonz",
          "compress" : 1,
          "type" : "CanvasFeatures",
          "label" : "All Genes",
@@ -63,7 +63,7 @@
          },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/5.2.2/x_laevis-latest.vcf.gz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/5.3.0/x_laevis-latest.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       },
@@ -88,13 +88,13 @@
          },
          "label" : "High Throughput Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/5.2.2/HTPOSTVEPVCF_X_laevis_latest.vcf.gz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/5.3.0/HTPOSTVEPVCF_X_laevis_latest.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "High Throughput Variants"
       }
    ],
    "names" : {
-      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/5.2.2/XenBase/X_laevis/names/",
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/5.3.0/XenBase/x_laevis/names/",
       "type" : "Hash"
    },
    "dataset_id" : "X_laevis",
