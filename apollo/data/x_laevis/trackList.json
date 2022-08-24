@@ -1,0 +1,50 @@
+{
+   "plugins" : [
+      "NeatHTMLFeatures",
+      "HideTrackLabels"
+   ],
+   "include" : [
+      "../functions.conf"
+   ],
+   "tracks" : [
+      {
+         "chunkSize" : 80000,
+         "compress" : 1,
+         "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/XenBase/x_laevis/seq/{refseq_dirpath}/{refseq}-",
+         "type" : "SequenceTrack",
+         "label" : "DNA",
+         "key" : "Reference sequence"
+      },
+      {
+         "glyph" : "JBrowse/View/FeatureGlyph/Gene",
+         "impliedUTRs" : true,
+         "onClick" : {
+            "url" : "{curieUrl}",
+            "title" : "Click to open in a full window:",
+            "label" : "Feature at AGR",
+            "action" : "iframeDialog"
+         },
+         "style" : {
+            "color" : "{geneColor}",
+            "height" : "{geneHeight}",
+            "label" : "{geneLabel}",
+            "className" : "feature"
+         },
+         "key" : "All Genes",
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "trackType" : "CanvasFeatures",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/5.3.0/XenBase/x_laevis/tracks/All_Genes/{refseq}/trackData.jsonz",
+         "compress" : 1,
+         "type" : "CanvasFeatures",
+         "label" : "All Genes",
+         "maxHeight" : 3000
+      }
+   ],
+   "names" : {
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/5.3.0/XenBase/x_laevis/names/",
+      "type" : "Hash"
+   },
+   "dataset_id" : "X_laevis",
+   "formatVersion" : 1
+}
