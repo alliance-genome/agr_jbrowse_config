@@ -1,0 +1,92 @@
+{
+  "plugins" : [
+     {
+       "name" : "VariantColorPlugin",
+       "umdLoc" : {
+          "uri" : "variantColor_plugin.js"
+       }
+     },
+     {
+       "name" : "HTVariantColorPlugin",
+       "umdLoc" : {
+          "uri" : "htVariantColor_plugin.js"
+       }
+     }
+  ],
+  "assemblies": [
+    {
+      "name": "Rattus_norvegicus",
+      "displayName": "Rattus norvegicus",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "Rattus_norvegicus_refseq",
+        "adapter": {
+          "type": "BgzipFastaAdapter",
+          "fastaLocation": {
+            "locationType": "UriLocation",
+            "uri": "https://s3.amazonaws.com/agrjbrowse/fasta/GCF_015227675.2_mRatBN7.2_genomic.fna.gz"
+          },
+          "faiLocation": {
+            "locationType": "UriLocation",
+            "uri": "https://s3.amazonaws.com/agrjbrowse/fasta/GCF_015227675.2_mRatBN7.2_genomic.fna.gz.fai"
+          },
+          "metadataLocation": {
+            "locationType": "UriLocation",
+            "uri": "https://s3.amazonaws.com/agrjbrowse/fasta/GCF_015227675.2_mRatBN7.2_genomic.yaml"
+          },
+          "gziLocation": {
+            "locationType": "UriLocation",
+            "uri": "https://s3.amazonaws.com/agrjbrowse/fasta/GCF_015227675.2_mRatBN7.2_genomic.fna.gz.gzi"
+          }
+        },
+        "displays": [
+          {
+            "type": "LinearReferenceSequenceDisplay",
+            "displayId": "Rattus_norvegicus_refseq-LinearReferenceSequenceDisplay"
+          },
+          {
+            "type": "LinearGCContentDisplay",
+            "displayId": "Rattus_norvegicus_refseq-LinearGCContentDisplay"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Drosophila_melanogaster",
+      "displayName": "Drosophila melanogaster",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "Drosophila_melanogaster_refseq",
+        "adapter": {
+          "type": "BgzipFastaAdapter",
+          "fastaLocation": {
+            "locationType": "UriLocation",
+            "uri": "https://s3.amazonaws.com/agrjbrowse/fasta/GCF_000001215.4_Release_6_plus_ISO1_MT_genomic.fna.gz"
+          },
+          "faiLocation": {
+            "locationType": "UriLocation",
+            "uri": "https://s3.amazonaws.com/agrjbrowse/fasta/GCF_000001215.4_Release_6_plus_ISO1_MT_genomic.fna.gz.fai"
+          },
+          "metadataLocation": {
+            "locationType": "UriLocation",
+            "uri": "https://s3.amazonaws.com/agrjbrowse/fasta/GCF_000001215.4_Release_6_plus_ISO1_MT_genomic.yaml"
+          },
+          "gziLocation": {
+            "locationType": "UriLocation",
+            "uri": "https://s3.amazonaws.com/agrjbrowse/fasta/GCF_000001215.4_Release_6_plus_ISO1_MT_genomic.fna.gz.gzi"
+          }
+        },
+        "displays": [
+          {
+            "type": "LinearReferenceSequenceDisplay",
+            "displayId": "Drosophila_melanogaster_refseq-LinearReferenceSequenceDisplay"
+          },
+          {
+            "type": "LinearGCContentDisplay",
+            "displayId": "Drosophila_melanogaster_refseq-LinearGCContentDisplay"
+          }
+        ]
+      }
+    }
+  ]
+}
