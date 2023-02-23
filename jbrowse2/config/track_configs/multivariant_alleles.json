@@ -1,0 +1,29 @@
+{
+  "tracks" : [
+    {
+      "type": "FeatureTrack",
+      "trackId": "fruitfly_multiple-variant_alleles",
+      "name": "Multiple-Variant Alleles",
+      "assemblyNames": [
+        "Drosophila_melanogaster"
+      ],
+      "adapter": {
+        "type": "NCListAdapter",
+        "rootUrlTemplate": {
+          "locationType": "UriLocation",
+          "uri": "https://s3.amazonaws.com/agrjbrowse/docker/3.2.0/FlyBase/fruitfly/tracks/Multiple-Variant Alleles/{refseq}/trackData.jsonz"
+        }
+      },
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "fruitfly_multiple-variant_alleles-LinearBasicDisplay"
+        },
+        {
+          "type": "LinearArcDisplay",
+          "displayId": "fruitfly_multiple-variant_alleles-LinearArcDisplay"
+        }
+      ]
+    }
+  ]
+}
