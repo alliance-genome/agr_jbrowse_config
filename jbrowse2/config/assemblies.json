@@ -11,6 +11,12 @@
        "umdLoc" : {
           "uri" : "htVariantColor_plugin.js"
        }
+     },
+     {
+       "name" : "MultiVariantColorPlugin",
+       "umdLoc" : {
+          "uri" : "multiVariartColor_plugin.js"
+       }
      }
   ],
   "assemblies": [
