@@ -25,7 +25,8 @@
            "renderer" : {
               "type" : "SvgFeatureRenderer",
               "labels" : {
-                  "name" : "jexl:variantLabel(feature)"
+                  "name" : "jexl:variantLabel(feature)",
+                  "description": "jexl:variantDescription(feature)"
               },
               "color1" : "jexl:variantColor(feature)"
            },
@@ -63,7 +64,8 @@
            "renderer" : {
               "type" : "SvgFeatureRenderer",
               "labels" : {
-                  "name" : "jexl:variantLabel(feature)"
+                  "name" : "jexl:variantLabel(feature)",
+                  "description": "jexl:variantDescription(feature)"
               },
               "color1" : "jexl:variantColor(feature)"
            },

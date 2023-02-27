@@ -23,6 +23,12 @@
        "umdLoc" : {
           "uri" : "variantLabel_plugin.js"
        }
+     },
+     {
+       "name" : "VariantDescriptionPlugin",
+       "umdLoc" : {
+          "uri" : "variantDescription_plugin.js"
+       }
      }
   ],
   "assemblies": [
