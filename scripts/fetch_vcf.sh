@@ -1,10 +1,10 @@
 #!/bin/bash
 
-WORMVCF="5.4.0/worm-latest.vcf.gz"
-ZEBRAFISHVCF="5.4.0/zebrafish-latest.vcf.gz"
-FLYVCF="5.4.0/fly-latest.vcf.gz"
-MOUSEVCF="5.4.0/mouse-latest.vcf.gz"
-RATVCF="5.4.0/rat-latest.vcf.gz"
+WORMVCF="6.0.0/worm-latest.vcf.gz"
+ZEBRAFISHVCF="6.0.0/zebrafish-latest.vcf.gz"
+FLYVCF="6.0.0/fly-latest.vcf.gz"
+MOUSEVCF="6.0.0/mouse-latest.vcf.gz"
+RATVCF="6.0.0/rat-latest.vcf.gz"
 
 HTPWORMVCF="HTPOSTVEPVCF_WB_latest.vcf.gz"
 HTPZEBRAFISHVCF="HTPOSTVEPVCF_ZFIN_latest.vcf.gz"
@@ -13,12 +13,12 @@ HTPMOUSEVCF="HTPOSTVEPVCF_MGI_latest.vcf.gz"
 HTPRATVCF="HTPOSTVEPVCF_RGD_latest.vcf.gz"
 HTPYEASTVCF="HTPOSTVEPVCF_SGD_latest.vcf.gz"
 
-HTPWORMVCFPATH="5.4.0/HTPOSTVEPVCF_WB_latest.vcf.gz"
-HTPZEBRAFISHVCFPATH="5.4.0/HTPOSTVEPVCF_ZFIN_latest.vcf.gz"
-HTPFLYVCFPATH="5.4.0/HTPOSTVEPVCF_FB_latest.vcf.gz"
+HTPWORMVCFPATH="6.0.0/HTPOSTVEPVCF_WB_latest.vcf.gz"
+HTPZEBRAFISHVCFPATH="6.0.0/HTPOSTVEPVCF_ZFIN_latest.vcf.gz"
+HTPFLYVCFPATH="6.0.0/HTPOSTVEPVCF_FB_latest.vcf.gz"
 #HTPMOUSEVCFPATH="5.0.0/HTPOSTVEPVCF_MGI_latest.vcf.gz"
-HTPRATVCFPATH="5.4.0/HTPOSTVEPVCF_RGD_latest.vcf.gz"
-HTPYEASTVCFPATH="5.4.0/HTPOSTVEPVCF_SGD_latest.vcf.gz"
+HTPRATVCFPATH="6.0.0/HTPOSTVEPVCF_RGD_latest.vcf.gz"
+HTPYEASTVCFPATH="6.0.0/HTPOSTVEPVCF_SGD_latest.vcf.gz"
 
 HUMANDOWNLOADPATH="https://download.alliancegenome.org/variants/HUMAN"
 MOUSEDOWNLOADPATH="https://download.alliancegenome.org/variants/MGI"
