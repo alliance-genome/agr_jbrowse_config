@@ -1,7 +1,7 @@
 {
    "names" : {
       "type" : "Hash",
-      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/WormBase/c_elegans_PRJNA13758/names/"
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/6.0.0/WormBase/c_elegans_PRJNA13758/names/"
    },
    "tracks" : [
       {
@@ -13,6 +13,31 @@
          "type" : "SequenceTrack",
          "compress" : 1,
          "chunkSize" : 80000
+      },
+      {
+         "chunkSizeLimit" : 5000000,
+         "maxHeight" : 3000,
+         "unsafeMouseover" : true,
+         "unsafePopup" : true,
+         "glyph" : "{simpleVariationGlyph}",
+         "onClick" : {
+            "label" : "{htpVariantsBalloon}",
+            "content" : "{htpVariantsBalloon}",
+            "title" : " ",
+            "action" : "contentDialog"
+         },
+         "style" : {
+             "color" : "{htpVariationColor}",
+             "height" : 8
+         },
+         "metadata" : {
+            "about" : "High Throughput variants. Features are colored according to the Variant Effect Predictor's predicted impact: red for high, purple for modifier, gold/yellow for medium, and cyan for low."
+         },
+         "label" : "High Throughput Variants",
+         "type" : "CanvasVariants",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/6.0.0/HTPOSTVEPVCF_WB_latest.vcf.gz",
+         "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
+         "key" : "High Throughput Variants"
       },
       {
          "label" : "All Genes",
@@ -29,17 +54,18 @@
          },
          "style" : {
             "color" : "{geneColor}",
-            "label" : "{geneLabel}",
             "height" : "{geneHeight}",
+            "label" : "{geneLabel}",
             "className" : "feature"
          },
          "compress" : 1,
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/WormBase/c_elegans_PRJNA13758/tracks/All Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/6.0.0/WormBase/c_elegans_PRJNA13758/tracks/All_Genes/{refseq}/trackData.jsonz",
          "type" : "CanvasFeatures",
          "key" : "All Genes"
       },
       {
          "chunkSizeLimit" : 5000000,
+         "maxHeight" : 3000,
 	 "unsafeMouseover" : true,
 	 "unsafePopup" : true,
 	 "style" : {
@@ -51,16 +77,16 @@
          "glyph" : "{variationGlyph}",
 	 "onClick" : {
             "label" : "{variantsBalloon}",
-            "url" : "{variationCurieUrl}",
-            "title" : "Put a title here",
-            "action" : "iframeDialog"
+            "content" : "{variantsBalloon}",
+            "title" : "{name}",
+            "action" : "contentDialog"
          },
 	 "metadata" : {
             "about" : "Phenotypic variants. Features are colored according to the Variant Effect Predictor's predicted impact: red for high, purple for modifier, gold/yellow for medium, and cyan for low."
 	 },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/VCF_WBcel235_49.vcf.gz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/6.0.0/worm-latest.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       },

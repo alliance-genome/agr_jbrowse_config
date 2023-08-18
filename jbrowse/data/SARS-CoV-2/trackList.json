@@ -1,0 +1,79 @@
+{
+   "dataset_id" : "SARS-CoV-2",
+   "formatVersion" : 1,
+   "names" : {
+      "type" : "Hash",
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.2.0/SARS-CoV-2/names/"
+   },
+   "tracks" : [
+      {
+         "chunkSize" : 80000,
+         "compress" : 1,
+         "key" : "Reference sequence",
+         "label" : "DNA",
+         "metadata" : {
+            "about" : "Reference sequence and gene features are from RefSeq: https://www.ncbi.nlm.nih.gov/nuccore/NC_045512."
+         },
+         "seqType" : "dna",
+         "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
+         "type" : "SequenceTrack",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.2.0/SARS-CoV-2/seq/{refseq_dirpath}/{refseq}-"
+      },
+      {
+         "compress" : 1,
+         "unsafePopup" : true,
+         "unsafeMouseover" : true,
+         "key" : "CDS",
+         "label" : "CDS",
+         "metadata" : {
+            "about" : "Reference sequence and gene features are from RefSeq: https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.  The color scheme for CDS features attempts to mimic the colors used at NextStrain: https://nextstrain.org/ncov?gmin=27585"
+         },
+         "onClick" : {
+            "action" : "iframeDialog",
+            "title" : "function(track,f) {var gene = f.get('gene'); if (gene.indexOf('ORF1a') > -1) {return 'Go to the RefSeq page for '+gene;} return 'Go to the Alliance  page for '+gene;}",
+            "label" : "function(track,f) {var gene = f.get('gene'); if (gene.indexOf('ORF1a') > -1) {return 'Go to the RefSeq page for '+gene;} return 'Go to the Alliance  page for '+gene;}", 
+            "url" : "function(track,f) {var name = f.get('name'); var gene = f.get('gene'); if (gene.indexOf('ORF1a') > -1) {return 'https://www.ncbi.nlm.nih.gov/protein/'+name;  } name=name.replace('.1', '');name=name.replace('.2', '');  return '/gene/RefSeq:'+name;}"
+         },
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "style" : {
+            "className" : "feature",
+            "label" : "function(f) {var id=f.get('name'); var gene = f.get('gene');return id+' ('+gene+')';}",
+            "color" : "function(f) {var name =f.get('name'); var len = f.get('length'); if(len >13000 || name=='YP_009725295.1') {return '#DA994B';} if (name=='YP_009724389.1') {return '#ADBC61';} if (name=='YP_009724390.1' ||name=='YP_009724392.1' ) {return '#D2AE52';} if(name=='YP_009724391.1') {return '#CE5035';} if (name=='YP_009724393.1') {return '#6295B7';} if (name=='YP_009724394.1') {return '#C2B959';} if (name=='YP_009724395.1') {return '#84B586';} if (name=='YP_009724396.1') {return '#72A89E';} if (name=='YP_009724397.2') {return '#D77741';} if (name=='YP_009725255.1') {return '#98BB70';} return 'darkpink'; }"
+         },
+         "trackType" : "CanvasFeatures",
+         "type" : "CanvasFeatures",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.2.0/SARS-CoV-2/tracks/CDS/{refseq}/trackData.jsonz"
+      },
+      {
+         "compress" : 1,
+         "unsafePopup" : true,
+         "unsafeMouseover" : true,
+         "key" : "Mature peptides",
+         "label" : "All Genes",
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "style" : {
+            "className" : "feature",
+            "color" : "cyan",
+            "borderWidth" : 2,
+            "borderColor" : "black",
+            "description" : "function(f) {var name=f.get('protein_name'); var note = f.get('note');return name ? name + '; ' + note : note;}",
+            "label" : "function(f) {var pname=f.get('protein_symbol'); var name = f.get('name'); return pname + ' ('+name+')'; }",
+            "height" : 7
+         },
+         "onClick" : {
+            "action" : "iframeDialog",
+            "title" : "Go to the Alliance  page for {name}",
+            "label" : "Go to the Alliance  page for {name}",
+            "url" : "function(track,f) {var name = f.get('name'); name=name.replace('.1', '');name=name.replace('.2', '');  return '/gene/RefSeq:'+name;}"
+         },
+         "metadata" : {
+            "about" : "Data in this track are primarily derived from RefSeq GFF for NC_045512.2, with some additions noted in the header for the GFF file, at https://github.com/GMOD/sars-cov-2-jbrowse/blob/master/jbrowse/data/SARS-CoV-2/NC_045512.2.gff3."
+         },
+         "trackType" : "CanvasFeatures",
+         "type" : "CanvasFeatures",
+         "subParts" : "mature_protein_region",
+         "glyph" : "JBrowse/View/FeatureGlyph/Segments",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.2.0/SARS-CoV-2/tracks/All Genes/{refseq}/trackData.jsonz"
+      }
+   ]
+}

@@ -4,10 +4,37 @@
       "HideTrackLabels"
    ],
    "names" : {
-      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/FlyBase/fruitfly/names/",
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/6.0.0/FlyBase/fruitfly/names/",
       "type" : "Hash"
    },
    "tracks" : [
+      {
+         "chunkSizeLimit" : 5000000,
+         "maxHeight" : 3000,
+         "unsafeMouseover" : true,
+         "unsafePopup" : true,
+         "glyph" : "{variationGlyph}",
+         "onClick" : {
+            "label" : "{variantsBalloon}",
+            "url" : "{variationCurieUrl}",
+            "title" : "Put a title here",
+            "action" : "iframeDialog"
+         },
+         "style" : {
+             "color" : "{variationColor}",
+             "description" : "{variationDescription}",
+             "label" : "{variationLabel}",
+             "height" : 8
+         },
+         "metadata" : {
+            "about" : "High Throughput variants. Features are colored according to the Variant Effect Predictor's predicted impact: red for high, purple for modifier, gold/yellow for medium, and cyan for low."
+         },
+         "label" : "High Throughput Variants",
+         "type" : "CanvasVariants",
+         "urlTemplate" : "jbrowse/HTPOSTVEPVCF_FB_latest.vcf.gz",
+         "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
+         "key" : "High Throughput Variants"
+      },
       {
          "chunkSizeLimit" : 5000000,
          "unsafeMouseover" : true,
@@ -30,7 +57,7 @@
          },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "jbrowse/VCF_R6_49.vcf.gz",
+         "urlTemplate" : "jbrowse/VCF_R6_latest.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       },
@@ -44,7 +71,6 @@
          "key" : "Reference sequence"
       },
       {
-         "glyph" : "{geneGlyph}",
          "impliedUTRs" : true,
          "onClick" : {
             "url" : "{curieUrl}",
@@ -59,7 +85,7 @@
          "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : "CanvasFeatures",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/FlyBase/fruitfly/tracks/All Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/6.0.0/FlyBase/fruitfly/tracks/All_Genes/{refseq}/trackData.jsonz",
          "compress" : 1,
          "type" : "CanvasFeatures",
          "label" : "All Genes",
@@ -85,7 +111,7 @@
       }
    ],
    "include" : [
-      "../functions.conf"
+      "functions.conf"
    ],
    "dataset_id" : "fly",
    "formatVersion" : 1

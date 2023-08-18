@@ -4,7 +4,7 @@
       "HideTrackLabels"
    ],
    "include" : [
-      "../functions.conf"
+      "functions.conf"
    ],
    "tracks" : [
       {
@@ -17,7 +17,33 @@
          "key" : "Reference sequence"
       },
       {
-         "glyph" : "{geneGlyph}",
+         "chunkSizeLimit" : 5000000,
+         "maxHeight" : 3000,
+         "unsafeMouseover" : true,
+         "unsafePopup" : true,
+         "glyph" : "{variationGlyph}",
+         "onClick" : {
+            "label" : "{variantsBalloon}",
+            "url" : "{variationCurieUrl}",
+            "title" : "Put a title here",
+            "action" : "iframeDialog"
+         },
+         "style" : {
+             "color" : "{variationColor}",
+             "description" : "{variationDescription}",
+             "label" : "{variationLabel}",
+             "height" : 8
+         },
+         "metadata" : {
+            "about" : "High Throughput variants. Features are colored according to the Variant Effect Predictor's predicted impact: red for high, purple for modifier, gold/yellow for medium, and cyan for low."
+         },
+         "label" : "High Throughput Variants",
+         "type" : "CanvasVariants",
+         "urlTemplate" : "jbrowse/HTPOSTVEPVCF_ZFIN_latest.vcf.gz",
+         "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
+         "key" : "High Throughput Variants"
+      },
+      {
          "impliedUTRs" : true,
          "onClick" : {
             "url" : "{curieUrl}",
@@ -34,7 +60,7 @@
          "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : "CanvasFeatures",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/zfin/zebrafish-11/tracks/All Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/6.0.0/zfin/zebrafish-11/tracks/All_Genes/{refseq}/trackData.jsonz",
          "compress" : 1,
          "type" : "CanvasFeatures",
          "label" : "All Genes",
@@ -62,13 +88,13 @@
          },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "jbrowse/VCF_GRCz11_49.vcf.gz",
+         "urlTemplate" : "jbrowse/VCF_GRCz11_latest.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       }
    ],
    "names" : {
-      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/zfin/zebrafish-11/names/",
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/6.0.0/zfin/zebrafish-11/names/",
       "type" : "Hash"
    },
    "dataset_id" : "zebrafish",

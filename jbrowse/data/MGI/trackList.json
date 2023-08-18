@@ -2,6 +2,32 @@
    "tracks" : [
       {
          "chunkSizeLimit" : 5000000,
+         "maxHeight" : 3000,
+         "unsafeMouseover" : true,
+         "unsafePopup" : true,
+         "glyph" : "{simpleVariationGlyph}",
+         "onClick" : {
+            "label" : "{htpVariantsBalloon}",
+            "content" : "{htpVariantsBalloon}",
+            "title" : " ",
+            "action" : "contentDialog"
+         },
+         "style" : {
+             "color" : "{htpVariationColor}",
+             "height" : 8
+         },
+         "metadata" : {
+            "about" : "High Throughput variants. Features are colored according to the Variant Effect Predictor's predicted impact: red for high, purple for modifier, gold/yellow for medium, and cyan for low."
+         },
+         "label" : "High Throughput Variants",
+         "type" : "CanvasVariants",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/6.0.0/MGI/mouse/VCF/MGI.vep.{refseq}.vcf.gz",
+         "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
+         "key" : "High Throughput Variants"
+      },
+      {
+         "chunkSizeLimit" : 5000000,
+         "maxHeight" : 3000,
          "unsafeMouseover" : true,
          "unsafePopup" : true,
          "style" : {
@@ -16,27 +42,27 @@
          },
          "onClick" : {
             "label" : "{variantsBalloon}",
-            "url" : "{variationCurieUrl}",
-            "title" : "Put a title here",
-            "action" : "iframeDialog"
+            "content" : "{variantsBalloon}",
+            "title" : "{name}",
+            "action" : "contentDialog"
          },
          "label" : "Variants",
          "type" : "CanvasVariants",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/VCF_GRCm38_49.vcf.gz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/6.0.0/mouse-latest.vcf.gz",
          "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
          "key" : "Variants"
       },
       {
          "chunkSize" : 80000,
          "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/MGI/mouse/seq/{refseq_dirpath}/{refseq}-",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/MGI/mouse39/seq/{refseq_dirpath}/{refseq}-",
          "type" : "SequenceTrack",
          "label" : "DNA",
          "compress" : 1,
          "key" : "Reference sequence"
       },
       {
-         "glyph" : "{geneGlyph}",
+         "glyph" : "JBrowse/View/FeatureGlyph/Gene",
          "impliedUTRs" : true,
          "onClick" : {
             "url" : "{curieUrl}",
@@ -46,17 +72,39 @@
          "style" : {
             "color" : "{geneColor}",
             "height" : "{geneHeight}",
-            "label" : "function(f) {var curie = f.get('curie'); var name = f.get('Name'); if (curie) {return name + ' (' + curie + ')';} return name;  }",
+            "label" : "{geneLabel}",
             "className" : "feature"
          },
          "key" : "All Genes",
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "trackType" : "CanvasFeatures",
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/MGI/mouse/tracks/All%20Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/6.0.0/MGI/mouse/tracks/All_Genes/{refseq}/trackData.jsonz",
+
          "compress" : 1,
          "type" : "CanvasFeatures",
          "label" : "All Genes",
          "maxHeight" : 3000
+      },
+      {
+         "compress" : 1,
+         "glyph" : "wormbase-glyphs/View/FeatureGlyph/MultipleVariantAllele",
+         "key" : "Multiple-Variant Alleles",
+         "label" : "Multiple-Variant Alleles",
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "onClick" : {
+            "url" : "function(track,f) {var id = f.get('id'); return '/allele/' + id }",
+            "title" : "Click to open in a full window:",
+            "action" : "iframeDialog"
+         },
+         "style" : {
+            "className" : "feature",
+            "label" : "function(f) {return f.get('symbol_text');}",
+            "color" : "function(f) { var color = 'black'; var cons = f.get('geneImpacts'); if (typeof cons === 'undefined' ) { return color; } if (Array.isArray(cons)) { for (var i=0; i < cons.length; i++) { if (cons[i].match('HIGH')) {return 'red';} } for (var i=0; i < cons.length; i++) { if (cons[i].match('MODIFIER')) {return 'purple';} } for (var i=0; i < cons.length; i++) { if (cons[i].match('MODERATE')){return 'gold';} } } else {if (cons.match('HIGH')) {return 'red';} if (cons.match('MODIFIER')) {return 'purple';} if (cons.match('MODERATE')){return 'gold';} } return 'cyan'; }",
+            "height" : 8
+         },
+         "trackType" : "CanvasFeatures",
+         "type" : "CanvasFeatures",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.2.0/MGI/mouse/tracks/Multiple-Variant Alleles/{refseq}/trackData.jsonz"
       },
             {
          "label" : "UCSC Conservation",
@@ -78,7 +126,7 @@
       }
    ],
    "names" : {
-      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/MGI/mouse/names/",
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/6.0.0/MGI/mouse/names/",
       "type" : "Hash"
    },
    "plugins" : [

@@ -9,7 +9,7 @@
    ],
    "formatVersion" : 1,
    "names" : {
-      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/SGD/yeast/names/",
+      "url" : "https://s3.amazonaws.com/agrjbrowse/docker/6.0.0/SGD/yeast/names/",
       "type" : "Hash"
    },
    "tracks" : [
@@ -23,8 +23,33 @@
          "chunkSize" : 80000
       },
       {
+         "chunkSizeLimit" : 5000000,
+         "maxHeight" : 3000,
+         "unsafeMouseover" : true,
+         "unsafePopup" : true,
+         "glyph" : "{simpleVariationGlyph}",
+         "onClick" : {
+            "label" : "{htpVariantsBalloon}",
+            "content" : "{htpVariantsBalloon}",
+            "title" : " ",
+            "action" : "contentDialog"
+         },
+         "style" : {
+             "color" : "{htpVariationColor}",
+             "height" : 8
+         },
+         "metadata" : {
+            "about" : "High Throughput variants. Features are colored according to the Variant Effect Predictor's predicted impact: red for high, purple for modifier, gold/yellow for medium, and cyan for low."
+         },
+         "label" : "High Throughput Variants",
+         "type" : "CanvasVariants",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/VCF/6.0.0/HTPOSTVEPVCF_SGD_latest.vcf.gz",
+         "storeClass" : "JBrowse/Store/SeqFeature/VCFTabix",
+         "key" : "High Throughput Variants"
+      },
+      {
          "type" : "CanvasFeatures",
-         "glyph" : "{geneGlyph}",
+         "glyph" : "JBrowse/View/FeatureGlyph/Gene",
          "impliedUTRs" : true,
          "onClick" : {
             "url" : "{curieUrl}",
@@ -46,7 +71,7 @@
          "key" : "All Genes",
          "maxHeight" : 3000,
          "compress" : 1,
-         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/3.0.0/SGD/yeast/tracks/All Genes/{refseq}/trackData.jsonz",
+         "urlTemplate" : "https://s3.amazonaws.com/agrjbrowse/docker/6.0.0/SGD/yeast/tracks/All_Genes/{refseq}/trackData.jsonz",
          "fmtDetailValue_Name" : "function(name, feature) {if(feature.get('type')=='gene') {return '<a href=\"http://www.yeastgenome.org/locus/'+name+'/overview\">'+name+'</a>';} else { return name;}}"
       },
       {
