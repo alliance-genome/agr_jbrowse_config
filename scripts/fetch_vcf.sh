@@ -54,7 +54,7 @@ wget -q -O ../apollo/data/fly/jbrowse/$HTPFLYVCF https://s3.amazonaws.com/agrjbr
 wget -q -O ../apollo/data/fly/jbrowse/$HTPFLYVCF.tbi https://s3.amazonaws.com/agrjbrowse/VCF/$HTPFLYVCFPATH.tbi
 
 wget -q -O ../apollo/data/MGI/jbrowse/VCF_GRCm39_latest.vcf.gz https://s3.amazonaws.com/agrjbrowse/VCF/$MOUSEVCF
-wget -q -O ../apollo/data/MGI/jbrowse/VCF_GRCm38_latest.vcf.gz.tbi https://s3.amazonaws.com/agrjbrowse/VCF/$MOUSEVCF.tbi
+wget -q -O ../apollo/data/MGI/jbrowse/VCF_GRCm39_latest.vcf.gz.tbi https://s3.amazonaws.com/agrjbrowse/VCF/$MOUSEVCF.tbi
 #need to get the per-chromosome vcfs and update the config
 #wget -q -O ../apollo/data/MGI/jbrowse/$HTPMOUSEVCF https://s3.amazonaws.com/agrjbrowse/VCF/$HTPMOUSEVCFPATH
 #wget -q -O ../apollo/data/MGI/jbrowse/$HTPMOUSEVCF.tbi https://s3.amazonaws.com/agrjbrowse/VCF/$HTPMOUSEVCFPATH.tbi
