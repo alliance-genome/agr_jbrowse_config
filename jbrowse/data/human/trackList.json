@@ -17,7 +17,7 @@
          "key" : "Reference sequence"
       },
       {
-         "chunkSizeLimit" : 5000000,
+         "chunkSizeLimit" : 20000000,
          "maxHeight" : 3000,
          "unsafeMouseover" : true,
          "unsafePopup" : true,
@@ -52,7 +52,7 @@
          },
          "style" : {
             "color" : "{geneColor}",
-            "height" : "{geneHeight}",
+            "height" : 4,
             "label" : "{geneLabel}",
             "className" : "feature"
          },
