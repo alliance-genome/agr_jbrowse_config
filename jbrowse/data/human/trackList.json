@@ -17,7 +17,7 @@
          "key" : "Reference sequence"
       },
       {
-         "chunkSizeLimit" : 20000000,
+         "chunkSizeLimit" : 55000000,
          "maxHeight" : 3000,
          "unsafeMouseover" : true,
          "unsafePopup" : true,
