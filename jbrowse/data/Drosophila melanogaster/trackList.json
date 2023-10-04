@@ -75,6 +75,7 @@
          "onClick" : {
             "url" : "{curieUrl}",
             "title" : "Click to open in a full window:",
+            "label" : "Open {name} at the Alliance",
             "action" : "iframeDialog"
          },
          "style" : {
