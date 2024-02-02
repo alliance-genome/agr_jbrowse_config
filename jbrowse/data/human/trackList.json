@@ -63,7 +63,7 @@
          "compress" : 1,
          "type" : "CanvasFeatures",
          "label" : "All Genes",
-         "maxHeight" : 8000
+         "maxHeight" : 10000
       },
       {
          "label" : "UCSC Conservation",
