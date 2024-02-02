@@ -17,7 +17,7 @@
          "key" : "Reference sequence"
       },
       {
-         "chunkSizeLimit" : 5000000,
+         "chunkSizeLimit" : 55000000,
          "maxHeight" : 3000,
          "unsafeMouseover" : true,
          "unsafePopup" : true,
@@ -47,12 +47,12 @@
          "onClick" : {
             "url" : "{curieUrl}",
             "title" : "Click to open in a full window:",
-            "label" : "Feature at AGR",
+            "label" : "Open {name} at the Alliance",
             "action" : "iframeDialog"
          },
          "style" : {
             "color" : "{geneColor}",
-            "height" : "{geneHeight}",
+            "height" : 4,
             "label" : "{geneLabel}",
             "className" : "feature"
          },
@@ -63,7 +63,7 @@
          "compress" : 1,
          "type" : "CanvasFeatures",
          "label" : "All Genes",
-         "maxHeight" : 3000
+         "maxHeight" : 6000
       },
       {
          "label" : "UCSC Conservation",
