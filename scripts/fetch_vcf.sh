@@ -1,10 +1,10 @@
 #!/bin/bash
 
-WORMVCF="6.0.0/worm-latest.vcf.gz"
-ZEBRAFISHVCF="6.0.0/zebrafish-latest.vcf.gz"
-FLYVCF="6.0.0/fly-latest.vcf.gz"
-MOUSEVCF="6.0.0/mouse-latest.vcf.gz"
-RATVCF="6.0.0/rat-latest.vcf.gz"
+WORMVCF="7.0.0/worm-latest.vcf.gz"
+ZEBRAFISHVCF="7.0.0/zebrafish-latest.vcf.gz"
+FLYVCF="7.0.0/fly-latest.vcf.gz"
+MOUSEVCF="7.0.0/mouse-latest.vcf.gz"
+RATVCF="7.0.0/rat-latest.vcf.gz"
 
 HTPWORMVCF="HTPOSTVEPVCF_WB_latest.vcf.gz"
 HTPZEBRAFISHVCF="HTPOSTVEPVCF_ZFIN_latest.vcf.gz"
