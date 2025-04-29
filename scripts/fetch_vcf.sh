@@ -1,10 +1,10 @@
 #!/bin/bash
 
-WORMVCF="8.1.0/worm-latest.vcf.gz"
-ZEBRAFISHVCF="8.1.0/zebrafish-latest.vcf.gz"
-FLYVCF="8.1.0/fly-latest.vcf.gz"
-MOUSEVCF="8.1.0/mouse-latest.vcf.gz"
-RATVCF="8.1.0/rat-latest.vcf.gz"
+WORMVCF="8.2.0/worm-latest.vcf.gz"
+ZEBRAFISHVCF="8.2.0/zebrafish-latest.vcf.gz"
+FLYVCF="8.2.0/fly-latest.vcf.gz"
+MOUSEVCF="8.2.0/mouse-latest.vcf.gz"
+RATVCF="8.2.0/rat-latest.vcf.gz"
 
 HTPWORMVCF="HTPOSTVEPVCF_WB_latest.vcf.gz"
 HTPZEBRAFISHVCF="HTPOSTVEPVCF_ZFIN_latest.vcf.gz"
@@ -13,11 +13,11 @@ HTPMOUSEVCF="HTPOSTVEPVCF_MGI_latest.vcf.gz"
 HTPRATVCF="HTPOSTVEPVCF_RGD_latest.vcf.gz"
 HTPYEASTVCF="HTPOSTVEPVCF_SGD_latest.vcf.gz"
 
-HTPWORMVCFPATH="8.1.0/HTPOSTVEPVCF_WB_latest.vcf.gz"
-HTPZEBRAFISHVCFPATH="8.1.0/HTPOSTVEPVCF_ZFIN_latest.vcf.gz"
-HTPFLYVCFPATH="8.1.0/HTPOSTVEPVCF_FB_latest.vcf.gz"
-HTPRATVCFPATH="8.1.0/HTPOSTVEPVCF_RGD_latest.vcf.gz"
-HTPYEASTVCFPATH="8.1.0/HTPOSTVEPVCF_SGD_latest.vcf.gz"
+HTPWORMVCFPATH="8.2.0/HTPOSTVEPVCF_WB_latest.vcf.gz"
+HTPZEBRAFISHVCFPATH="8.2.0/HTPOSTVEPVCF_ZFIN_latest.vcf.gz"
+HTPFLYVCFPATH="8.2.0/HTPOSTVEPVCF_FB_latest.vcf.gz"
+HTPRATVCFPATH="8.2.0/HTPOSTVEPVCF_RGD_latest.vcf.gz"
+HTPYEASTVCFPATH="8.2.0/HTPOSTVEPVCF_SGD_latest.vcf.gz"
 
 rm -rf ../apollo/data/worm/jbrowse
 mkdir ../apollo/data/worm/jbrowse
